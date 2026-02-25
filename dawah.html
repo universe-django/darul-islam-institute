@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>দারুল ইসলাম · দাওয়াহ</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Bengali Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#14281D',
+                        secondary: '#FFFCDC',
+                        accent: '#C6A15B',
+                    },
+                    fontFamily: {
+                        bengali: ['Noto Sans Bengali', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .toggle-dot {
+            transition: left 0.2s ease;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background-color: #FFFCDC;
+        }
+
+        .dawah-card {
+            transition: transform 0.2s ease;
+        }
+
+        .dawah-card:active {
+            transform: scale(0.98);
+        }
+
+        .verse-bg {
+            background: linear-gradient(135deg, #14281D 0%, #1f3a2c 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-secondary text-primary min-h-screen pb-32 font-bengali">
+
+    <!-- ========== HEADER ========== -->
+    <header class="bg-primary text-secondary p-4 shadow-md sticky top-0 z-50">
+        <div class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-hands-praying text-primary text-lg"></i>
+                </div>
+                <h1 class="font-bold text-lg" data-bn="দারুল ইসলাম · দাওয়াহ" data-en="Darul Islam · Dawah">দারুল ইসলাম
+                    · দাওয়াহ</h1>
+            </div>
+
+            <!-- Language Toggle Switch -->
+            <div class="flex items-center gap-1 bg-secondary text-primary rounded-full px-2 py-1 font-semibold text-xs">
+                <span id="langLabelBn" class="px-1 font-bold">বাংলা</span>
+                <button id="langToggle" class="relative w-12 h-6 bg-primary rounded-full">
+                    <span id="langDot"
+                        class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-secondary rounded-full shadow"></span>
+                </button>
+                <span id="langLabelEn" class="px-1 opacity-60">EN</span>
+            </div>
+
+            <!-- mobile menu icon -->
+            <button id="menuBtn" class="text-xl lg:hidden text-secondary">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- mobile menu -->
+        <div id="mobileMenu"
+            class="hidden flex-col gap-2 mt-3 bg-secondary text-primary rounded-lg p-4 lg:hidden text-sm">
+            <a href="#" class="block" data-bn="হোম" data-en="Home">হোম</a>
+            <a href="#" class="block" data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</a>
+            <a href="#" class="block" data-bn="নতুন মুসলিম" data-en="New Muslims">নতুন মুসলিম</a>
+            <a href="#" class="block" data-bn="প্রশ্নোত্তর" data-en="Q&A">প্রশ্নোত্তর</a>
+            <a href="#" class="block" data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</a>
+        </div>
+    </header>
+
+    <!-- ========== 6 ICON NAVBAR (STICKY) ========== -->
+    <div class="sticky top-0 z-40 bg-white shadow-md py-3">
+        <div class="grid grid-cols-6 text-center text-xs max-w-7xl mx-auto">
+            <a href="index.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-house text-primary"></i>
+                <span data-bn="হোম" data-en="Home">হোম</span>
+            </a>
+            <a href="library.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-book-quran text-primary"></i>
+                <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
+            </a>
+            <a href="education.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-graduation-cap text-primary"></i>
+                <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
+            </a>
+            <a href="dawah.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-hands-praying text-primary"></i>
+                <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
+            </a>
+            <a href="donation.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-hand-holding-dollar text-primary"></i>
+                <span data-bn="দান" data-en="Donate">দান</span>
+            </a>
+            <a href="registration.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-user text-primary"></i>
+                <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section
+        class="relative h-44 bg-gradient-to-b from-green-800 to-green-700 flex items-end p-5 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
+        <div class="relative z-10 w-full max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-hands-praying text-3xl text-accent"></i>
+                <div>
+                    <h2 class="text-xl font-bold" data-bn="দাওয়াহ · আল্লাহর পথে আহ্বান"
+                        data-en="Dawah · Inviting to Allah">দাওয়াহ · আল্লাহর পথে আহ্বান</h2>
+                    <p class="text-xs opacity-90" data-bn="তোমরা সৎকাজের আদেশ দাও ও অসৎকাজ থেকে নিষেধ কর"
+                        data-en="Enjoin good and forbid evil">তোমরা সৎকাজের আদেশ দাও ও অসৎকাজ থেকে নিষেধ কর</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== QURAN VERSE CARD ========== -->
+    <section class="px-4 py-5 max-w-7xl mx-auto">
+        <div class="verse-bg rounded-2xl shadow-xl p-6 text-white">
+            <div class="flex justify-between items-start">
+                <i class="fa-solid fa-quote-right text-3xl text-accent opacity-50"></i>
+                <span class="text-xs bg-white/20 px-3 py-1 rounded-full" data-bn="সূরা ফুসসিলাত, ৪১:৩৩"
+                    data-en="Surah Fussilat, 41:33">সূরা ফুসসিলাত, ৪১:৩৩</span>
+            </div>
+            <p class="text-lg mt-2 text-center font-semibold" dir="rtl">وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى
+                اللَّهِ وَعَمِلَ صَالِحًا وَقَالَ إِنَّنِي مِنَ الْمُسْلِمِينَ</p>
+            <p class="text-sm mt-3 text-center" data-bn="" যে ব্যক্তি আল্লাহর দিকে আহ্বান জানায়, সৎকর্ম করে এবং
+                বলে, 'আমি মুসলিম' , তার চেয়ে উত্তম বক্তা আর কে?"" data-en="" Who is better in speech than one who calls
+                to Allah, does righteousness, and says, 'Indeed, I am of the Muslims' ?""">"যে ব্যক্তি আল্লাহর দিকে
+                আহ্বান জানায়, সৎকর্ম করে এবং বলে, 'আমি মুসলিম', তার চেয়ে উত্তম বক্তা আর কে?"</p>
+        </div>
+    </section>
+
+    <!-- ========== DAWAH TOPICS CARDS ========== -->
+    <section class="px-4 py-2 max-w-7xl mx-auto">
+        <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-hand-holding-heart text-accent"></i>
+            <span data-bn="দাওয়াহ বিষয় সমূহ" data-en="Dawah Topics">দাওয়াহ বিষয় সমূহ</span>
+        </h3>
+
+        <div class="grid grid-cols-2 gap-4">
+            <!-- Card 1: Introducing Islam -->
+            <a href="#" class="dawah-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="h-24 bg-primary/20 overflow-hidden">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/18/19/01/mosque-1836082_1280.jpg"
+                        class="w-full h-full object-cover">
+                </div>
+                <div class="p-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <i class="fa-solid fa-star-and-crescent text-accent"></i>
+                        <h4 class="font-bold text-sm" data-bn="ইসলাম পরিচিতি" data-en="Introduction to Islam">ইসলাম
+                            পরিচিতি</h4>
+                    </div>
+                    <p class="text-xs text-primary/60" data-bn="নতুনদের জন্য ইসলামের মৌলিক বিষয়"
+                        data-en="Basics of Islam for beginners">নতুনদের জন্য ইসলামের মৌলিক বিষয়</p>
+                </div>
+            </a>
+
+            <!-- Card 2: Tawheed -->
+            <a href="#" class="dawah-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="h-24 bg-primary/20 overflow-hidden">
+                    <img src="https://images.pexels.com/photos/208511/pexels-photo-208511.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        class="w-full h-full object-cover">
+                </div>
+                <div class="p-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <i class="fa-solid fa-circle-dot text-accent"></i>
+                        <h4 class="font-bold text-sm" data-bn="তাওহীদ" data-en="Tawheed">তাওহীদ</h4>
+                    </div>
+                    <p class="text-xs text-primary/60" data-bn="আল্লাহর একত্ববাদ" data-en="Oneness of Allah">আল্লাহর
+                        একত্ববাদ</p>
+                </div>
+            </a>
+
+            <!-- Card 3: Prophethood -->
+            <a href="#" class="dawah-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="h-24 bg-primary/20 overflow-hidden">
+                    <img src="https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        class="w-full h-full object-cover">
+                </div>
+                <div class="p-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <i class="fa-solid fa-scroll text-accent"></i>
+                        <h4 class="font-bold text-sm" data-bn="নবুওয়াত" data-en="Prophethood">নবুওয়াত</h4>
+                    </div>
+                    <p class="text-xs text-primary/60" data-bn="নবী-রাসূলগণ" data-en="Prophets & Messengers">নবী-রাসূলগণ
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card 4: Hereafter -->
+            <a href="#" class="dawah-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="h-24 bg-primary/20 overflow-hidden">
+                    <img src="https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        class="w-full h-full object-cover">
+                </div>
+                <div class="p-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <i class="fa-solid fa-cloud-moon text-accent"></i>
+                        <h4 class="font-bold text-sm" data-bn="আখিরাত" data-en="Hereafter">আখিরাত</h4>
+                    </div>
+                    <p class="text-xs text-primary/60" data-bn="মৃত্যু, জান্নাত ও জাহান্নাম"
+                        data-en="Death, Paradise & Hell">মৃত্যু, জান্নাত ও জাহান্নাম</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== NEW MUSLIM SECTION ========== -->
+    <section class="px-4 py-5 max-w-7xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-lg p-5">
+            <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-heart text-red-500"></i>
+                <h3 class="font-bold text-lg" data-bn="নতুন মুসলিমদের জন্য" data-en="For New Muslims">নতুন মুসলিমদের
+                    জন্য</h3>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3">
+                <a href="#" class="flex items-center gap-3 p-3 bg-secondary rounded-xl">
+                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-hand-holding-heart text-primary"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm" data-bn="ইসলাম গ্রহণের পর করণীয়"
+                            data-en="What to do after converting">ইসলাম গ্রহণের পর করণীয়</h4>
+                        <p class="text-xs text-primary/60" data-bn="গোসল, নামাজ ও মৌলিক বিষয়"
+                            data-en="Bath, Prayer & Basics">গোসল, নামাজ ও মৌলিক বিষয়</p>
+                    </div>
+                </a>
+
+                <a href="#" class="flex items-center gap-3 p-3 bg-secondary rounded-xl">
+                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-people-group text-primary"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm" data-bn="মুসলিম কমিউনিটি খুঁজুন"
+                            data-en="Find a Muslim Community">মুসলিম কমিউনিটি খুঁজুন</h4>
+                        <p class="text-xs text-primary/60" data-bn="আপনার এলাকার মসজিদ ও সেন্টার"
+                            data-en="Mosques & Centers near you">আপনার এলাকার মসজিদ ও সেন্টার</p>
+                    </div>
+                </a>
+
+                <a href="#" class="flex items-center gap-3 p-3 bg-secondary rounded-xl">
+                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-book-open text-primary"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm" data-bn="বিনামূল্যে কুরআন উপহার" data-en="Free Quran Gift">
+                            বিনামূল্যে কুরআন উপহার</h4>
+                        <p class="text-xs text-primary/60" data-bn="অনুবাদ ও তাফসির সহ"
+                            data-en="With Translation & Tafsir">অনুবাদ ও তাফসির সহ</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DAWAH RESOURCES ========== -->
+    <section class="px-4 py-2 max-w-7xl mx-auto">
+        <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-download text-accent"></i>
+            <span data-bn="দাওয়াহ রিসোর্স" data-en="Dawah Resources">দাওয়াহ রিসোর্স</span>
+        </h3>
+
+        <div class="grid grid-cols-2 gap-3">
+            <a href="#" class="bg-white p-4 rounded-xl shadow-md text-center">
+                <i class="fa-solid fa-file-pdf text-3xl text-red-500 mb-2"></i>
+                <h4 class="font-bold text-sm" data-bn="বুকলেট" data-en="Booklets">বুকলেট</h4>
+                <p class="text-xs text-primary/60" data-bn="পিডিএফ ডাউনলোড" data-en="PDF Download">পিডিএফ ডাউনলোড</p>
+            </a>
+
+            <a href="#" class="bg-white p-4 rounded-xl shadow-md text-center">
+                <i class="fa-solid fa-video text-3xl text-blue-500 mb-2"></i>
+                <h4 class="font-bold text-sm" data-bn="ভিডিও" data-en="Videos">ভিডিও</h4>
+                <p class="text-xs text-primary/60" data-bn="দাওয়াহ ক্লিপস" data-en="Dawah Clips">দাওয়াহ ক্লিপস</p>
+            </a>
+
+            <a href="#" class="bg-white p-4 rounded-xl shadow-md text-center">
+                <i class="fa-solid fa-podcast text-3xl text-purple-500 mb-2"></i>
+                <h4 class="font-bold text-sm" data-bn="পডকাস্ট" data-en="Podcasts">পডকাস্ট</h4>
+                <p class="text-xs text-primary/60" data-bn="অডিও লেকচার" data-en="Audio Lectures">অডিও লেকচার</p>
+            </a>
+
+            <a href="#" class="bg-white p-4 rounded-xl shadow-md text-center">
+                <i class="fa-solid fa-images text-3xl text-green-500 mb-2"></i>
+                <h4 class="font-bold text-sm" data-bn="ইনফোগ্রাফিক" data-en="Infographics">ইনফোগ্রাফিক</h4>
+                <p class="text-xs text-primary/60" data-bn="শেয়ার করার জন্য" data-en="For Sharing">শেয়ার করার জন্য</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== UPCOMING DAWAH EVENTS ========== -->
+    <section class="px-4 py-5 max-w-7xl mx-auto">
+        <div class="bg-primary rounded-2xl shadow-xl p-5 text-white">
+            <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-calendar-days text-accent text-xl"></i>
+                <h3 class="font-bold text-lg" data-bn="আসন্ন দাওয়াহ ইভেন্ট" data-en="Upcoming Dawah Events">আসন্ন
+                    দাওয়াহ ইভেন্ট</h3>
+            </div>
+
+            <div class="space-y-3">
+                <div class="flex items-center gap-3 bg-white/10 p-3 rounded-xl">
+                    <div class="text-center">
+                        <span class="text-xs" data-bn="মার্চ" data-en="MAR">মার্চ</span>
+                        <p class="font-bold text-lg">১৫</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm" data-bn="ওপেন ডে: ইসলাম পরিচিতি"
+                            data-en="Open Day: Introduction to Islam">ওপেন ডে: ইসলাম পরিচিতি</h4>
+                        <p class="text-xs opacity-80" data-bn="শনিবার, বিকাল ৩টা · কেন্দ্রীয় মসজিদ"
+                            data-en="Saturday, 3 PM · Central Mosque">শনিবার, বিকাল ৩টা · কেন্দ্রীয় মসজিদ</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 bg-white/10 p-3 rounded-xl">
+                    <div class="text-center">
+                        <span class="text-xs" data-bn="মার্চ" data-en="MAR">মার্চ</span>
+                        <p class="font-bold text-lg">২২</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm" data-bn="প্রশ্নোত্তর সেশন" data-en="Q&A Session">প্রশ্নোত্তর
+                            সেশন</h4>
+                        <p class="text-xs opacity-80" data-bn="অনলাইন · জুম মিটিং" data-en="Online · Zoom Meeting">
+                            অনলাইন · জুম মিটিং</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 bg-white/10 p-3 rounded-xl">
+                    <div class="text-center">
+                        <span class="text-xs" data-bn="এপ্রিল" data-en="APR">এপ্রিল</span>
+                        <p class="font-bold text-lg">৫</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm" data-bn="নতুন মুসলিম মিটআপ" data-en="New Muslim Meetup">নতুন
+                            মুসলিম মিটআপ</h4>
+                        <p class="text-xs opacity-80" data-bn="সকাল ১০টা · ইসলামিক সেন্টার"
+                            data-en="10 AM · Islamic Center">সকাল ১০টা · ইসলামিক সেন্টার</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="w-full mt-4 bg-secondary text-primary py-3 rounded-full text-sm font-semibold"
+                data-bn="সকল ইভেন্ট দেখুন" data-en="View All Events">সকল ইভেন্ট দেখুন</button>
+        </div>
+    </section>
+
+    <!-- ========== ASK A QUESTION FORM ========== -->
+    <section class="px-4 py-2 max-w-7xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-lg p-5">
+            <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-circle-question text-accent text-xl"></i>
+                <h3 class="font-bold text-lg" data-bn="ইসলাম সম্পর্কে জানতে চান?" data-en="Want to know about Islam?">
+                    ইসলাম সম্পর্কে জানতে চান?</h3>
+            </div>
+
+            <p class="text-sm text-primary/70 mb-4" data-bn="আপনার প্রশ্ন লিখুন, আমরা উত্তর দেব ইনশাআল্লাহ।"
+                data-en="Write your question, we will answer InshaAllah.">আপনার প্রশ্ন লিখুন, আমরা উত্তর দেব ইনশাআল্লাহ।
+            </p>
+
+            <textarea rows="3"
+                class="w-full p-3 bg-secondary rounded-xl border border-primary/20 outline-none text-sm mb-3"
+                placeholder="আপনার প্রশ্ন..."></textarea>
+
+            <div class="flex gap-2">
+                <input type="text" placeholder="আপনার ইমেইল (ঐচ্ছিক)"
+                    class="flex-1 p-3 bg-secondary rounded-full border border-primary/20 outline-none text-sm">
+                <button class="bg-primary text-secondary px-6 py-3 rounded-full text-sm font-semibold" data-bn="পাঠান"
+                    data-en="Send">পাঠান</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DAWAH CONTACTS ========== -->
+    <section class="px-4 py-5 max-w-7xl mx-auto">
+        <div class="grid grid-cols-2 gap-3">
+            <a href="#" class="bg-white p-4 rounded-xl shadow-md flex flex-col items-center">
+                <i class="fa-brands fa-whatsapp text-3xl text-green-600 mb-2"></i>
+                <span class="font-semibold text-sm" data-bn="হোয়াটসঅ্যাপ" data-en="WhatsApp">হোয়াটসঅ্যাপ</span>
+                <span class="text-xs text-primary/60" data-bn="চ্যাট করুন" data-en="Chat">চ্যাট করুন</span>
+            </a>
+
+            <a href="#" class="bg-white p-4 rounded-xl shadow-md flex flex-col items-center">
+                <i class="fa-brands fa-telegram text-3xl text-blue-500 mb-2"></i>
+                <span class="font-semibold text-sm" data-bn="টেলিগ্রাম" data-en="Telegram">টেলিগ্রাম</span>
+                <span class="text-xs text-primary/60" data-bn="গ্রুপে যোগ দিন" data-en="Join Group">গ্রুপে যোগ
+                    দিন</span>
+            </a>
+
+            <a href="#" class="bg-white p-4 rounded-xl shadow-md flex flex-col items-center">
+                <i class="fa-regular fa-envelope text-3xl text-primary mb-2"></i>
+                <span class="font-semibold text-sm" data-bn="ইমেইল" data-en="Email">ইমেইল</span>
+                <span class="text-xs text-primary/60" data-bn="dawah@darulislam.com"
+                    data-en="dawah@darulislam.com">dawah@darulislam.com</span>
+            </a>
+
+            <a href="#" class="bg-white p-4 rounded-xl shadow-md flex flex-col items-center">
+                <i class="fa-solid fa-phone text-3xl text-primary mb-2"></i>
+                <span class="font-semibold text-sm" data-bn="হটলাইন" data-en="Hotline">হটলাইন</span>
+                <span class="text-xs text-primary/60" data-bn="০১৭১২৩৪৫৬৭৮" data-en="01712345678">০১৭১২৩৪৫৬৭৮</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== SOCIAL MEDIA FOOTER (FIXED) ========== -->
+    <div class="fixed bottom-0 left-0 w-full bg-primary text-secondary py-3 z-50">
+        <div class="flex justify-center gap-8 items-center text-2xl mb-1">
+            <a href="#" class="text-secondary"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-secondary"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="text-secondary"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="text-secondary"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="text-secondary"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+        <p class="text-center text-[10px] opacity-80" data-bn="© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত"
+            data-en="© Darul Islam Institute · All Rights Reserved">© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত</p>
+    </div>
+
+    <!-- spacer for fixed footer -->
+    <div class="h-20"></div>
+
+    <script>
+            (function () {
+                // Language Toggle
+                let currentLang = 'bn';
+                const langToggle = document.getElementById('langToggle');
+                const langDot = document.getElementById('langDot');
+                const langLabelBn = document.getElementById('langLabelBn');
+                const langLabelEn = document.getElementById('langLabelEn');
+
+                function updateLanguage(lang) {
+                    document.querySelectorAll('[data-bn][data-en]').forEach(el => {
+                        el.textContent = lang === 'bn' ? el.getAttribute('data-bn') : el.getAttribute('data-en');
+                    });
+
+                    if (lang === 'bn') {
+                        langDot.style.left = '4px';
+                        langLabelBn.className = 'px-1 font-bold';
+                        langLabelEn.className = 'px-1 opacity-60';
+                    } else {
+                        langDot.style.left = '28px';
+                        langLabelEn.className = 'px-1 font-bold';
+                        langLabelBn.className = 'px-1 opacity-60';
+                    }
+                }
+
+                if (langToggle) {
+                    langToggle.addEventListener('click', () => {
+                        currentLang = currentLang === 'bn' ? 'en' : 'bn';
+                        updateLanguage(currentLang);
+                    });
+                }
+                updateLanguage('bn');
+
+                // Mobile menu toggle
+                const menuBtn = document.getElementById('menuBtn');
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (menuBtn && mobileMenu) {
+                    menuBtn.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+                }
+            })();
+    </script>
+</body>
+
+</html>

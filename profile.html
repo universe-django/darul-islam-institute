@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>দারুল ইসলাম · প্রোফাইল</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bengali Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background-color: #FFFCDC;
+            color: #14281D;
+            min-height: 100vh;
+        }
+
+        .toggle-dot {
+            transition: left 0.2s ease;
+        }
+
+        .profile-card {
+            transition: all 0.2s ease;
+        }
+
+        .profile-card:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+
+<body class="bg-[#FFFCDC] text-[#14281D] min-h-screen pb-32">
+
+    <!-- ========== HEADER ========== -->
+    <header class="bg-[#14281D] text-[#FFFCDC] p-4 shadow-md sticky top-0 z-50">
+        <div class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-[#FFFCDC] rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-user text-[#14281D] text-lg"></i>
+                </div>
+                <h1 class="font-bold text-lg" data-bn="দারুল ইসলাম · প্রোফাইল" data-en="Darul Islam · Profile">দারুল
+                    ইসলাম · প্রোফাইল</h1>
+            </div>
+
+            <!-- Language Toggle Switch -->
+            <div
+                class="flex items-center gap-1 bg-[#FFFCDC] text-[#14281D] rounded-full px-2 py-1 font-semibold text-xs">
+                <span id="langLabelBn" class="px-1 font-bold">বাংলা</span>
+                <button id="langToggle" class="relative w-12 h-6 bg-[#14281D] rounded-full">
+                    <span id="langDot"
+                        class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-[#FFFCDC] rounded-full shadow"></span>
+                </button>
+                <span id="langLabelEn" class="px-1 opacity-60">EN</span>
+            </div>
+
+            <!-- mobile menu icon -->
+            <button id="menuBtn" class="text-xl lg:hidden text-[#FFFCDC]">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- mobile menu -->
+        <div id="mobileMenu"
+            class="hidden flex-col gap-2 mt-3 bg-[#FFFCDC] text-[#14281D] rounded-lg p-4 lg:hidden text-sm">
+            <a href="#" class="block hover:text-[#C6A15B]" data-bn="হোম" data-en="Home">হোম</a>
+            <a href="#" class="block hover:text-[#C6A15B]" data-bn="প্রোফাইল" data-en="Profile">প্রোফাইল</a>
+            <a href="#" class="block hover:text-[#C6A15B]" data-bn="সেটিংস" data-en="Settings">সেটিংস</a>
+            <a href="#" class="block hover:text-[#C6A15B]" data-bn="লগআউট" data-en="Logout">লগআউট</a>
+        </div>
+    </header>
+
+    <!-- ========== 6 ICON NAVBAR (STICKY) ========== -->
+    <div class="sticky top-0 z-40 bg-white shadow-md py-3">
+        <div class="grid grid-cols-6 text-center text-xs max-w-7xl mx-auto">
+            <a href="index.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-house text-[#14281D]"></i>
+                <span data-bn="হোম" data-en="Home">হোম</span>
+            </a>
+            <a href="library.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-book-quran text-[#14281D]"></i>
+                <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
+            </a>
+            <a href="education.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-graduation-cap text-[#14281D]"></i>
+                <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
+            </a>
+            <a href="dawah.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-hands-praying text-[#14281D]"></i>
+                <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
+            </a>
+            <a href="donation.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-hand-holding-dollar text-[#14281D]"></i>
+                <span data-bn="দান" data-en="Donate">দান</span>
+            </a>
+            <a href="registration.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-user text-[#14281D]"></i>
+                <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ========== PROFILE HEADER ========== -->
+    <section class="px-4 py-6 max-w-2xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl p-6">
+            <div class="flex items-center gap-4">
+                <!-- Profile Image / Avatar -->
+                <div class="w-20 h-20 bg-[#14281D] rounded-full flex items-center justify-center text-white text-3xl">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+
+                <div class="flex-1">
+                    <h2 class="font-bold text-xl" data-bn="মুহাম্মদ রহিম" data-en="Muhammad Rahim">মুহাম্মদ রহিম</h2>
+                    <p class="text-sm text-[#14281D]/60 flex items-center gap-1">
+                        <i class="fa-regular fa-envelope"></i> rahim@example.com
+                    </p>
+                    <p class="text-sm text-[#14281D]/60 flex items-center gap-1">
+                        <i class="fa-regular fa-phone"></i> ০১৭১২৩৪৫৬৭৮
+                    </p>
+                </div>
+
+                <button class="bg-[#C6A15B] text-white p-3 rounded-full hover:bg-[#b38f4c] transition">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </button>
+            </div>
+
+            <!-- Member Since -->
+            <div class="mt-4 flex gap-2 text-xs bg-[#FFFCDC] p-3 rounded-xl">
+                <i class="fa-regular fa-calendar text-[#14281D]"></i>
+                <span data-bn="সদস্য since: ১৫ জানুয়ারি ২০২৫" data-en="Member since: January 15, 2025">সদস্য since: ১৫
+                    জানুয়ারি ২০২৫</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== STATS CARDS ========== -->
+    <section class="px-4 py-2 max-w-2xl mx-auto">
+        <div class="grid grid-cols-3 gap-3">
+            <div class="bg-white rounded-xl shadow-md p-4 text-center">
+                <i class="fa-solid fa-book-quran text-2xl text-[#14281D]"></i>
+                <p class="font-bold text-lg mt-1">৪</p>
+                <p class="text-xs" data-bn="কোর্স" data-en="Courses">কোর্স</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-4 text-center">
+                <i class="fa-solid fa-certificate text-2xl text-[#14281D]"></i>
+                <p class="font-bold text-lg mt-1">২</p>
+                <p class="text-xs" data-bn="সার্টিফিকেট" data-en="Certificates">সার্টিফিকেট</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-4 text-center">
+                <i class="fa-regular fa-clock text-2xl text-[#14281D]"></i>
+                <p class="font-bold text-lg mt-1">১২৮</p>
+                <p class="text-xs" data-bn="ঘন্টা" data-en="Hours">ঘন্টা</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== COURSE PROGRESS ========== -->
+    <section class="px-4 py-4 max-w-2xl mx-auto">
+        <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-chart-simple text-[#C6A15B]"></i>
+            <span data-bn="আমার কোর্সের অগ্রগতি" data-en="My Course Progress">আমার কোর্সের অগ্রগতি</span>
+        </h3>
+
+        <div class="space-y-3">
+            <!-- Course 1 -->
+            <div class="bg-white rounded-xl shadow-md p-4">
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-semibold" data-bn="হিফযুল কুরআন" data-en="Hifzul Quran">হিফযুল কুরআন</h4>
+                    <span class="text-sm font-bold text-[#14281D]">৭৫%</span>
+                </div>
+                <div class="w-full bg-[#FFFCDC] rounded-full h-2.5">
+                    <div class="bg-[#14281D] h-2.5 rounded-full" style="width: 75%"></div>
+                </div>
+                <p class="text-xs text-[#14281D]/60 mt-2" data-bn="১৫ টি সূরা সম্পন্ন" data-en="15 Surahs completed">১৫
+                    টি সূরা সম্পন্ন</p>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="bg-white rounded-xl shadow-md p-4">
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-semibold" data-bn="আরবি ভাষা কোর্স" data-en="Arabic Language">আরবি ভাষা কোর্স</h4>
+                    <span class="text-sm font-bold text-[#14281D]">৪০%</span>
+                </div>
+                <div class="w-full bg-[#FFFCDC] rounded-full h-2.5">
+                    <div class="bg-[#14281D] h-2.5 rounded-full" style="width: 40%"></div>
+                </div>
+                <p class="text-xs text-[#14281D]/60 mt-2" data-bn="৮ টি পাঠ সম্পন্ন" data-en="8 lessons completed">৮ টি
+                    পাঠ সম্পন্ন</p>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="bg-white rounded-xl shadow-md p-4">
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-semibold" data-bn="তাজবীদ ও কিরাত" data-en="Tajweed & Qira'at">তাজবীদ ও কিরাত</h4>
+                    <span class="text-sm font-bold text-[#14281D]">৯০%</span>
+                </div>
+                <div class="w-full bg-[#FFFCDC] rounded-full h-2.5">
+                    <div class="bg-[#14281D] h-2.5 rounded-full" style="width: 90%"></div>
+                </div>
+                <p class="text-xs text-[#14281D]/60 mt-2" data-bn="প্রায় সম্পন্ন" data-en="Almost completed">প্রায়
+                    সম্পন্ন</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== RECENT ACTIVITIES ========== -->
+    <section class="px-4 py-4 max-w-2xl mx-auto">
+        <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+            <i class="fa-regular fa-clock text-[#C6A15B]"></i>
+            <span data-bn="সাম্প্রতিক কার্যক্রম" data-en="Recent Activities">সাম্প্রতিক কার্যক্রম</span>
+        </h3>
+
+        <div class="space-y-2">
+            <div class="bg-white p-3 rounded-xl shadow-sm flex items-center gap-3">
+                <div class="w-8 h-8 bg-[#14281D]/10 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-check text-[#14281D] text-xs"></i>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm" data-bn="হিফয ক্লাসে অংশগ্রহণ" data-en="Attended Hifz class">হিফয ক্লাসে অংশগ্রহণ
+                    </p>
+                    <p class="text-xs text-[#14281D]/50">২ ঘন্টা আগে</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-3 rounded-xl shadow-sm flex items-center gap-3">
+                <div class="w-8 h-8 bg-[#14281D]/10 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-download text-[#14281D] text-xs"></i>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm" data-bn="তাজবীদ বই ডাউনলোড" data-en="Downloaded Tajweed book">তাজবীদ বই ডাউনলোড
+                    </p>
+                    <p class="text-xs text-[#14281D]/50">গতকাল</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-3 rounded-xl shadow-sm flex items-center gap-3">
+                <div class="w-8 h-8 bg-[#14281D]/10 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-star text-[#14281D] text-xs"></i>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm" data-bn="কুইজে অংশগ্রহণ - ৮৫%" data-en="Quiz participation - 85%">কুইজে অংশগ্রহণ
+                        - ৮৫%</p>
+                    <p class="text-xs text-[#14281D]/50">৩ দিন আগে</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ACCOUNT SETTINGS MENU ========== -->
+    <section class="px-4 py-4 max-w-2xl mx-auto">
+        <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-gear text-[#C6A15B]"></i>
+            <span data-bn="অ্যাকাউন্ট সেটিংস" data-en="Account Settings">অ্যাকাউন্ট সেটিংস</span>
+        </h3>
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <a href="#" class="flex items-center gap-3 p-4 border-b border-[#14281D]/10 hover:bg-[#FFFCDC] transition">
+                <i class="fa-solid fa-user-pen w-6 text-[#14281D]"></i>
+                <span class="flex-1 text-sm" data-bn="প্রোফাইল সম্পাদনা" data-en="Edit Profile">প্রোফাইল সম্পাদনা</span>
+                <i class="fa-solid fa-chevron-right text-[#14281D]/40"></i>
+            </a>
+
+            <a href="#" class="flex items-center gap-3 p-4 border-b border-[#14281D]/10 hover:bg-[#FFFCDC] transition">
+                <i class="fa-solid fa-lock w-6 text-[#14281D]"></i>
+                <span class="flex-1 text-sm" data-bn="পাসওয়ার্ড পরিবর্তন" data-en="Change Password">পাসওয়ার্ড
+                    পরিবর্তন</span>
+                <i class="fa-solid fa-chevron-right text-[#14281D]/40"></i>
+            </a>
+
+            <a href="#" class="flex items-center gap-3 p-4 border-b border-[#14281D]/10 hover:bg-[#FFFCDC] transition">
+                <i class="fa-regular fa-bell w-6 text-[#14281D]"></i>
+                <span class="flex-1 text-sm" data-bn="নোটিফিকেশন" data-en="Notifications">নোটিফিকেশন</span>
+                <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full">৩</span>
+            </a>
+
+            <a href="#" class="flex items-center gap-3 p-4 hover:bg-[#FFFCDC] transition">
+                <i class="fa-solid fa-arrow-right-from-bracket w-6 text-red-500"></i>
+                <span class="flex-1 text-sm text-red-500" data-bn="লগআউট" data-en="Logout">লগআউট</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== BADGES / ACHIEVEMENTS ========== -->
+    <section class="px-4 py-4 max-w-2xl mx-auto">
+        <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-medal text-[#C6A15B]"></i>
+            <span data-bn="আমার ব্যাজসমূহ" data-en="My Badges">আমার ব্যাজসমূহ</span>
+        </h3>
+
+        <div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+            <div class="bg-white p-3 rounded-xl shadow-md min-w-[80px] text-center">
+                <i class="fa-solid fa-quran text-2xl text-[#14281D]"></i>
+                <p class="text-xs mt-1" data-bn="হাফিয" data-en="Hafiz">হাফিয</p>
+            </div>
+
+            <div class="bg-white p-3 rounded-xl shadow-md min-w-[80px] text-center">
+                <i class="fa-solid fa-language text-2xl text-[#14281D]"></i>
+                <p class="text-xs mt-1" data-bn="আরবি" data-en="Arabic">আরবি</p>
+            </div>
+
+            <div class="bg-white p-3 rounded-xl shadow-md min-w-[80px] text-center">
+                <i class="fa-solid fa-clock text-2xl text-[#14281D]"></i>
+                <p class="text-xs mt-1" data-bn="১০০ ঘন্টা" data-en="100 Hours">১০০ ঘন্টা</p>
+            </div>
+
+            <div class="bg-white p-3 rounded-xl shadow-md min-w-[80px] text-center">
+                <i class="fa-solid fa-star text-2xl text-[#14281D]"></i>
+                <p class="text-xs mt-1" data-bn="উত্তীর্ণ" data-en="Passed">উত্তীর্ণ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SOCIAL MEDIA FOOTER (FIXED) ========== -->
+    <div class="fixed bottom-0 left-0 w-full bg-[#14281D] text-[#FFFCDC] py-3 z-50">
+        <div class="flex justify-center gap-8 items-center text-2xl mb-1">
+            <a href="#" class="text-[#FFFCDC] hover:text-[#C6A15B] transition"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-[#FFFCDC] hover:text-[#C6A15B] transition"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="text-[#FFFCDC] hover:text-[#C6A15B] transition"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="text-[#FFFCDC] hover:text-[#C6A15B] transition"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="text-[#FFFCDC] hover:text-[#C6A15B] transition"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+        <p class="text-center text-[10px] opacity-80" data-bn="© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত"
+            data-en="© Darul Islam Institute · All Rights Reserved">© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত</p>
+    </div>
+
+    <!-- spacer for fixed footer -->
+    <div class="h-20"></div>
+
+    <script>
+        (function () {
+            // Language Toggle
+            let currentLang = 'bn';
+            const langToggle = document.getElementById('langToggle');
+            const langDot = document.getElementById('langDot');
+            const langLabelBn = document.getElementById('langLabelBn');
+            const langLabelEn = document.getElementById('langLabelEn');
+
+            function updateLanguage(lang) {
+                document.querySelectorAll('[data-bn][data-en]').forEach(el => {
+                    el.textContent = lang === 'bn' ? el.getAttribute('data-bn') : el.getAttribute('data-en');
+                });
+
+                if (lang === 'bn') {
+                    langDot.style.left = '4px';
+                    langLabelBn.className = 'px-1 font-bold';
+                    langLabelEn.className = 'px-1 opacity-60';
+                } else {
+                    langDot.style.left = '28px';
+                    langLabelEn.className = 'px-1 font-bold';
+                    langLabelBn.className = 'px-1 opacity-60';
+                }
+            }
+
+            if (langToggle) {
+                langToggle.addEventListener('click', () => {
+                    currentLang = currentLang === 'bn' ? 'en' : 'bn';
+                    updateLanguage(currentLang);
+                });
+            }
+            updateLanguage('bn');
+
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

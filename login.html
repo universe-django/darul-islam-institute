@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>দারুল ইসলাম · লগইন</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bengali Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background-color: #FFFCDC;
+            color: #14281D;
+            min-height: 100vh;
+        }
+
+        .toggle-dot {
+            transition: left 0.2s ease;
+        }
+
+        .form-input {
+            transition: all 0.2s ease;
+            background-color: white;
+            border: 1px solid #14281D20;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #C6A15B;
+            box-shadow: 0 0 0 3px #C6A15B30;
+        }
+    </style>
+</head>
+
+<body class="bg-[#FFFCDC] text-[#14281D] min-h-screen pb-32">
+
+    <!-- ========== HEADER ========== -->
+    <header class="bg-[#14281D] text-[#FFFCDC] p-4 shadow-md sticky top-0 z-50">
+        <div class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-[#FFFCDC] rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-right-to-bracket text-[#14281D] text-lg"></i>
+                </div>
+                <h1 class="font-bold text-lg" data-bn="দারুল ইসলাম · লগইন" data-en="Darul Islam · Login">দারুল ইসলাম ·
+                    লগইন</h1>
+            </div>
+
+            <!-- Language Toggle Switch -->
+            <div
+                class="flex items-center gap-1 bg-[#FFFCDC] text-[#14281D] rounded-full px-2 py-1 font-semibold text-xs">
+                <span id="langLabelBn" class="px-1 font-bold">বাংলা</span>
+                <button id="langToggle" class="relative w-12 h-6 bg-[#14281D] rounded-full">
+                    <span id="langDot"
+                        class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-[#FFFCDC] rounded-full shadow"></span>
+                </button>
+                <span id="langLabelEn" class="px-1 opacity-60">EN</span>
+            </div>
+
+            <!-- mobile menu icon -->
+            <button id="menuBtn" class="text-xl lg:hidden text-[#FFFCDC]">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- mobile menu -->
+        <div id="mobileMenu"
+            class="hidden flex-col gap-2 mt-3 bg-[#FFFCDC] text-[#14281D] rounded-lg p-4 lg:hidden text-sm">
+            <a href="#" class="block hover:text-[#C6A15B]" data-bn="হোম" data-en="Home">হোম</a>
+            <a href="#" class="block hover:text-[#C6A15B]" data-bn="লগইন" data-en="Login">লগইন</a>
+            <a href="#" class="block hover:text-[#C6A15B]" data-bn="নিবন্ধন" data-en="Register">নিবন্ধন</a>
+        </div>
+    </header>
+
+    <!-- ========== 6 ICON NAVBAR (STICKY) ========== -->
+    <div class="sticky top-0 z-40 bg-white shadow-md py-3">
+        <div class="grid grid-cols-6 text-center text-xs max-w-7xl mx-auto">
+            <a href="index.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-house text-primary"></i>
+                <span data-bn="হোম" data-en="Home">হোম</span>
+            </a>
+            <a href="library.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-book-quran text-primary"></i>
+                <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
+            </a>
+            <a href="education.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-graduation-cap text-primary"></i>
+                <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
+            </a>
+            <a href="dawah.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-hands-praying text-primary"></i>
+                <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
+            </a>
+            <a href="donation.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-hand-holding-dollar text-primary"></i>
+                <span data-bn="দান" data-en="Donate">দান</span>
+            </a>
+            <a href="registration.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-user text-primary"></i>
+                <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section
+        class="relative h-32 bg-gradient-to-b from-green-800 to-green-700 flex items-end p-5 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20"
+            style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M30 5L35 20L50 20L40 30L45 45L30 35L15 45L20 30L10 20L25 20L30 5Z\' fill=\'%23C6A15B\' fill-opacity=\'0.3\' /%3E%3C/svg%3E');">
+        </div>
+        <div class="relative z-10 w-full max-w-7xl mx-auto">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-right-to-bracket text-2xl text-[#C6A15B]"></i>
+                <div>
+                    <h2 class="text-lg font-bold" data-bn="আপনার অ্যাকাউন্টে লগইন করুন" data-en="Login to Your Account">
+                        আপনার অ্যাকাউন্টে লগইন করুন</h2>
+                    <p class="text-xs opacity-90" data-bn="দারুল ইসলাম ইনস্টিটিউটে স্বাগতম"
+                        data-en="Welcome to Darul Islam Institute">দারুল ইসলাম ইনস্টিটিউটে স্বাগতম</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== LOGIN FORM ========== -->
+    <section class="px-4 py-8 max-w-md mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl p-6">
+            <!-- Form Header -->
+            <div class="flex items-center gap-3 mb-6 pb-3 border-b border-[#14281D]/10">
+                <div class="w-12 h-12 bg-[#C6A15B]/20 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-user-lock text-[#C6A15B] text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-xl" data-bn="লগইন" data-en="Login">লগইন</h3>
+                    <p class="text-xs text-[#14281D]/60" data-bn="আপনার তথ্য দিন" data-en="Enter your credentials">আপনার
+                        তথ্য দিন</p>
+                </div>
+            </div>
+
+            <form class="space-y-5">
+                <!-- Email or Mobile -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-[#14281D]"></i>
+                        <span data-bn="ইমেইল বা মোবাইল নম্বর" data-en="Email or Mobile">ইমেইল বা মোবাইল নম্বর</span>
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text"
+                        class="w-full p-3 rounded-xl border border-[#14281D]/20 focus:border-[#C6A15B] focus:ring-2 focus:ring-[#C6A15B]/30 outline-none transition"
+                        placeholder="example@gmail.com / ০১৭XXXXXXXX">
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-lock text-[#14281D]"></i>
+                        <span data-bn="পাসওয়ার্ড" data-en="Password">পাসওয়ার্ড</span>
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="password"
+                        class="w-full p-3 rounded-xl border border-[#14281D]/20 focus:border-[#C6A15B] focus:ring-2 focus:ring-[#C6A15B]/30 outline-none transition"
+                        placeholder="********">
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center gap-2">
+                        <input type="checkbox" class="accent-[#14281D]">
+                        <span class="text-sm" data-bn="মনে রাখুন" data-en="Remember me">মনে রাখুন</span>
+                    </label>
+                    <a href="#" class="text-sm text-[#C6A15B] font-semibold" data-bn="পাসওয়ার্ড ভুলে গেছেন?"
+                        data-en="Forgot Password?">পাসওয়ার্ড ভুলে গেছেন?</a>
+                </div>
+
+                <!-- Login Button -->
+                <!-- <button type="submit"
+                    class="w-full bg-[#14281D] text-[#FFFCDC] py-4 rounded-xl text-lg font-semibold hover:bg-[#1e3a2a] transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span data-bn="লগইন করুন" data-en="Login">লগইন করুন</span>
+                </button> -->
+
+                <a href="profile.html" class="w-full bg-[#14281D] text-[#FFFCDC] py-4 rounded-xl text-lg font-semibold hover:bg-[#1e3a2a] transition flex items-center justify-center gap-2">লগইন করুন</a>
+
+                <!-- Register Link -->
+                <p class="text-center text-sm text-[#14281D]/70">
+                    <span data-bn="এখনও অ্যাকাউন্ট নেই?" data-en="Don't have an account?">এখনও অ্যাকাউন্ট নেই?</span>
+                    <a href="registration.html" class="text-[#C6A15B] font-semibold" data-bn="নিবন্ধন করুন" data-en="Register"> নিবন্ধন
+                        করুন</a>
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ========== QUICK LINKS ========== -->
+    <section class="px-4 py-4 max-w-md mx-auto">
+        <h3 class="font-bold text-base mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-link text-[#C6A15B]"></i>
+            <span data-bn="দ্রুত লিংক" data-en="Quick Links">দ্রুত লিংক</span>
+        </h3>
+
+        <div class="grid grid-cols-2 gap-2">
+            <a href="#" class="bg-white p-3 rounded-xl shadow-md flex items-center gap-2 hover:bg-[#FFFCDC] transition">
+                <i class="fa-solid fa-book-quran text-[#14281D]"></i>
+                <span class="text-xs" data-bn="কোর্স সমূহ" data-en="Courses">কোর্স সমূহ</span>
+            </a>
+            <a href="#" class="bg-white p-3 rounded-xl shadow-md flex items-center gap-2 hover:bg-[#FFFCDC] transition">
+                <i class="fa-solid fa-hand-holding-heart text-[#14281D]"></i>
+                <span class="text-xs" data-bn="দান" data-en="Donate">দান</span>
+            </a>
+            <a href="#" class="bg-white p-3 rounded-xl shadow-md flex items-center gap-2 hover:bg-[#FFFCDC] transition">
+                <i class="fa-solid fa-calendar text-[#14281D]"></i>
+                <span class="text-xs" data-bn="ইভেন্ট" data-en="Events">ইভেন্ট</span>
+            </a>
+            <a href="#" class="bg-white p-3 rounded-xl shadow-md flex items-center gap-2 hover:bg-[#FFFCDC] transition">
+                <i class="fa-solid fa-phone text-[#14281D]"></i>
+                <span class="text-xs" data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== SOCIAL MEDIA FOOTER (FIXED) ========== -->
+    <div class="fixed bottom-0 left-0 w-full bg-[#14281D] text-[#FFFCDC] py-3 z-50">
+        <div class="flex justify-center gap-8 items-center text-2xl mb-1">
+            <a href="#" class="text-[#FFFCDC] hover:text-[#C6A15B] transition"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-[#FFFCDC] hover:text-[#C6A15B] transition"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="text-[#FFFCDC] hover:text-[#C6A15B] transition"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="text-[#FFFCDC] hover:text-[#C6A15B] transition"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="text-[#FFFCDC] hover:text-[#C6A15B] transition"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+        <p class="text-center text-[10px] opacity-80" data-bn="© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত"
+            data-en="© Darul Islam Institute · All Rights Reserved">© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত</p>
+    </div>
+
+    <!-- spacer for fixed footer -->
+    <div class="h-20"></div>
+
+    <script>
+        (function () {
+            // Language Toggle
+            let currentLang = 'bn';
+            const langToggle = document.getElementById('langToggle');
+            const langDot = document.getElementById('langDot');
+            const langLabelBn = document.getElementById('langLabelBn');
+            const langLabelEn = document.getElementById('langLabelEn');
+
+            function updateLanguage(lang) {
+                document.querySelectorAll('[data-bn][data-en]').forEach(el => {
+                    el.textContent = lang === 'bn' ? el.getAttribute('data-bn') : el.getAttribute('data-en');
+                });
+
+                if (lang === 'bn') {
+                    langDot.style.left = '4px';
+                    langLabelBn.className = 'px-1 font-bold';
+                    langLabelEn.className = 'px-1 opacity-60';
+                } else {
+                    langDot.style.left = '28px';
+                    langLabelEn.className = 'px-1 font-bold';
+                    langLabelBn.className = 'px-1 opacity-60';
+                }
+            }
+
+            if (langToggle) {
+                langToggle.addEventListener('click', () => {
+                    currentLang = currentLang === 'bn' ? 'en' : 'bn';
+                    updateLanguage(currentLang);
+                });
+            }
+            updateLanguage('bn');
+
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>দারুল ইসলাম · ভর্তি ফর্ম</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bengali Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#14281D',
+                        secondary: '#FFFCDC',
+                        accent: '#C6A15B',
+                    },
+                    fontFamily: {
+                        bengali: ['Noto Sans Bengali', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .toggle-dot {
+            transition: left 0.2s ease;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background-color: #FFFCDC;
+            color: #14281D;
+        }
+
+        .form-input {
+            transition: all 0.2s ease;
+            background-color: white;
+            border: 1px solid #14281D20;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #C6A15B;
+            box-shadow: 0 0 0 3px #C6A15B30;
+        }
+
+        .islamic-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L35 20L50 20L40 30L45 45L30 35L15 45L20 30L10 20L25 20L30 5Z' fill='%23C6A15B' fill-opacity='0.1' /%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body class="bg-secondary text-primary min-h-screen pb-32 font-bengali">
+
+    <!-- ========== HEADER ========== -->
+    <header class="bg-primary text-secondary p-4 shadow-md sticky top-0 z-50">
+        <div class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-pen-to-square text-primary text-lg"></i>
+                </div>
+                <h1 class="font-bold text-lg" data-bn="দারুল ইসলাম · ভর্তি ফর্ম" data-en="Darul Islam · Admission Form">
+                    দারুল ইসলাম · ভর্তি ফর্ম</h1>
+            </div>
+
+            <!-- Language Toggle Switch -->
+            <div class="flex items-center gap-1 bg-secondary text-primary rounded-full px-2 py-1 font-semibold text-xs">
+                <span id="langLabelBn" class="px-1 font-bold">বাংলা</span>
+                <button id="langToggle" class="relative w-12 h-6 bg-primary rounded-full">
+                    <span id="langDot"
+                        class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-secondary rounded-full shadow"></span>
+                </button>
+                <span id="langLabelEn" class="px-1 opacity-60">EN</span>
+            </div>
+
+            <!-- mobile menu icon -->
+            <button id="menuBtn" class="text-xl lg:hidden text-secondary">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- mobile menu -->
+        <div id="mobileMenu"
+            class="hidden flex-col gap-2 mt-3 bg-secondary text-primary rounded-lg p-4 lg:hidden text-sm">
+            <a href="#" class="block" data-bn="হোম" data-en="Home">হোম</a>
+            <a href="#" class="block" data-bn="কোর্স সমূহ" data-en="Courses">কোর্স সমূহ</a>
+            <a href="#" class="block" data-bn="ভর্তি ফর্ম" data-en="Admission Form">ভর্তি ফর্ম</a>
+        </div>
+    </header>
+
+    <!-- ========== 6 ICON NAVBAR (STICKY) ========== -->
+    <div class="sticky top-0 z-40 bg-white shadow-md py-3">
+        <div class="grid grid-cols-6 text-center text-xs max-w-7xl mx-auto">
+            <a href="index.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-house text-primary"></i>
+                <span data-bn="হোম" data-en="Home">হোম</span>
+            </a>
+            <a href="library.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-book-quran text-primary"></i>
+                <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
+            </a>
+            <a href="education.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-graduation-cap text-primary"></i>
+                <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
+            </a>
+            <a href="dawah.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-hands-praying text-primary"></i>
+                <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
+            </a>
+            <a href="donation.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-hand-holding-dollar text-primary"></i>
+                <span data-bn="দান" data-en="Donate">দান</span>
+            </a>
+            <a href="registration.html" class="flex flex-col items-center text-primary">
+                <i class="fa-solid fa-user text-primary"></i>
+                <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section
+        class="relative h-36 bg-gradient-to-b from-green-800 to-green-700 flex items-end p-5 text-white overflow-hidden">
+        <div class="absolute inset-0 islamic-pattern opacity-20"></div>
+        <div class="relative z-10 w-full max-w-7xl mx-auto">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-pen-to-square text-3xl text-accent"></i>
+                <div>
+                    <h2 class="text-xl font-bold" data-bn="ভর্তি ফর্ম" data-en="Admission Form">ভর্তি ফর্ম</h2>
+                    <p class="text-xs opacity-90" data-bn="২০২৬ শিক্ষাবর্ষ" data-en="Academic Year 2026">২০২৬ শিক্ষাবর্ষ
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ADMISSION FORM ========== -->
+    <section class="px-4 py-6 max-w-2xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl p-6">
+            <!-- Form Header -->
+            <div class="flex items-center gap-3 mb-6 pb-3 border-b border-primary/10">
+                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-user-plus text-primary"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg" data-bn="আবেদনকারীর তথ্য" data-en="Applicant Information">আবেদনকারীর
+                        তথ্য</h3>
+                    <p class="text-xs text-primary/60" data-bn="সঠিক তথ্য দিয়ে ফর্ম পূরণ করুন"
+                        data-en="Please fill the form with correct information">সঠিক তথ্য দিয়ে ফর্ম পূরণ করুন</p>
+                </div>
+            </div>
+
+            <form class="space-y-5">
+                <!-- Full Name -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-user text-primary"></i>
+                        <span data-bn="আবেদনকারীর নাম (পূর্ণ নাম)" data-en="Applicant's Full Name">আবেদনকারীর নাম (পূর্ণ
+                            নাম)</span>
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" class="form-input w-full p-3 rounded-xl" placeholder="যেমন: মুহাম্মদ রহিম">
+                </div>
+
+                <!-- Father's Name -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-user-tie text-primary"></i>
+                        <span data-bn="পিতার নাম" data-en="Father's Name">পিতার নাম</span>
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" class="form-input w-full p-3 rounded-xl" placeholder="যেমন: আব্দুল করিম">
+                </div>
+
+                <!-- Mother's Name -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-user text-primary"></i>
+                        <span data-bn="মাতার নাম" data-en="Mother's Name">মাতার নাম</span>
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" class="form-input w-full p-3 rounded-xl" placeholder="যেমন: রহিমা বেগম">
+                </div>
+
+                <!-- Date of Birth -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-cake-candles text-primary"></i>
+                        <span data-bn="জন্ম তারিখ" data-en="Date of Birth">জন্ম তারিখ</span>
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="date" class="form-input w-full p-3 rounded-xl">
+                </div>
+
+                <!-- Gender -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-venus-mars text-primary"></i>
+                        <span data-bn="লিঙ্গ" data-en="Gender">লিঙ্গ</span>
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="flex items-center gap-2 p-3 border border-primary/20 rounded-xl bg-secondary/50">
+                            <input type="radio" name="gender" class="accent-primary">
+                            <span data-bn="পুরুষ" data-en="Male">পুরুষ</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-3 border border-primary/20 rounded-xl bg-secondary/50">
+                            <input type="radio" name="gender" class="accent-primary">
+                            <span data-bn="মহিলা" data-en="Female">মহিলা</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Mobile Number -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-primary"></i>
+                        <span data-bn="মোবাইল নম্বর" data-en="Mobile Number">মোবাইল নম্বর</span>
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="tel" class="form-input w-full p-3 rounded-xl" placeholder="০১৭XXXXXXXX">
+                </div>
+
+                <!-- Email (Optional) -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-primary"></i>
+                        <span data-bn="ইমেইল (ঐচ্ছিক)" data-en="Email (Optional)">ইমেইল (ঐচ্ছিক)</span>
+                    </label>
+                    <input type="email" class="form-input w-full p-3 rounded-xl" placeholder="example@gmail.com">
+                </div>
+
+                <!-- Present Address -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-primary"></i>
+                        <span data-bn="বর্তমান ঠিকানা" data-en="Present Address">বর্তমান ঠিকানা</span>
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <textarea rows="2" class="form-input w-full p-3 rounded-xl" placeholder="ঠিকানা"></textarea>
+                </div>
+
+                <!-- Desired Course -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-book-quran text-primary"></i>
+                        <span data-bn="পছন্দের কোর্স" data-en="Desired Course">পছন্দের কোর্স</span>
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <select class="form-input w-full p-3 rounded-xl">
+                        <option value="" data-bn="নির্বাচন করুন" data-en="Select one">নির্বাচন করুন</option>
+                        <option value="hifz" data-bn="হিফযুল কুরআন" data-en="Hifzul Quran">হিফযুল কুরআন</option>
+                        <option value="alim" data-bn="আলিম কোর্স" data-en="Alim Course">আলিম কোর্স</option>
+                        <option value="arabic" data-bn="আরবি ভাষা কোর্স" data-en="Arabic Language">আরবি ভাষা কোর্স
+                        </option>
+                        <option value="tajweed" data-bn="তাজবীদ ও কিরাত" data-en="Tajweed & Qira'at">তাজবীদ ও কিরাত
+                        </option>
+                        <option value="fiqh" data-bn="ফিকহুল ইবাদাত" data-en="Fiqh al-Ibadat">ফিকহুল ইবাদাত</option>
+                    </select>
+                </div>
+
+                <!-- Previous Education -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-primary"></i>
+                        <span data-bn="সর্বোচ্চ শিক্ষাগত যোগ্যতা" data-en="Highest Educational Qualification">সর্বোচ্চ
+                            শিক্ষাগত যোগ্যতা</span>
+                    </label>
+                    <input type="text" class="form-input w-full p-3 rounded-xl" placeholder="যেমন: দাখিল, আলিম, এসএসসি">
+                </div>
+
+                <!-- Quran Proficiency -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-quran text-primary"></i>
+                        <span data-bn="কুরআন সম্পর্কিত দক্ষতা" data-en="Quran Proficiency">কুরআন সম্পর্কিত দক্ষতা</span>
+                    </label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <label class="flex items-center gap-2 p-2 border border-primary/20 rounded-lg bg-secondary/30">
+                            <input type="checkbox" class="accent-primary">
+                            <span class="text-xs" data-bn="তাজবীদ জানি" data-en="Know Tajweed">তাজবীদ জানি</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2 border border-primary/20 rounded-lg bg-secondary/30">
+                            <input type="checkbox" class="accent-primary">
+                            <span class="text-xs" data-bn="হিফয করছি" data-en="Memorizing">হিফয করছি</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2 border border-primary/20 rounded-lg bg-secondary/30">
+                            <input type="checkbox" class="accent-primary">
+                            <span class="text-xs" data-bn="আরবি পড়তে পারি" data-en="Can read Arabic">আরবি পড়তে
+                                পারি</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2 border border-primary/20 rounded-lg bg-secondary/30">
+                            <input type="checkbox" class="accent-primary">
+                            <span class="text-xs" data-bn="অর্থ বুঝি" data-en="Understand meaning">অর্থ বুঝি</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Emergency Contact -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-phone-volume text-primary"></i>
+                        <span data-bn="জরুরি যোগাযোগ" data-en="Emergency Contact">জরুরি যোগাযোগ</span>
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="tel" class="form-input w-full p-3 rounded-xl" placeholder="অভিভাবকের মোবাইল নম্বর">
+                </div>
+
+                <!-- Declaration -->
+                <div class="bg-secondary p-4 rounded-xl">
+                    <label class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-1 accent-primary">
+                        <span class="text-sm text-primary/80"
+                            data-bn="আমি ঘোষণা করছি যে উপরের তথ্যগুলো সঠিক এবং আমি দারুল ইসলাম ইনস্টিটিউটের নিয়মাবলী মেনে চলব।"
+                            data-en="I declare that the above information is correct and I will abide by the rules of Darul Islam Institute.">আমি
+                            ঘোষণা করছি যে উপরের তথ্যগুলো সঠিক এবং আমি দারুল ইসলাম ইনস্টিটিউটের নিয়মাবলী মেনে
+                            চলব।</span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full bg-primary text-secondary py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span data-bn="ফর্ম জমা দিন" data-en="Submit Application">ফর্ম জমা দিন</span>
+                </button>
+
+                <!-- Note -->
+                <p class="text-xs text-center text-primary/50"
+                    data-bn="ফর্ম জমা দেওয়ার পর ভর্তি পরীক্ষার তারিখ এসএমএস এর মাধ্যমে জানিয়ে দেওয়া হবে।"
+                    data-en="After submission, exam date will be sent via SMS.">ফর্ম জমা দেওয়ার পর ভর্তি পরীক্ষার তারিখ
+                    এসএমএস এর মাধ্যমে জানিয়ে দেওয়া হবে।</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ========== QUICK INFO ========== -->
+    <section class="px-4 py-4 max-w-2xl mx-auto">
+        <div class="grid grid-cols-2 gap-3">
+            <div class="bg-white p-4 rounded-xl shadow-md flex items-center gap-3">
+                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-clock text-primary"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-primary/60" data-bn="ভর্তির শেষ তারিখ" data-en="Last Date">ভর্তির শেষ তারিখ
+                    </p>
+                    <p class="font-bold">১৫ মার্চ ২০২৬</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl shadow-md flex items-center gap-3">
+                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-phone text-primary"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-primary/60" data-bn="হেল্পলাইন" data-en="Helpline">হেল্পলাইন</p>
+                    <p class="font-bold">০১৭১২৩৪৫৬৭৮</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SOCIAL MEDIA FOOTER (FIXED) ========== -->
+    <div class="fixed bottom-0 left-0 w-full bg-primary text-secondary py-3 z-50">
+        <div class="flex justify-center gap-8 items-center text-2xl mb-1">
+            <a href="#" class="text-secondary hover:text-accent transition"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-secondary hover:text-accent transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="text-secondary hover:text-accent transition"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="text-secondary hover:text-accent transition"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="text-secondary hover:text-accent transition"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+        <p class="text-center text-[10px] opacity-80" data-bn="© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত"
+            data-en="© Darul Islam Institute · All Rights Reserved">© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত</p>
+    </div>
+
+    <!-- spacer for fixed footer -->
+    <div class="h-20"></div>
+
+    <script>
+            (function () {
+                // Language Toggle
+                let currentLang = 'bn';
+                const langToggle = document.getElementById('langToggle');
+                const langDot = document.getElementById('langDot');
+                const langLabelBn = document.getElementById('langLabelBn');
+                const langLabelEn = document.getElementById('langLabelEn');
+
+                function updateLanguage(lang) {
+                    document.querySelectorAll('[data-bn][data-en]').forEach(el => {
+                        el.textContent = lang === 'bn' ? el.getAttribute('data-bn') : el.getAttribute('data-en');
+                    });
+
+                    if (lang === 'bn') {
+                        langDot.style.left = '4px';
+                        langLabelBn.className = 'px-1 font-bold';
+                        langLabelEn.className = 'px-1 opacity-60';
+                    } else {
+                        langDot.style.left = '28px';
+                        langLabelEn.className = 'px-1 font-bold';
+                        langLabelBn.className = 'px-1 opacity-60';
+                    }
+                }
+
+                if (langToggle) {
+                    langToggle.addEventListener('click', () => {
+                        currentLang = currentLang === 'bn' ? 'en' : 'bn';
+                        updateLanguage(currentLang);
+                    });
+                }
+                updateLanguage('bn');
+
+                // Mobile menu toggle
+                const menuBtn = document.getElementById('menuBtn');
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (menuBtn && mobileMenu) {
+                    menuBtn.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+                }
+            })();
+    </script>
+</body>
+
+</html>
