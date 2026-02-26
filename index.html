@@ -45,7 +45,7 @@
 <body class="bg-secondary text-primary font-serif">
 
     <!-- ================= HEADER ================= -->
-    <header class="bg-primary text-secondary p-4 shadow-md relative">
+    <!-- <header class="bg-primary text-secondary p-4 shadow-md relative">
         <div class="flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
@@ -53,7 +53,7 @@
                 </div>
                 <h1 class="font-bold text-lg">Darul Islam Institute</h1>
             </div>
-            <!-- Language Toggle -->
+             Language Toggle 
             <div class="flex items-center bg-secondary text-primary rounded-full px-2 py-1 text-xs font-semibold">
                 <span id="langLabel">EN</span>
                 <button id="langToggle" class="ml-2 w-10 h-5 bg-primary rounded-full relative transition">
@@ -64,7 +64,7 @@
             <button id="menuBtn" class="text-xl lg:hidden">
                 <i class="fa-solid fa-bars"></i>
             </button>
-            <!-- Desktop Nav -->
+             Desktop Nav 
             <nav
                 class="hidden lg:flex gap-6 text-sm font-medium absolute right-4 top-16 bg-primary lg:bg-transparent lg:static lg:flex-row flex-col p-4 lg:p-0 rounded-lg lg:rounded-none">
                 <a href="#" class="lang" data-en="Home" data-bn="হোম">Home</a>
@@ -75,7 +75,7 @@
                 <a href="#" class="lang" data-en="Donation" data-bn="দান">Donation</a>
             </nav>
         </div>
-        <!-- Mobile Menu -->
+         Mobile Menu 
         <div id="mobileMenu" class="hidden flex-col gap-3 mt-4 bg-secondary text-primary rounded-lg p-4 lg:hidden">
             <a href="#" class="lang block" data-en="Home" data-bn="হোম">Home</a>
             <a href="#" class="lang block" data-en="About" data-bn="সম্পর্কে">About</a>
@@ -84,10 +84,94 @@
             <a href="#" class="lang block" data-en="Dawah" data-bn="দাওয়াহ">Dawah</a>
             <a href="#" class="lang block" data-en="Donation" data-bn="দান">Donation</a>
         </div>
+    </header> -->
+
+    <!-- ================= HEADER ================= -->
+    <!-- ================= STICKY COMBINED NAVBAR ================= -->
+    <header class="sticky top-0 z-50 shadow-md">
+
+        <!-- ===== TOP GREEN HEADER ===== -->
+        <div class="bg-gradient-to-b from-[#0f5132] to-[#0b3d2e] border-b border-[#d4af37]">
+            <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center gap-4">
+
+                <!-- Logo -->
+                <div class="w-12 h-12 bg-[#e9f5ec] rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-mosque text-[#0b3d2e] text-lg"></i>
+                </div>
+
+                <!-- Name + Menu + Language Toggle -->
+                <div class="flex flex-col items-center">
+
+                    <div class="flex gap-2">
+                        <!-- Site Name -->
+                        <h1 class="text-xl md:text-2xl font-bold text-[#f5e6b3] font-serif tracking-wide">
+                            Darul Islam Institute
+                        </h1>
+                        <!-- Small Language Toggle -->
+                        <div
+                            class="flex items-center bg-[#e9f5ec] rounded-full px-2 py-[2px] text-[10px] font-semibold">
+                            <span class="text-[#0b3d2e]">EN</span>
+                            <button class="relative mx-1 w-7 h-3 bg-[#0b3d2e] rounded-full">
+                                <span class="absolute left-1 top-[2px] w-2 h-2 bg-[#e9f5ec] rounded-full"></span>
+                            </button>
+                            <span class="text-[#0b3d2e]">BN</span>
+                        </div>
+                    </div>
+
+                    <!-- Menu Inline -->
+                    <nav class="flex items-center text-[#f5e6b3] text-xs md:text-sm font-medium font-serif gap-3">
+                        <a href="#" class="hover:text-[#d4af37] transition">Home</a>
+                        <span class="text-[#d4af37]">•</span>
+                        <a href="#" class="hover:text-[#d4af37] transition">About Us</a>
+                        <span class="text-[#d4af37]">•</span>
+                        <a href="donation.html" class="hover:text-[#d4af37] transition">Donation</a>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== 6 ICON NAV (UNCHANGED STRUCTURE) ===== -->
+        <div class="bg-white">
+            <div class="grid grid-cols-6 text-center text-[11px] max-w-7xl mx-auto py-2">
+
+                <a href="index.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-house text-primary text-sm"></i>
+                    <span data-bn="হোম" data-en="Home">হোম</span>
+                </a>
+
+                <a href="library.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-book-quran text-primary text-sm"></i>
+                    <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
+                </a>
+
+                <a href="education.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-graduation-cap text-primary text-sm"></i>
+                    <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
+                </a>
+
+                <a href="dawah.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-hands-praying text-primary text-sm"></i>
+                    <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
+                </a>
+
+                <a href="donation.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-hand-holding-dollar text-primary text-sm"></i>
+                    <span data-bn="দান" data-en="Donate">দান</span>
+                </a>
+
+                <a href="registration.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-user text-primary text-sm"></i>
+                    <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
+                </a>
+
+            </div>
+        </div>
+
     </header>
 
     <!-- ================= 6 ICON NAV ================= -->
-    <div class="sticky top-0 z-40 bg-white shadow-md py-3">
+    <!-- <div class="sticky top-0 z-40 bg-white shadow-md py-3">
         <div class="grid grid-cols-6 text-center text-xs max-w-7xl mx-auto">
             <a href="index.html" class="flex flex-col items-center text-primary">
                 <i class="fa-solid fa-house text-primary"></i>
@@ -114,10 +198,10 @@
                 <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
             </a>
         </div>
-    </div>
+    </div> -->
 
     <!-- ================= HERO SLIDER ================= -->
-    <section class="p-4">
+    <!-- <section class="p-4">
         <div class="relative overflow-hidden rounded-xl shadow-md aspect-video">
             <div id="heroSlider" class="flex w-full h-full transition-transform duration-700">
                 <div class="w-full flex-shrink-0"><img
@@ -130,6 +214,55 @@
                         src="https://static.vecteezy.com/system/resources/thumbnails/017/475/673/small/islamic-green-banner-background-free-vector.jpg"
                         class="w-full h-full object-cover"></div>
             </div>
+        </div>
+    </section> -->
+
+    <section class="p-4">
+        <div class="relative overflow-hidden rounded-xl shadow-md aspect-video">
+
+            <div id="heroSlider" class="flex w-full h-full transition-transform duration-700">
+                <div class="w-full flex-shrink-0">
+                    <img src="https://img.pikbest.com/backgrounds/20240530/islamic-green-background-with-madala_10590351.jpg!sw800"
+                        class="w-full h-full object-cover" />
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <img src="https://img.freepik.com/premium-vector/green-islamic-banner-background-event_191346-483.jpg"
+                        class="w-full h-full object-cover" />
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/017/475/673/small/islamic-green-banner-background-free-vector.jpg"
+                        class="w-full h-full object-cover" />
+                </div>
+            </div>
+
+            <!-- ===== Text Overlay with Backdrop ===== -->
+            <div
+                class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 select-none pointer-events-none">
+
+                <!-- BACKDROP: Dark semi-transparent layer -->
+                <div class="absolute inset-0 bg-black/50 rounded-xl"></div>
+
+                <!-- Content wrapper to be above backdrop -->
+                <div class="relative z-10">
+
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-white drop-shadow-md leading-snug">
+                        Darul Islam Institute
+                    </h2>
+
+                    <p class="mt-1 text-sm md:text-base text-white font-semibold font-sans tracking-wide">
+                        Education <span class="mx-1">•</span> Islamic Library <span class="mx-1">•</span> Dawah <span
+                            class="mx-1">•</span> Donation
+                    </p>
+
+                    <div class="mt-4 flex gap-3 pointer-events-auto justify-center">
+                        <a href="admission_form.html" class="bg-green-800 hover:bg-green-900 text-white font-semibold py-1.5 px-5 rounded shadow-md transition text-sm md:text-base">Enroll Now</a>
+
+                        <a href="donation.html" class="bg-yellow-500 hover:bg-yellow-600 text-green-900 font-semibold py-1.5 px-5 rounded shadow-md transition text-sm md:text-base"> Make a Donation &rsaquo;</a>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
