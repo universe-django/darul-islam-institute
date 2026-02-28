@@ -66,70 +66,87 @@
 <body class="bg-secondary text-primary min-h-screen pb-32 font-bengali">
 
     <!-- ========== HEADER ========== -->
-    <header class="bg-primary text-secondary p-4 shadow-md sticky top-0 z-50">
-        <div class="flex items-center justify-between max-w-7xl mx-auto">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-pen-to-square text-primary text-lg"></i>
+    <header class="sticky top-0 z-50 shadow-md">
+
+        <!-- ===== TOP GREEN HEADER ===== -->
+        <div class="bg-gradient-to-b from-[#0f5132] to-[#0b3d2e] border-b border-[#d4af37]">
+            <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center gap-4">
+
+                <!-- Logo -->
+                <div class="w-12 h-12 bg-[#e9f5ec] rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-mosque text-[#0b3d2e] text-lg"></i>
                 </div>
-                <h1 class="font-bold text-lg" data-bn="দারুল ইসলাম · ভর্তি ফর্ম" data-en="Darul Islam · Admission Form">
-                    দারুল ইসলাম · ভর্তি ফর্ম</h1>
-            </div>
 
-            <!-- Language Toggle Switch -->
-            <div class="flex items-center gap-1 bg-secondary text-primary rounded-full px-2 py-1 font-semibold text-xs">
-                <span id="langLabelBn" class="px-1 font-bold">বাংলা</span>
-                <button id="langToggle" class="relative w-12 h-6 bg-primary rounded-full">
-                    <span id="langDot"
-                        class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-secondary rounded-full shadow"></span>
-                </button>
-                <span id="langLabelEn" class="px-1 opacity-60">EN</span>
-            </div>
+                <!-- Name + Menu + Language Toggle -->
+                <div class="flex flex-col items-center">
 
-            <!-- mobile menu icon -->
-            <button id="menuBtn" class="text-xl lg:hidden text-secondary">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+                    <div class="flex gap-2">
+                        <!-- Site Name -->
+                        <h1 class="text-xl md:text-2xl font-bold text-[#f5e6b3] font-serif tracking-wide">
+                            Darul Islam Institute
+                        </h1>
+                        <!-- Small Language Toggle -->
+                        <div
+                            class="flex items-center bg-[#e9f5ec] rounded-full px-2 py-[2px] text-[10px] font-semibold">
+                            <span class="text-[#0b3d2e]">EN</span>
+                            <button class="relative mx-1 w-7 h-3 bg-[#0b3d2e] rounded-full">
+                                <span class="absolute left-1 top-[2px] w-2 h-2 bg-[#e9f5ec] rounded-full"></span>
+                            </button>
+                            <span class="text-[#0b3d2e]">BN</span>
+                        </div>
+                    </div>
+
+                    <!-- Menu Inline -->
+                    <nav class="flex items-center text-[#f5e6b3] text-xs md:text-sm font-medium font-serif gap-3">
+                        <a href="#" class="hover:text-[#d4af37] transition">Home</a>
+                        <span class="text-[#d4af37]">•</span>
+                        <a href="#" class="hover:text-[#d4af37] transition">About Us</a>
+                        <span class="text-[#d4af37]">•</span>
+                        <a href="donation.html" class="hover:text-[#d4af37] transition">Donation</a>
+                    </nav>
+                </div>
+
+            </div>
         </div>
 
-        <!-- mobile menu -->
-        <div id="mobileMenu"
-            class="hidden flex-col gap-2 mt-3 bg-secondary text-primary rounded-lg p-4 lg:hidden text-sm">
-            <a href="#" class="block" data-bn="হোম" data-en="Home">হোম</a>
-            <a href="#" class="block" data-bn="কোর্স সমূহ" data-en="Courses">কোর্স সমূহ</a>
-            <a href="#" class="block" data-bn="ভর্তি ফর্ম" data-en="Admission Form">ভর্তি ফর্ম</a>
+        <!-- ===== 6 ICON NAV (UNCHANGED STRUCTURE) ===== -->
+        <div class="bg-white">
+            <div class="grid grid-cols-6 text-center text-[11px] max-w-7xl mx-auto py-2">
+
+                <a href="index.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-house text-primary text-sm"></i>
+                    <span data-bn="হোম" data-en="Home">হোম</span>
+                </a>
+
+                <a href="library.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-book-quran text-primary text-sm"></i>
+                    <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
+                </a>
+
+                <a href="education.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-graduation-cap text-primary text-sm"></i>
+                    <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
+                </a>
+
+                <a href="dawah.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-hands-praying text-primary text-sm"></i>
+                    <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
+                </a>
+
+                <a href="donation.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-hand-holding-dollar text-primary text-sm"></i>
+                    <span data-bn="দান" data-en="Donate">দান</span>
+                </a>
+
+                <a href="registration.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-user text-primary text-sm"></i>
+                    <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
+                </a>
+
+            </div>
         </div>
+
     </header>
-
-    <!-- ========== 6 ICON NAVBAR (STICKY) ========== -->
-    <div class="sticky top-0 z-40 bg-white shadow-md py-3">
-        <div class="grid grid-cols-6 text-center text-xs max-w-7xl mx-auto">
-            <a href="index.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-house text-primary"></i>
-                <span data-bn="হোম" data-en="Home">হোম</span>
-            </a>
-            <a href="library.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-book-quran text-primary"></i>
-                <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
-            </a>
-            <a href="education.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-graduation-cap text-primary"></i>
-                <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
-            </a>
-            <a href="dawah.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-hands-praying text-primary"></i>
-                <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
-            </a>
-            <a href="donation.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-hand-holding-dollar text-primary"></i>
-                <span data-bn="দান" data-en="Donate">দান</span>
-            </a>
-            <a href="registration.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-user text-primary"></i>
-                <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
-            </a>
-        </div>
-    </div>
 
     <!-- ========== HERO SECTION ========== -->
     <section
