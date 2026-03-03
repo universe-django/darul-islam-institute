@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
@@ -9,7 +10,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <!-- Bengali Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -30,92 +32,106 @@
         .toggle-dot {
             transition: left 0.2s ease;
         }
+
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
+
         body {
             font-family: 'Noto Sans Bengali', sans-serif;
         }
     </style>
 </head>
+
 <body class="bg-secondary text-primary min-h-screen pb-32 font-bengali">
 
-    <!-- ========== HEADER ========== -->
-    <header class="bg-primary text-secondary p-4 shadow-md sticky top-0 z-50">
-        <div class="flex items-center justify-between max-w-7xl mx-auto">
+    <!-- Fixed Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#14281D] shadow-md">
+        <!-- Header Top -->
+        <div class="flex items-center justify-between px-3 py-1 border-b border-[#FFFCDC]/20">
             <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-hand-holding-heart text-primary text-lg"></i>
+                <div class="w-9 h-9 bg-[#FFFCDC] rounded-full flex items-center justify-center shrink-0">
+                    <i class="fas fa-mosque text-[#14281D] text-xl"></i>
                 </div>
-                <h1 class="font-bold text-lg" data-bn="দারুল ইসলাম · দান" data-en="Darul Islam · Donate">দারুল ইসলাম · দান</h1>
+                <div class="text-[#FFFCDC] font-bold text-lg leading-tight">
+                    Darul Islam Institute
+                </div>
             </div>
-
-            <!-- Language Toggle Switch -->
-            <div class="flex items-center gap-1 bg-secondary text-primary rounded-full px-2 py-1 font-semibold text-xs">
-                <span id="langLabelBn" class="px-1 font-bold">বাংলা</span>
-                <button id="langToggle" class="relative w-12 h-6 bg-primary rounded-full">
-                    <span id="langDot" class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-secondary rounded-full shadow"></span>
+            <div class="flex gap-2.5">
+                <button
+                    class="text-[#FFFCDC] text-base cursor-pointer transition-all w-7 h-7 flex items-center justify-center rounded-md bg-[#FFFCDC]/10 border-0"
+                    title="Settings">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
-                <span id="langLabelEn" class="px-1 opacity-60">EN</span>
             </div>
-
-            <!-- mobile menu icon -->
-            <button id="menuBtn" class="text-xl lg:hidden text-secondary">
-                <i class="fa-solid fa-bars"></i>
-            </button>
         </div>
 
-        <!-- mobile menu -->
-        <div id="mobileMenu" class="hidden flex-col gap-2 mt-3 bg-secondary text-primary rounded-lg p-4 lg:hidden text-sm">
-            <a href="#" class="block" data-bn="দান হোম" data-en="Donate Home">দান হোম</a>
-            <a href="#" class="block" data-bn="মসজিদ তহবিল" data-en="Masjid Fund">মসজিদ তহবিল</a>
-            <a href="#" class="block" data-bn="এতিম স্পনসর" data-en="Sponsor Orphan">এতিম স্পনসর</a>
-            <a href="#" class="block" data-bn="কুরআন বিতরণ" data-en="Quran Project">কুরআন বিতরণ</a>
+        <!-- Navigation – reduced padding py-1, smaller gap, smaller text-xs -->
+        <nav class="bg-[#14281D] px-3 py-1 flex justify-center gap-2 border-b-2 border-[#F4A460] text-[11px]">
+            <a href="#home"
+                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
+                    class="fas fa-home"></i> Home</a>
+            <a href="#about"
+                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
+                    class="fas fa-info-circle"></i> About Us</a>
+            <a href="#donation"
+                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
+                    class="fas fa-hand-holding-heart"></i> Donation</a>
+            <a href="#english"
+                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10">English</a>
+        </nav>
+
+        <!-- 6 ICON NAV (unchanged structure, just background white) -->
+        <div class="bg-white">
+            <div class="grid grid-cols-6 text-center text-[11px] max-w-7xl mx-auto py-2">
+                <a href="index.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-house text-[#14281D] text-sm"></i>
+                    <span data-bn="হোম" data-en="Home">হোম</span>
+                </a>
+                <a href="library.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-book-quran text-[#14281D] text-sm"></i>
+                    <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
+                </a>
+                <a href="education.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-graduation-cap text-[#14281D] text-sm"></i>
+                    <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
+                </a>
+                <a href="dawah.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-hands-praying text-[#14281D] text-sm"></i>
+                    <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
+                </a>
+                <a href="donation.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-hand-holding-dollar text-[#14281D] text-sm"></i>
+                    <span data-bn="দান" data-en="Donate">দান</span>
+                </a>
+                <a href="registration.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-user text-[#14281D] text-sm"></i>
+                    <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- ========== 6 ICON NAVBAR (STICKY) ========== -->
-    <div class="sticky top-0 z-40 bg-white shadow-md py-3">
-        <div class="grid grid-cols-6 text-center text-xs max-w-7xl mx-auto">
-            <a href="index.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-house text-primary"></i>
-                <span data-bn="হোম" data-en="Home">হোম</span>
-            </a>
-            <a href="library.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-book-quran text-primary"></i>
-                <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
-            </a>
-            <a href="education.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-graduation-cap text-primary"></i>
-                <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
-            </a>
-            <a href="dawah.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-hands-praying text-primary"></i>
-                <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
-            </a>
-            <a href="donation.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-hand-holding-dollar text-primary"></i>
-                <span data-bn="দান" data-en="Donate">দান</span>
-            </a>
-            <a href="registration.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-user text-primary"></i>
-                <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
-            </a>
-        </div>
-    </div>
-
     <!-- ========== HERO SECTION ========== -->
-    <section class="relative h-40 bg-gradient-to-b from-green-800 to-green-700 flex items-end p-5 text-white overflow-hidden">
-        <div class="absolute inset-0 opacity-10" style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
+    <section
+        class="relative h-40 bg-gradient-to-b from-green-800 to-green-700 flex items-end p-5 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
         <div class="relative z-10 w-full max-w-7xl mx-auto">
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-hand-holding-heart text-3xl text-accent"></i>
                 <div>
-                    <h2 class="text-xl font-bold" data-bn="আল্লাহর পথে দান করুন" data-en="Give in the way of Allah">আল্লাহর পথে দান করুন</h2>
-                    <p class="text-xs opacity-90" data-bn="সাদাকাহ · যাকাত · লিল্লাহ" data-en="Sadaqah · Zakat · Lillah">সাদাকাহ · যাকাত · লিল্লাহ</p>
+                    <h2 class="text-xl font-bold" data-bn="আল্লাহর পথে দান করুন" data-en="Give in the way of Allah">
+                        আল্লাহর পথে দান করুন</h2>
+                    <p class="text-xs opacity-90" data-bn="সাদাকাহ · যাকাত · লিল্লাহ"
+                        data-en="Sadaqah · Zakat · Lillah">সাদাকাহ · যাকাত · লিল্লাহ</p>
                 </div>
             </div>
-            <p class="text-xs mt-2 bg-black/20 p-2 rounded-lg" data-bn="“যারা আল্লাহর পথে ধনসম্পদ ব্যয় করে, তাদের উদাহরণ একটি শস্যদানা, যা সাতটি শীষ জন্মায়।” (সূরা বাকারা ২:৬১)" data-en="“The example of those who spend in the way of Allah is like a seed of grain which grows seven spikes” (Qur'an 2:261)">“যারা আল্লাহর পথে ধনসম্পদ ব্যয় করে, তাদের উদাহরণ একটি শস্যদানা, যা সাতটি শীষ জন্মায়।” (সূরা বাকারা ২:৬১)</p>
+            <p class="text-xs mt-2 bg-black/20 p-2 rounded-lg"
+                data-bn="“যারা আল্লাহর পথে ধনসম্পদ ব্যয় করে, তাদের উদাহরণ একটি শস্যদানা, যা সাতটি শীষ জন্মায়।” (সূরা বাকারা ২:৬১)"
+                data-en="“The example of those who spend in the way of Allah is like a seed of grain which grows seven spikes” (Qur'an 2:261)">
+                “যারা আল্লাহর পথে ধনসম্পদ ব্যয় করে, তাদের উদাহরণ একটি শস্যদানা, যা সাতটি শীষ জন্মায়।” (সূরা বাকারা
+                ২:৬১)</p>
         </div>
     </section>
 
@@ -123,67 +139,85 @@
     <section class="px-4 py-5 max-w-7xl mx-auto">
         <div class="bg-white rounded-2xl shadow-lg p-5">
             <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
-                <i class="fa-regular fa-clock text-accent"></i> 
+                <i class="fa-regular fa-clock text-accent"></i>
                 <span data-bn="দ্রুত দান ফর্ম" data-en="Quick Donation Form">দ্রুত দান ফর্ম</span>
             </h3>
-            
+
             <div class="space-y-4">
                 <!-- Amount Presets -->
                 <div>
-                    <label class="block text-sm font-medium mb-2" data-bn="পরিমাণ নির্বাচন করুন" data-en="Select Amount">পরিমাণ নির্বাচন করুন</label>
+                    <label class="block text-sm font-medium mb-2" data-bn="পরিমাণ নির্বাচন করুন"
+                        data-en="Select Amount">পরিমাণ নির্বাচন করুন</label>
                     <div class="flex flex-wrap gap-2">
-                        <button class="amount-preset bg-primary/10 border border-primary/30 text-primary px-5 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-secondary transition">৫০০৳</button>
-                        <button class="amount-preset bg-primary/10 border border-primary/30 text-primary px-5 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-secondary transition">১০০০৳</button>
-                        <button class="amount-preset bg-primary/10 border border-primary/30 text-primary px-5 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-secondary transition">২০০০৳</button>
-                        <button class="amount-preset bg-primary/10 border border-primary/30 text-primary px-5 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-secondary transition">৫০০০৳</button>
+                        <button
+                            class="amount-preset bg-primary/10 border border-primary/30 text-primary px-5 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-secondary transition">৫০০৳</button>
+                        <button
+                            class="amount-preset bg-primary/10 border border-primary/30 text-primary px-5 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-secondary transition">১০০০৳</button>
+                        <button
+                            class="amount-preset bg-primary/10 border border-primary/30 text-primary px-5 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-secondary transition">২০০০৳</button>
+                        <button
+                            class="amount-preset bg-primary/10 border border-primary/30 text-primary px-5 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-secondary transition">৫০০০৳</button>
                     </div>
                 </div>
-                
+
                 <!-- Custom Amount Input -->
                 <div>
-                    <label class="block text-sm font-medium mb-2" data-bn="অথবা নিজের পরিমাণ লিখুন" data-en="Or Enter Custom Amount">অথবা নিজের পরিমাণ লিখুন</label>
+                    <label class="block text-sm font-medium mb-2" data-bn="অথবা নিজের পরিমাণ লিখুন"
+                        data-en="Or Enter Custom Amount">অথবা নিজের পরিমাণ লিখুন</label>
                     <div class="flex items-center bg-secondary rounded-full p-1 border border-primary/20">
-                        <input type="number" id="customAmount" placeholder="যেমন: ৭৫০" class="bg-transparent w-full p-3 outline-none text-sm" min="1">
+                        <input type="number" id="customAmount" placeholder="যেমন: ৭৫০"
+                            class="bg-transparent w-full p-3 outline-none text-sm" min="1">
                         <span class="bg-primary text-secondary px-4 py-2 rounded-full text-sm font-semibold">৳</span>
                     </div>
                 </div>
-                
+
                 <!-- Donor Information -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-sm font-medium mb-2" data-bn="আপনার নাম" data-en="Your Name">আপনার নাম</label>
-                        <input type="text" placeholder="রহিমা খাতুন" class="w-full p-3 rounded-full bg-secondary border border-primary/20 outline-none text-sm">
+                        <label class="block text-sm font-medium mb-2" data-bn="আপনার নাম" data-en="Your Name">আপনার
+                            নাম</label>
+                        <input type="text" placeholder="রহিমা খাতুন"
+                            class="w-full p-3 rounded-full bg-secondary border border-primary/20 outline-none text-sm">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium mb-2" data-bn="মোবাইল নম্বর" data-en="Mobile Number">মোবাইল নম্বর</label>
-                        <input type="tel" placeholder="০১৭XXXXXXXX" class="w-full p-3 rounded-full bg-secondary border border-primary/20 outline-none text-sm">
+                        <label class="block text-sm font-medium mb-2" data-bn="মোবাইল নম্বর"
+                            data-en="Mobile Number">মোবাইল নম্বর</label>
+                        <input type="tel" placeholder="০১৭XXXXXXXX"
+                            class="w-full p-3 rounded-full bg-secondary border border-primary/20 outline-none text-sm">
                     </div>
                 </div>
-                
+
                 <!-- Payment Method Selection -->
                 <div>
-                    <label class="block text-sm font-medium mb-2" data-bn="পেমেন্ট পদ্ধতি" data-en="Payment Method">পেমেন্ট পদ্ধতি</label>
+                    <label class="block text-sm font-medium mb-2" data-bn="পেমেন্ট পদ্ধতি"
+                        data-en="Payment Method">পেমেন্ট পদ্ধতি</label>
                     <div class="flex flex-wrap gap-2">
-                        <button class="payment-method bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-primary hover:text-secondary transition">
+                        <button
+                            class="payment-method bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-primary hover:text-secondary transition">
                             <i class="fa-brands fa-bkash"></i> বিকাশ
                         </button>
-                        <button class="payment-method bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-primary hover:text-secondary transition">
+                        <button
+                            class="payment-method bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-primary hover:text-secondary transition">
                             <i class="fa-brands fa-nagad"></i> নগদ
                         </button>
-                        <button class="payment-method bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-primary hover:text-secondary transition">
+                        <button
+                            class="payment-method bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-primary hover:text-secondary transition">
                             <i class="fa-brands fa-rocketchat"></i> রকেট
                         </button>
-                        <button class="payment-method bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-primary hover:text-secondary transition">
+                        <button
+                            class="payment-method bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-primary hover:text-secondary transition">
                             <i class="fa-solid fa-building-columns"></i> ব্যাংক
                         </button>
-                        <button class="payment-method bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-primary hover:text-secondary transition">
+                        <button
+                            class="payment-method bg-primary/10 border border-primary/30 px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-primary hover:text-secondary transition">
                             <i class="fa-regular fa-credit-card"></i> কার্ড
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Submit Button -->
-                <button class="w-full bg-primary text-secondary py-3 rounded-full text-lg font-semibold mt-4 shadow-lg hover:bg-primary/90 transition">
+                <button
+                    class="w-full bg-primary text-secondary py-3 rounded-full text-lg font-semibold mt-4 shadow-lg hover:bg-primary/90 transition">
                     <i class="fa-solid fa-hand-holding-heart mr-2"></i>
                     <span data-bn="এখনই দান করুন" data-en="Donate Now">এখনই দান করুন</span>
                 </button>
@@ -198,7 +232,7 @@
                 <i class="fa-solid fa-circle-info"></i>
                 <span data-bn="ডেমো পেমেন্ট তথ্য" data-en="Demo Payment Details">ডেমো পেমেন্ট তথ্য</span>
             </h3>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- bKash -->
                 <div class="bg-secondary p-4 rounded-xl">
@@ -207,10 +241,12 @@
                         <h4 class="font-bold" data-bn="বিকাশ" data-en="bKash">বিকাশ</h4>
                     </div>
                     <p class="text-sm" data-bn="নম্বর: ০১৭১২৩৪৫৬৭৮" data-en="Number: 01712345678">নম্বর: ০১৭১২৩৪৫৬৭৮</p>
-                    <p class="text-sm" data-bn="Merchant: Darul Islam" data-en="Merchant: Darul Islam">Merchant: Darul Islam</p>
-                    <p class="text-xs text-gray-500 mt-1" data-bn="(Agent/Merchant নম্বর)" data-en="(Agent/Merchant Number)">(Agent/Merchant নম্বর)</p>
+                    <p class="text-sm" data-bn="Merchant: Darul Islam" data-en="Merchant: Darul Islam">Merchant: Darul
+                        Islam</p>
+                    <p class="text-xs text-gray-500 mt-1" data-bn="(Agent/Merchant নম্বর)"
+                        data-en="(Agent/Merchant Number)">(Agent/Merchant নম্বর)</p>
                 </div>
-                
+
                 <!-- Nagad -->
                 <div class="bg-secondary p-4 rounded-xl">
                     <div class="flex items-center gap-2 mb-2">
@@ -218,9 +254,10 @@
                         <h4 class="font-bold" data-bn="নগদ" data-en="Nagad">নগদ</h4>
                     </div>
                     <p class="text-sm" data-bn="নম্বর: ০১৭৯৮৭৬৫৪৩২" data-en="Number: 01798765432">নম্বর: ০১৭৯৮৭৬৫৪৩২</p>
-                    <p class="text-sm" data-bn="Account: Darul Islam" data-en="Account: Darul Islam">Account: Darul Islam</p>
+                    <p class="text-sm" data-bn="Account: Darul Islam" data-en="Account: Darul Islam">Account: Darul
+                        Islam</p>
                 </div>
-                
+
                 <!-- Rocket -->
                 <div class="bg-secondary p-4 rounded-xl">
                     <div class="flex items-center gap-2 mb-2">
@@ -230,27 +267,31 @@
                     <p class="text-sm" data-bn="নম্বর: ০১৮৩৩৪৪৫৫৬৬" data-en="Number: 01833445566">নম্বর: ০১৮৩৩৪৪৫৫৬৬</p>
                     <p class="text-sm" data-bn="ওয়ালেট: ১২৩৪৫৬৭" data-en="Wallet: 1234567">ওয়ালেট: ১২৩৪৫৬৭</p>
                 </div>
-                
+
                 <!-- Bank Account -->
                 <div class="bg-secondary p-4 rounded-xl">
                     <div class="flex items-center gap-2 mb-2">
                         <i class="fa-solid fa-building-columns text-2xl text-blue-800"></i>
                         <h4 class="font-bold" data-bn="ব্যাংক অ্যাকাউন্ট" data-en="Bank Account">ব্যাংক অ্যাকাউন্ট</h4>
                     </div>
-                    <p class="text-sm" data-bn="Bank: Islami Bank BD" data-en="Bank: Islami Bank BD">Bank: Islami Bank BD</p>
+                    <p class="text-sm" data-bn="Bank: Islami Bank BD" data-en="Bank: Islami Bank BD">Bank: Islami Bank
+                        BD</p>
                     <p class="text-sm" data-bn="A/C: ২০৫৫৬৭৮৯০১২৩" data-en="A/C: 205567890123">A/C: ২০৫৫৬৭৮৯০১২৩</p>
                     <p class="text-sm" data-bn="Routing: ১২৩৪৫৬৭৮৯" data-en="Routing: 123456789">Routing: ১২৩৪৫৬৭৮৯</p>
                 </div>
             </div>
-            
-            <p class="text-xs text-center mt-3 text-primary/60 italic" data-bn="উপরের তথ্যগুলো ডেমো only · 실제 দানের জন্য নিজস্ব মোবাইল ব্যাংকিং ব্যবহার করুন" data-en="Above details are demo only · Use your own mobile banking for actual donation">উপরের তথ্যগুলো ডেমো only · 실제 দানের জন্য নিজস্ব মোবাইল ব্যাংকিং ব্যবহার করুন</p>
+
+            <p class="text-xs text-center mt-3 text-primary/60 italic"
+                data-bn="উপরের তথ্যগুলো ডেমো only · 실제 দানের জন্য নিজস্ব মোবাইল ব্যাংকিং ব্যবহার করুন"
+                data-en="Above details are demo only · Use your own mobile banking for actual donation">উপরের তথ্যগুলো
+                ডেমো only · 실제 দানের জন্য নিজস্ব মোবাইল ব্যাংকিং ব্যবহার করুন</p>
         </div>
     </section>
 
     <!-- ========== DONATION CAUSES - CARD STYLE WITH IMAGE ========== -->
     <section class="px-4 py-5 max-w-7xl mx-auto">
         <h3 class="font-bold text-base mb-4 flex items-center gap-2">
-            <i class="fa-regular fa-hand-holding-heart"></i> 
+            <i class="fa-regular fa-hand-holding-heart"></i>
             <span data-bn="আপনার দান যেখানে যাবে" data-en="Where your donation goes">আপনার দান যেখানে যাবে</span>
         </h3>
 
@@ -258,17 +299,25 @@
             <!-- card 1 - mosque -->
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div class="h-44 w-full overflow-hidden">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/18/19/01/mosque-1836082_1280.jpg" class="w-full h-full object-cover">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/18/19/01/mosque-1836082_1280.jpg"
+                        class="w-full h-full object-cover">
                 </div>
                 <div class="p-5">
                     <div class="flex justify-between items-center mb-2">
-                        <h4 class="font-bold text-lg" data-bn="মসজিদ নির্মাণ" data-en="Mosque Construction">মসজিদ নির্মাণ</h4>
-                        <span class="bg-secondary px-3 py-1 rounded-full text-xs font-semibold" data-bn="৪২% সম্পন্ন" data-en="42% complete">৪২% সম্পন্ন</span>
+                        <h4 class="font-bold text-lg" data-bn="মসজিদ নির্মাণ" data-en="Mosque Construction">মসজিদ
+                            নির্মাণ</h4>
+                        <span class="bg-secondary px-3 py-1 rounded-full text-xs font-semibold" data-bn="৪২% সম্পন্ন"
+                            data-en="42% complete">৪২% সম্পন্ন</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3" data-bn="আমাদের নতুন মসজিদ নির্মাণে আপনার সাহায্য প্রয়োজন। প্রতিটি টাকা সাদাকাহ জারিয়াহ।" data-en="Your help is needed to build our new mosque. Every taka is Sadaqah Jariyah.">আমাদের নতুন মসজিদ নির্মাণে আপনার সাহায্য প্রয়োজন। প্রতিটি টাকা সাদাকাহ জারিয়াহ।</p>
+                    <p class="text-sm text-gray-600 mb-3"
+                        data-bn="আমাদের নতুন মসজিদ নির্মাণে আপনার সাহায্য প্রয়োজন। প্রতিটি টাকা সাদাকাহ জারিয়াহ।"
+                        data-en="Your help is needed to build our new mosque. Every taka is Sadaqah Jariyah.">আমাদের
+                        নতুন মসজিদ নির্মাণে আপনার সাহায্য প্রয়োজন। প্রতিটি টাকা সাদাকাহ জারিয়াহ।</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-sm font-semibold" data-bn="প্রয়োজন: ২৫,০০,০০০৳" data-en="Goal: 2,500,000 BDT">প্রয়োজন: ২৫,০০,০০০৳</span>
-                        <button class="bg-primary text-secondary px-6 py-2 rounded-full text-sm font-semibold" data-bn="দান করুন" data-en="Donate Now">দান করুন</button>
+                        <span class="text-sm font-semibold" data-bn="প্রয়োজন: ২৫,০০,০০০৳"
+                            data-en="Goal: 2,500,000 BDT">প্রয়োজন: ২৫,০০,০০০৳</span>
+                        <button class="bg-primary text-secondary px-6 py-2 rounded-full text-sm font-semibold"
+                            data-bn="দান করুন" data-en="Donate Now">দান করুন</button>
                     </div>
                 </div>
             </div>
@@ -276,17 +325,25 @@
             <!-- card 2 - orphan -->
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div class="h-44 w-full overflow-hidden">
-                    <img src="https://images.pexels.com/photos/8612947/pexels-photo-8612947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="w-full h-full object-cover">
+                    <img src="https://images.pexels.com/photos/8612947/pexels-photo-8612947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        class="w-full h-full object-cover">
                 </div>
                 <div class="p-5">
                     <div class="flex justify-between items-center mb-2">
-                        <h4 class="font-bold text-lg" data-bn="এতিম স্পনসর" data-en="Orphan Sponsorship">এতিম স্পনসর</h4>
-                        <span class="bg-secondary px-3 py-1 rounded-full text-xs font-semibold" data-bn="৮৪ জন" data-en="84 children">৮৪ জন</span>
+                        <h4 class="font-bold text-lg" data-bn="এতিম স্পনসর" data-en="Orphan Sponsorship">এতিম স্পনসর
+                        </h4>
+                        <span class="bg-secondary px-3 py-1 rounded-full text-xs font-semibold" data-bn="৮৪ জন"
+                            data-en="84 children">৮৪ জন</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3" data-bn="মাসিক ১,২০০ টাকায় একটি এতিম শিশুর শিক্ষা, খাদ্য ও বাসস্থানের ব্যবস্থা করুন।" data-en="Sponsor an orphan's education, food, and shelter for 1,200 BDT/month.">মাসিক ১,২০০ টাকায় একটি এতিম শিশুর শিক্ষা, খাদ্য ও বাসস্থানের ব্যবস্থা করুন।</p>
+                    <p class="text-sm text-gray-600 mb-3"
+                        data-bn="মাসিক ১,২০০ টাকায় একটি এতিম শিশুর শিক্ষা, খাদ্য ও বাসস্থানের ব্যবস্থা করুন।"
+                        data-en="Sponsor an orphan's education, food, and shelter for 1,200 BDT/month.">মাসিক ১,২০০
+                        টাকায় একটি এতিম শিশুর শিক্ষা, খাদ্য ও বাসস্থানের ব্যবস্থা করুন।</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-sm font-semibold" data-bn="মাসিক ১,২০০৳" data-en="Monthly 1,200 BDT">মাসিক ১,২০০৳</span>
-                        <button class="bg-primary text-secondary px-6 py-2 rounded-full text-sm font-semibold" data-bn="স্পনসর" data-en="Sponsor">স্পনসর</button>
+                        <span class="text-sm font-semibold" data-bn="মাসিক ১,২০০৳" data-en="Monthly 1,200 BDT">মাসিক
+                            ১,২০০৳</span>
+                        <button class="bg-primary text-secondary px-6 py-2 rounded-full text-sm font-semibold"
+                            data-bn="স্পনসর" data-en="Sponsor">স্পনসর</button>
                     </div>
                 </div>
             </div>
@@ -294,17 +351,24 @@
             <!-- card 3 - water well -->
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div class="h-44 w-full overflow-hidden">
-                    <img src="https://cdn.pixabay.com/photo/2017/01/20/17/57/well-1995412_1280.jpg" class="w-full h-full object-cover">
+                    <img src="https://cdn.pixabay.com/photo/2017/01/20/17/57/well-1995412_1280.jpg"
+                        class="w-full h-full object-cover">
                 </div>
                 <div class="p-5">
                     <div class="flex justify-between items-center mb-2">
                         <h4 class="font-bold text-lg" data-bn="কূপ খনন" data-en="Water Well">কূপ খনন</h4>
-                        <span class="bg-secondary px-3 py-1 rounded-full text-xs font-semibold" data-bn="৬৮% সম্পন্ন" data-en="68% complete">৬৮% সম্পন্ন</span>
+                        <span class="bg-secondary px-3 py-1 rounded-full text-xs font-semibold" data-bn="৬৮% সম্পন্ন"
+                            data-en="68% complete">৬৮% সম্পন্ন</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3" data-bn="সুদূর পল্লীতে বিশুদ্ধ পানির ব্যবস্থা করুন। একটি কূপ চিরকালীন সাদাকাহ।" data-en="Provide clean water to remote villages. A well is ongoing charity.">সুদূর পল্লীতে বিশুদ্ধ পানির ব্যবস্থা করুন। একটি কূপ চিরকালীন সাদাকাহ।</p>
+                    <p class="text-sm text-gray-600 mb-3"
+                        data-bn="সুদূর পল্লীতে বিশুদ্ধ পানির ব্যবস্থা করুন। একটি কূপ চিরকালীন সাদাকাহ।"
+                        data-en="Provide clean water to remote villages. A well is ongoing charity.">সুদূর পল্লীতে
+                        বিশুদ্ধ পানির ব্যবস্থা করুন। একটি কূপ চিরকালীন সাদাকাহ।</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-sm font-semibold" data-bn="প্রয়োজন: ৮০,০০০৳" data-en="Goal: 80,000 BDT">প্রয়োজন: ৮০,০০০৳</span>
-                        <button class="bg-primary text-secondary px-6 py-2 rounded-full text-sm font-semibold" data-bn="দান করুন" data-en="Donate Now">দান করুন</button>
+                        <span class="text-sm font-semibold" data-bn="প্রয়োজন: ৮০,০০০৳"
+                            data-en="Goal: 80,000 BDT">প্রয়োজন: ৮০,০০০৳</span>
+                        <button class="bg-primary text-secondary px-6 py-2 rounded-full text-sm font-semibold"
+                            data-bn="দান করুন" data-en="Donate Now">দান করুন</button>
                     </div>
                 </div>
             </div>
@@ -312,17 +376,25 @@
             <!-- card 4 - quran -->
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div class="h-44 w-full overflow-hidden">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/29/10/38/quran-1868740_1280.jpg" class="w-full h-full object-cover">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/29/10/38/quran-1868740_1280.jpg"
+                        class="w-full h-full object-cover">
                 </div>
                 <div class="p-5">
                     <div class="flex justify-between items-center mb-2">
-                        <h4 class="font-bold text-lg" data-bn="কুরআন বিতরণ" data-en="Quran Distribution">কুরআন বিতরণ</h4>
-                        <span class="bg-secondary px-3 py-1 rounded-full text-xs font-semibold" data-bn="২,৩৪০ কপি" data-en="2,340 copies">২,৩৪০ কপি</span>
+                        <h4 class="font-bold text-lg" data-bn="কুরআন বিতরণ" data-en="Quran Distribution">কুরআন বিতরণ
+                        </h4>
+                        <span class="bg-secondary px-3 py-1 rounded-full text-xs font-semibold" data-bn="২,৩৪০ কপি"
+                            data-en="2,340 copies">২,৩৪০ কপি</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3" data-bn="মাত্র ৩০০ টাকায় একটি পবিত্র কুরআন শরীফ বিতরণ করুন। সদাকায়ে জারিয়ার সর্বোত্তম মাধ্যম।" data-en="Distribute a holy Quran for only 300 BDT. The best form of Sadaqah Jariyah.">মাত্র ৩০০ টাকায় একটি পবিত্র কুরআন শরীফ বিতরণ করুন। সদাকায়ে জারিয়ার সর্বোত্তম মাধ্যম।</p>
+                    <p class="text-sm text-gray-600 mb-3"
+                        data-bn="মাত্র ৩০০ টাকায় একটি পবিত্র কুরআন শরীফ বিতরণ করুন। সদাকায়ে জারিয়ার সর্বোত্তম মাধ্যম।"
+                        data-en="Distribute a holy Quran for only 300 BDT. The best form of Sadaqah Jariyah.">মাত্র ৩০০
+                        টাকায় একটি পবিত্র কুরআন শরীফ বিতরণ করুন। সদাকায়ে জারিয়ার সর্বোত্তম মাধ্যম।</p>
                     <div class="flex justify-between items-center">
-                        <span class="text-sm font-semibold" data-bn="প্রতি কপি ৩০০৳" data-en="Per copy 300 BDT">প্রতি কপি ৩০০৳</span>
-                        <button class="bg-primary text-secondary px-6 py-2 rounded-full text-sm font-semibold" data-bn="দান করুন" data-en="Donate">দান করুন</button>
+                        <span class="text-sm font-semibold" data-bn="প্রতি কপি ৩০০৳" data-en="Per copy 300 BDT">প্রতি
+                            কপি ৩০০৳</span>
+                        <button class="bg-primary text-secondary px-6 py-2 rounded-full text-sm font-semibold"
+                            data-bn="দান করুন" data-en="Donate">দান করুন</button>
                     </div>
                 </div>
             </div>
@@ -334,108 +406,124 @@
         <div class="bg-white rounded-2xl shadow-lg p-5">
             <div class="flex items-center gap-2 mb-3">
                 <i class="fa-solid fa-calculator text-accent text-xl"></i>
-                <h3 class="font-bold text-base" data-bn="যাকাত ক্যালকুলেটর" data-en="Zakat Calculator">যাকাত ক্যালকুলেটর</h3>
+                <h3 class="font-bold text-base" data-bn="যাকাত ক্যালকুলেটর" data-en="Zakat Calculator">যাকাত ক্যালকুলেটর
+                </h3>
             </div>
             <div class="flex items-center bg-secondary rounded-full p-1">
-                <input type="text" placeholder="সঞ্চয়ের পরিমাণ (টাকা)" class="bg-transparent w-full p-3 outline-none text-sm">
-                <button class="bg-primary text-secondary px-6 py-2 rounded-full text-sm font-semibold whitespace-nowrap" data-bn="নির্ণয়" data-en="Calculate">নির্ণয়</button>
+                <input type="text" placeholder="সঞ্চয়ের পরিমাণ (টাকা)"
+                    class="bg-transparent w-full p-3 outline-none text-sm">
+                <button class="bg-primary text-secondary px-6 py-2 rounded-full text-sm font-semibold whitespace-nowrap"
+                    data-bn="নির্ণয়" data-en="Calculate">নির্ণয়</button>
             </div>
-            <p class="text-xs mt-2 text-primary/60" data-bn="নেসাব মূল্য: রুপা ~ ৪৫,০০০৳, সোনা ~ ৬,৫০,০০০৳" data-en="Nisab: Silver ~45,000 BDT, Gold ~650,000 BDT">নেসাব মূল্য: রুপা ~ ৪৫,০০০৳, সোনা ~ ৬,৫০,০০০৳</p>
+            <p class="text-xs mt-2 text-primary/60" data-bn="নেসাব মূল্য: রুপা ~ ৪৫,০০০৳, সোনা ~ ৬,৫০,০০০৳"
+                data-en="Nisab: Silver ~45,000 BDT, Gold ~650,000 BDT">নেসাব মূল্য: রুপা ~ ৪৫,০০০৳, সোনা ~ ৬,৫০,০০০৳</p>
         </div>
     </section>
 
-    <!-- ========== SOCIAL MEDIA FOOTER (FIXED) ========== -->
-    <div class="fixed bottom-0 left-0 w-full bg-primary text-secondary py-3 z-50">
-        <div class="flex justify-center gap-8 items-center text-2xl mb-1">
-            <a href="#" class="text-secondary"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" class="text-secondary"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="text-secondary"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" class="text-secondary"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="#" class="text-secondary"><i class="fa-brands fa-telegram"></i></a>
+    <!-- Fixed Footer -->
+    <footer
+        class="fixed bottom-0 left-0 right-0 bg-gradient-to-br from-[#14281D] to-[#1a3a2a] text-[#FFFCDC] px-4 py-2.5 z-50 border-t border-[#FFFCDC]/20">
+        <div class="max-w-full">
+            <div class="flex justify-between items-center mb-2">
+                <div class="text-xs font-bold flex items-center gap-1.5"><i
+                        class="fas fa-mosque text-sm"></i><span>Darul Islam</span></div>
+                <div class="text-[11px] flex items-center gap-1"><i class="fas fa-phone text-xs"></i> +88017xxxxxx</div>
+            </div>
+            <div class="flex justify-center gap-1.5 pt-2 border-t border-[#FFFCDC]/20">
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="Phone"><i class="fas fa-phone"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="WhatsApp"><i class="fab fa-whatsapp"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="Facebook"><i class="fab fa-facebook"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="YouTube"><i class="fab fa-youtube"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="Globe"><i class="fas fa-globe"></i></div>
+            </div>
+            <div class="text-[9px] text-[#FFFCDC]/60 text-center mt-1.5">© 2026 Darul Islam Institute | All Rights
+                Reserved</div>
         </div>
-        <p class="text-center text-[10px] opacity-80" data-bn="© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত" data-en="© Darul Islam Institute · All Rights Reserved">© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত</p>
-    </div>
-
-    <!-- spacer for fixed footer -->
-    <div class="h-20"></div>
+    </footer>
 
     <script>
-        (function() {
-            // Language Toggle
-            let currentLang = 'bn';
-            const langToggle = document.getElementById('langToggle');
-            const langDot = document.getElementById('langDot');
-            const langLabelBn = document.getElementById('langLabelBn');
-            const langLabelEn = document.getElementById('langLabelEn');
+            (function () {
+                // Language Toggle
+                let currentLang = 'bn';
+                const langToggle = document.getElementById('langToggle');
+                const langDot = document.getElementById('langDot');
+                const langLabelBn = document.getElementById('langLabelBn');
+                const langLabelEn = document.getElementById('langLabelEn');
 
-            function updateLanguage(lang) {
-                document.querySelectorAll('[data-bn][data-en]').forEach(el => {
-                    el.textContent = lang === 'bn' ? el.getAttribute('data-bn') : el.getAttribute('data-en');
-                });
+                function updateLanguage(lang) {
+                    document.querySelectorAll('[data-bn][data-en]').forEach(el => {
+                        el.textContent = lang === 'bn' ? el.getAttribute('data-bn') : el.getAttribute('data-en');
+                    });
 
-                if (lang === 'bn') {
-                    langDot.style.left = '4px';
-                    langLabelBn.className = 'px-1 font-bold';
-                    langLabelEn.className = 'px-1 opacity-60';
-                } else {
-                    langDot.style.left = '28px';
-                    langLabelEn.className = 'px-1 font-bold';
-                    langLabelBn.className = 'px-1 opacity-60';
+                    if (lang === 'bn') {
+                        langDot.style.left = '4px';
+                        langLabelBn.className = 'px-1 font-bold';
+                        langLabelEn.className = 'px-1 opacity-60';
+                    } else {
+                        langDot.style.left = '28px';
+                        langLabelEn.className = 'px-1 font-bold';
+                        langLabelBn.className = 'px-1 opacity-60';
+                    }
                 }
-            }
 
-            if (langToggle) {
-                langToggle.addEventListener('click', () => {
-                    currentLang = currentLang === 'bn' ? 'en' : 'bn';
-                    updateLanguage(currentLang);
-                });
-            }
-            updateLanguage('bn');
+                if (langToggle) {
+                    langToggle.addEventListener('click', () => {
+                        currentLang = currentLang === 'bn' ? 'en' : 'bn';
+                        updateLanguage(currentLang);
+                    });
+                }
+                updateLanguage('bn');
 
-            // Mobile menu toggle
-            const menuBtn = document.getElementById('menuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (menuBtn && mobileMenu) {
-                menuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-            
-            // Interactive amount preset buttons
-            const amountPresets = document.querySelectorAll('.amount-preset');
-            amountPresets.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    // Remove active class from all
-                    amountPresets.forEach(b => {
-                        b.classList.remove('bg-primary', 'text-secondary');
-                        b.classList.add('bg-primary/10', 'text-primary');
+                // Mobile menu toggle
+                const menuBtn = document.getElementById('menuBtn');
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (menuBtn && mobileMenu) {
+                    menuBtn.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
                     });
-                    // Add active class to clicked
-                    this.classList.remove('bg-primary/10', 'text-primary');
-                    this.classList.add('bg-primary', 'text-secondary');
-                    
-                    // Set custom amount field (optional)
-                    const amount = this.innerText.replace('৳', '');
-                    const customField = document.getElementById('customAmount');
-                    if (customField) customField.value = amount;
-                });
-            });
-            
-            // Payment method selection
-            const paymentMethods = document.querySelectorAll('.payment-method');
-            paymentMethods.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    paymentMethods.forEach(b => {
-                        b.classList.remove('bg-primary', 'text-secondary');
-                        b.classList.add('bg-primary/10', 'text-primary');
+                }
+
+                // Interactive amount preset buttons
+                const amountPresets = document.querySelectorAll('.amount-preset');
+                amountPresets.forEach(btn => {
+                    btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        // Remove active class from all
+                        amountPresets.forEach(b => {
+                            b.classList.remove('bg-primary', 'text-secondary');
+                            b.classList.add('bg-primary/10', 'text-primary');
+                        });
+                        // Add active class to clicked
+                        this.classList.remove('bg-primary/10', 'text-primary');
+                        this.classList.add('bg-primary', 'text-secondary');
+
+                        // Set custom amount field (optional)
+                        const amount = this.innerText.replace('৳', '');
+                        const customField = document.getElementById('customAmount');
+                        if (customField) customField.value = amount;
                     });
-                    this.classList.remove('bg-primary/10', 'text-primary');
-                    this.classList.add('bg-primary', 'text-secondary');
                 });
-            });
-        })();
+
+                // Payment method selection
+                const paymentMethods = document.querySelectorAll('.payment-method');
+                paymentMethods.forEach(btn => {
+                    btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        paymentMethods.forEach(b => {
+                            b.classList.remove('bg-primary', 'text-secondary');
+                            b.classList.add('bg-primary/10', 'text-primary');
+                        });
+                        this.classList.remove('bg-primary/10', 'text-primary');
+                        this.classList.add('bg-primary', 'text-secondary');
+                    });
+                });
+            })();
     </script>
 </body>
+
 </html>

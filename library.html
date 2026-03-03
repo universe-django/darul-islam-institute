@@ -62,73 +62,72 @@
 
 <body class="bg-secondary text-primary min-h-screen pb-32 font-bengali">
 
-    <!-- ========== HEADER ========== -->
-    <header class="bg-primary text-secondary p-4 shadow-md sticky top-0 z-50">
-        <div class="flex items-center justify-between max-w-7xl mx-auto">
+    <!-- Fixed Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#14281D] shadow-md">
+        <!-- Header Top – reduced height: py-1 instead of py-2, w-9 h-9 instead of w-11 h-11 -->
+        <div class="flex items-center justify-between px-3 py-1 border-b border-[#FFFCDC]/20">
             <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-book-quran text-primary text-lg"></i>
+                <div class="w-9 h-9 bg-[#FFFCDC] rounded-full flex items-center justify-center shrink-0">
+                    <i class="fas fa-mosque text-[#14281D] text-xl"></i>
                 </div>
-                <h1 class="font-bold text-lg" data-bn="দারুল ইসলাম · লাইব্রেরি" data-en="Darul Islam · Library">দারুল
-                    ইসলাম · লাইব্রেরি</h1>
+                <div class="text-[#FFFCDC] font-bold text-lg leading-tight">
+                    Darul Islam Institute
+                </div>
             </div>
-
-            <!-- Language Toggle Switch -->
-            <div class="flex items-center gap-1 bg-secondary text-primary rounded-full px-2 py-1 font-semibold text-xs">
-                <span id="langLabelBn" class="px-1 font-bold">বাংলা</span>
-                <button id="langToggle" class="relative w-12 h-6 bg-primary rounded-full">
-                    <span id="langDot"
-                        class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-secondary rounded-full shadow"></span>
+            <div class="flex gap-2.5">
+                <button
+                    class="text-[#FFFCDC] text-base cursor-pointer transition-all w-7 h-7 flex items-center justify-center rounded-md bg-[#FFFCDC]/10 border-0"
+                    title="Settings">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
-                <span id="langLabelEn" class="px-1 opacity-60">EN</span>
             </div>
-
-            <!-- mobile menu icon -->
-            <button id="menuBtn" class="text-xl lg:hidden text-secondary">
-                <i class="fa-solid fa-bars"></i>
-            </button>
         </div>
 
-        <!-- mobile menu -->
-        <div id="mobileMenu"
-            class="hidden flex-col gap-2 mt-3 bg-secondary text-primary rounded-lg p-4 lg:hidden text-sm">
-            <a href="#" class="block" data-bn="হোম" data-en="Home">হোম</a>
-            <a href="#" class="block" data-bn="দুআ সমূহ" data-en="Duas">দুআ সমূহ</a>
-            <a href="#" class="block" data-bn="কুরআন" data-en="Quran">কুরআন</a>
-            <a href="#" class="block" data-bn="হাদিস" data-en="Hadith">হাদিস</a>
-            <a href="#" class="block" data-bn="সালাতের সময়" data-en="Prayer Times">সালাতের সময়</a>
+        <!-- Navigation – reduced padding py-1, smaller gap, smaller text-xs -->
+        <nav class="bg-[#14281D] px-3 py-1 flex justify-center gap-2 border-b-2 border-[#F4A460] text-[11px]">
+            <a href="#home"
+                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
+                    class="fas fa-home"></i> Home</a>
+            <a href="#about"
+                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
+                    class="fas fa-info-circle"></i> About Us</a>
+            <a href="#donation"
+                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
+                    class="fas fa-hand-holding-heart"></i> Donation</a>
+            <a href="#english"
+                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10">English</a>
+        </nav>
+
+        <!-- 6 ICON NAV (unchanged structure, just background white) -->
+        <div class="bg-white">
+            <div class="grid grid-cols-6 text-center text-[11px] max-w-7xl mx-auto py-2">
+                <a href="index.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-house text-[#14281D] text-sm"></i>
+                    <span data-bn="হোম" data-en="Home">হোম</span>
+                </a>
+                <a href="library.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-book-quran text-[#14281D] text-sm"></i>
+                    <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
+                </a>
+                <a href="education.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-graduation-cap text-[#14281D] text-sm"></i>
+                    <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
+                </a>
+                <a href="dawah.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-hands-praying text-[#14281D] text-sm"></i>
+                    <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
+                </a>
+                <a href="donation.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-hand-holding-dollar text-[#14281D] text-sm"></i>
+                    <span data-bn="দান" data-en="Donate">দান</span>
+                </a>
+                <a href="registration.html" class="flex flex-col items-center text-[#14281D]">
+                    <i class="fa-solid fa-user text-[#14281D] text-sm"></i>
+                    <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
+                </a>
+            </div>
         </div>
     </header>
-
-    <!-- ========== 6 ICON NAVBAR (STICKY) ========== -->
-    <div class="sticky top-0 z-40 bg-white shadow-md py-3">
-        <div class="grid grid-cols-6 text-center text-xs max-w-7xl mx-auto">
-            <a href="index.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-house text-primary"></i>
-                <span data-bn="হোম" data-en="Home">হোম</span>
-            </a>
-            <a href="library.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-book-quran text-primary"></i>
-                <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
-            </a>
-            <a href="education.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-graduation-cap text-primary"></i>
-                <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
-            </a>
-            <a href="dawah.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-hands-praying text-primary"></i>
-                <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
-            </a>
-            <a href="donation.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-hand-holding-dollar text-primary"></i>
-                <span data-bn="দান" data-en="Donate">দান</span>
-            </a>
-            <a href="registration.html" class="flex flex-col items-center text-primary">
-                <i class="fa-solid fa-user text-primary"></i>
-                <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
-            </a>
-        </div>
-    </div>
 
     <!-- ========== HERO SECTION ========== -->
     <section
@@ -379,21 +378,31 @@
         </div>
     </section>
 
-    <!-- ========== SOCIAL MEDIA FOOTER (FIXED) ========== -->
-    <div class="fixed bottom-0 left-0 w-full bg-primary text-secondary py-3 z-50">
-        <div class="flex justify-center gap-8 items-center text-2xl mb-1">
-            <a href="#" class="text-secondary"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" class="text-secondary"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="text-secondary"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" class="text-secondary"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="#" class="text-secondary"><i class="fa-brands fa-telegram"></i></a>
+    <!-- Fixed Footer -->
+    <footer
+        class="fixed bottom-0 left-0 right-0 bg-gradient-to-br from-[#14281D] to-[#1a3a2a] text-[#FFFCDC] px-4 py-2.5 z-50 border-t border-[#FFFCDC]/20">
+        <div class="max-w-full">
+            <div class="flex justify-between items-center mb-2">
+                <div class="text-xs font-bold flex items-center gap-1.5"><i
+                        class="fas fa-mosque text-sm"></i><span>Darul Islam</span></div>
+                <div class="text-[11px] flex items-center gap-1"><i class="fas fa-phone text-xs"></i> +88017xxxxxx</div>
+            </div>
+            <div class="flex justify-center gap-1.5 pt-2 border-t border-[#FFFCDC]/20">
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="Phone"><i class="fas fa-phone"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="WhatsApp"><i class="fab fa-whatsapp"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="Facebook"><i class="fab fa-facebook"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="YouTube"><i class="fab fa-youtube"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="Globe"><i class="fas fa-globe"></i></div>
+            </div>
+            <div class="text-[9px] text-[#FFFCDC]/60 text-center mt-1.5">© 2026 Darul Islam Institute | All Rights
+                Reserved</div>
         </div>
-        <p class="text-center text-[10px] opacity-80" data-bn="© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত"
-            data-en="© Darul Islam Institute · All Rights Reserved">© দারুল ইসলাম ইনস্টিটিউট · সমস্ত অধিকার সংরক্ষিত</p>
-    </div>
-
-    <!-- spacer for fixed footer -->
-    <div class="h-20"></div>
+    </footer>
 
     <script>
             (function () {

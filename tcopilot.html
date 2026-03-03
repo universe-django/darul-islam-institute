@@ -105,7 +105,7 @@
 
 <body class="bg-[#FFFCDC] pt-[72px] pb-[70px] font-['Poppins',sans-serif] overflow-x-auto">
 
-    <!-- Fixed Header -->
+    <!-- Fixed Header (height reduced: top part padding smaller, nav row compact) -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-[#14281D] shadow-md">
         <!-- Header Top – reduced height: py-1 instead of py-2, w-9 h-9 instead of w-11 h-11 -->
         <div class="flex items-center justify-between px-3 py-1 border-b border-[#FFFCDC]/20">
@@ -172,7 +172,7 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main Content (exactly same structure, tailwind classes only) -->
     <main class="content-wrapper">
 
         <!-- Hero Section with Background Carousel -->
@@ -184,42 +184,38 @@
             </div>
             <div class="hero-overlay"></div>
 
-            <!-- Centered content container with flex column for perfect centering -->
-            <div class="relative z-[3] w-full h-full flex flex-col items-center justify-center px-4">
-                <h2
-                    class="text-2xl font-extrabold text-[#14281D] mb-2 drop-shadow-[0_2px_4px_rgba(255,252,220,0.3)] text-center">
+            <div class="relative z-[3] text-center w-full px-4 py-5">
+                <h2 class="text-2xl font-extrabold text-[#14281D] mb-2 drop-shadow-[0_2px_4px_rgba(255,252,220,0.3)]">
                     Darul Islam Institute
                 </h2>
                 <p
-                    class="text-sm text-[#14281D] mb-4 font-medium tracking-wide drop-shadow-[0_1px_2px_rgba(255,252,220,0.2)] text-center">
+                    class="text-sm text-[#14281D] mb-4 font-medium tracking-wide drop-shadow-[0_1px_2px_rgba(255,252,220,0.2)]">
                     Education • Islamic Library • Dawah • Donation
                 </p>
-                <div class="flex gap-2.5 justify-center flex-wrap">
+                <div class="flex gap-2.5 justify-center flex-wrap mb-4">
                     <button
-                        class="bg-green-800 text-[#FFFCDC] px-5 py-2.5 rounded-md font-bold text-xs flex items-center gap-1.5 shadow-[0_2px_8px_rgba(20,40,29,0.3)] transition-all hover:scale-105 active:scale-95"><i
+                        class="bg-[#14281D] text-[#FFFCDC] px-5 py-2.5 rounded-md font-bold text-xs flex items-center gap-1.5 shadow-[0_2px_8px_rgba(20,40,29,0.3)] transition-all"><i
                             class="fas fa-user-plus"></i> Enroll Now</button>
                     <button
-                        class="bg-yellow-500 text-[#14281D] px-5 py-2.5 rounded-md font-bold text-xs flex items-center gap-1.5 shadow-[0_2px_8px_rgba(244,164,96,0.3)] transition-all hover:scale-105 active:scale-95"><i
+                        class="bg-[#F4A460] text-[#14281D] px-5 py-2.5 rounded-md font-bold text-xs flex items-center gap-1.5 shadow-[0_2px_8px_rgba(244,164,96,0.3)] transition-all"><i
                             class="fas fa-hand-holding-heart"></i> Make a Donation</button>
                 </div>
             </div>
 
-            <!-- Hero dots - positioned absolutely at bottom -->
+            <!-- Hero dots -->
             <div class="absolute bottom-2 left-1/2 -translate-x-1/2 z-[4] flex gap-1">
                 <div
-                    class="w-1.5 h-1.5 rounded-full bg-[#FFFCDC]/70 cursor-pointer transition-all hero-carousel-dot active hover:bg-[#FFFCDC]">
+                    class="w-1.5 h-1.5 rounded-full bg-[#FFFCDC]/50 cursor-pointer transition-all hero-carousel-dot active">
                 </div>
-                <div
-                    class="w-1.5 h-1.5 rounded-full bg-[#FFFCDC]/70 cursor-pointer transition-all hero-carousel-dot hover:bg-[#FFFCDC]">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#FFFCDC]/50 cursor-pointer transition-all hero-carousel-dot">
                 </div>
-                <div
-                    class="w-1.5 h-1.5 rounded-full bg-[#FFFCDC]/70 cursor-pointer transition-all hero-carousel-dot hover:bg-[#FFFCDC]">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#FFFCDC]/50 cursor-pointer transition-all hero-carousel-dot">
                 </div>
             </div>
         </section>
 
         <!-- Description -->
-        <section class="text-center text-[#14281D] text-[10px] px-4 py-3 font-medium tracking-wide">
+        <section class="text-center text-[#14281D] text-sm px-4 py-3 font-medium tracking-wide">
             <i class="fas fa-book-open"></i> Education • <i class="fas fa-building"></i> Islamic Library • <i
                 class="fas fa-users"></i> Dawah • <i class="fas fa-donate"></i> Donation
         </section>
@@ -367,255 +363,9 @@
                         class="fas fa-images"></i> View All Photos</button>
             </div>
         </section>
-
-        <!-- Our Courses Section -->
-        <section class="px-4 py-6 bg-[#FFFCDC]">
-            <div class="relative mb-6">
-                <h2 class="text-center text-2xl font-extrabold text-[#14281D]">
-                    <span class="text-[#D4A574] text-lg">✦</span> Our Courses <span
-                        class="text-[#D4A574] text-lg">✦</span>
-                </h2>
-                <p class="text-center text-xs text-[#8B7355] mt-1 font-medium">Islamic Education for All Levels</p>
-            </div>
-
-            <!-- Course Categories Tabs -->
-            <div class="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide">
-                <button
-                    class="bg-[#14281D] text-[#FFFCDC] px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border-2 border-[#14281D] transition-all hover:bg-[#1f3a2c] active:scale-95">All
-                    Courses</button>
-                <button
-                    class="bg-transparent text-[#14281D] px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border-2 border-[#14281D] transition-all hover:bg-[#14281D]/10 active:scale-95">Quran</button>
-                <button
-                    class="bg-transparent text-[#14281D] px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border-2 border-[#14281D] transition-all hover:bg-[#14281D]/10 active:scale-95">Arabic</button>
-                <button
-                    class="bg-transparent text-[#14281D] px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border-2 border-[#14281D] transition-all hover:bg-[#14281D]/10 active:scale-95">Islamic
-                    Studies</button>
-                <button
-                    class="bg-transparent text-[#14281D] px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border-2 border-[#14281D] transition-all hover:bg-[#14281D]/10 active:scale-95">Kids
-                    Program</button>
-            </div>
-
-            <!-- Courses Grid -->
-            <div class="grid grid-cols-2 gap-3">
-                <!-- Course Card 1 - Quran Memorization -->
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-book-quran text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Quran Memorization</h3>
-                            <p class="text-[10px] text-[#8B7355]">Hifz Program</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">2 hours daily • 5 days/week</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">24 students</span>
-                        </div>
-                        <span
-                            class="bg-[#14281D] text-[#FFFCDC] text-[10px] font-bold px-2 py-0.5 rounded-full">$45/mo</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </button>
-                </div>
-
-                <!-- Course Card 2 - Arabic Language -->
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-language text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Arabic Language</h3>
-                            <p class="text-[10px] text-[#8B7355]">Beginner to Advanced</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">1.5 hours • Mon/Wed/Fri</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">18 students</span>
-                        </div>
-                        <span
-                            class="bg-[#14281D] text-[#FFFCDC] text-[9px] font-bold px-2 py-0.5 rounded-full">$35/mo</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </button>
-                </div>
-
-                <!-- Course Card 3 - Tajweed Rules -->
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-microphone-alt text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Tajweed Rules</h3>
-                            <p class="text-[10px] text-[#8B7355]">Proper Quran Recitation</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">1 hour • Tue/Thu</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">15 students</span>
-                        </div>
-                        <span
-                            class="bg-[#14281D] text-[#FFFCDC] text-[9px] font-bold px-2 py-0.5 rounded-full">$25/mo</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </button>
-                </div>
-
-                <!-- Course Card 4 - Islamic Studies -->
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-mosque text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Islamic Studies</h3>
-                            <p class="text-[10px] text-[#8B7355]">Fiqh, Hadith, Seerah</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">2 hours • Sat/Sun</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">22 students</span>
-                        </div>
-                        <span
-                            class="bg-[#14281D] text-[#FFFCDC] text-[9px] font-bold px-2 py-0.5 rounded-full">$30/mo</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </button>
-                </div>
-
-                <!-- Course Card 5 - Kids Islamic Program -->
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-child text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Kids Islamic Program</h3>
-                            <p class="text-[10px] text-[#8B7355]">Ages 5-12</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">1.5 hours • Sat only</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">30 students</span>
-                        </div>
-                        <span
-                            class="bg-[#14281D] text-[#FFFCDC] text-[9px] font-bold px-2 py-0.5 rounded-full">$20/mo</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </button>
-                </div>
-
-                <!-- Course Card 6 - Ijazah Program -->
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-certificate text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Ijazah Program</h3>
-                            <p class="text-[10px] text-[#8B7355]">Advanced Certification</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">Flexible schedule</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">8 students</span>
-                        </div>
-                        <span
-                            class="bg-[#F4A460] text-[#14281D] text-[9px] font-bold px-2 py-0.5 rounded-full">Contact</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-phone-alt"></i> Request Info
-                    </button>
-                </div>
-            </div>
-
-            <!-- View All Courses Button -->
-            <div class="flex justify-center mt-5">
-                <button
-                    class="bg-[#14281D] text-[#FFFCDC] px-6 py-2.5 rounded-full font-bold text-xs flex items-center gap-2 border-2 border-[#F4A460] shadow-[0_4px_0_#0f1f16] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#0f1f16] active:translate-y-1 active:shadow-[0_2px_0_#0f1f16]">
-                    <i class="fas fa-grid-2"></i> View All Courses
-                    <i class="fas fa-arrow-right text-[#F4A460]"></i>
-                </button>
-            </div>
-
-            <!-- Free Trial Banner -->
-            <div
-                class="mt-5 mb-10 bg-gradient-to-r from-[#14281D] to-[#1f3a2c] rounded-xl p-3.5 flex items-center justify-between border-2 border-[#F4A460]">
-                <div class="flex items-center gap-2">
-                    <div
-                        class="w-10 h-10 bg-[#F4A460] rounded-full flex items-center justify-center text-[#14281D] text-xl">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-[#FFFCDC] font-extrabold text-sm">Free Trial Class</h4>
-                        <p class="text-[#FFFCDC]/80 text-[9px]">First class free for new students</p>
-                    </div>
-                </div>
-                <button
-                    class="bg-[#F4A460] text-[#14281D] text-[10px] font-bold px-4 py-2 rounded-lg border-2 border-[#FFFCDC] transition-all hover:bg-[#e6914e] active:scale-95">
-                    Book Now
-                </button>
-            </div>
-        </section>
-
     </main>
 
-    <!-- Fixed Footer -->
+    <!-- Fixed Footer (unchanged) -->
     <footer
         class="fixed bottom-0 left-0 right-0 bg-gradient-to-br from-[#14281D] to-[#1a3a2a] text-[#FFFCDC] px-4 py-2.5 z-50 border-t border-[#FFFCDC]/20">
         <div class="max-w-full">

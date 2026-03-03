@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darul Islam Institute</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html,
+        body {
+            scroll-behavior: smooth;
+            height: 100%;
+        }
+
+        body {
+            background-color: #FFFCDC;
+            padding-top: 80px;
+            padding-bottom: 70px;
+            overflow-x: hidden;
+        }
+
+        .bg-dark-green {
+            background-color: #14281D;
+        }
+
+        .text-dark-green {
+            color: #14281D;
+        }
+
+        .text-cream {
+            color: #FFFCDC;
+        }
+
+        /* Fixed Header */
+        .header-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background-color: #14281D;
+        }
+
+        .header-top {
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 252, 220, 0.2);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-circle {
+            width: 44px;
+            height: 44px;
+            background-color: #FFFCDC;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            font-size: 24px;
+            color: #14281D;
+        }
+
+        .header-title {
+            color: #FFFCDC;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-icon-btn {
+            color: #FFFCDC;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            background-color: rgba(255, 252, 220, 0.1);
+            border: none;
+        }
+
+        .header-icon-btn:hover {
+            background-color: rgba(255, 252, 220, 0.2);
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            background-color: #14281D;
+            padding: 8px 12px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            border-bottom: 2px solid #F4A460;
+            font-size: 12px;
+        }
+
+        .header-nav a {
+            color: #FFFCDC;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .header-nav a:hover {
+            background-color: rgba(255, 252, 220, 0.1);
+        }
+
+        /* Hero Section with Background Carousel */
+        .hero-container {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-carousel-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(20, 40, 29, 0.4) 0%, rgba(244, 164, 96, 0.2) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            width: 100%;
+            padding: 20px 16px;
+        }
+
+        .hero-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #14281D;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(255, 252, 220, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 13px;
+            color: #14281D;
+            margin-bottom: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(255, 252, 220, 0.2);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .btn-enroll {
+            background-color: #14281D;
+            color: #FFFCDC;
+            padding: 9px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(20, 40, 29, 0.3);
+        }
+
+        .btn-enroll:active {
+            transform: scale(0.98);
+        }
+
+        .btn-donate {
+            background-color: #F4A460;
+            color: #14281D;
+            padding: 9px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(244, 164, 96, 0.3);
+        }
+
+        .btn-donate:active {
+            transform: scale(0.98);
+        }
+
+        /* Hero carousel dots */
+        .hero-carousel-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            display: flex;
+            gap: 4px;
+        }
+
+        .hero-carousel-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: rgba(255, 252, 220, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-carousel-dot.active {
+            background-color: #FFFCDC;
+            width: 8px;
+            height: 8px;
+        }
+
+        /* Description Text */
+        .description-text {
+            text-align: center;
+            color: #14281D;
+            font-size: 13px;
+            padding: 12px 16px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* Stats Section */
+        .stats-container {
+            padding: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .stat-card {
+            background-color: #FFFCDC;
+            border: 2px solid #14281D;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(20, 40, 29, 0.1);
+        }
+
+        .stat-icon {
+            font-size: 32px;
+            margin-bottom: 6px;
+            color: #14281D;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #14281D;
+            margin-bottom: 4px;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #8B7355;
+        }
+
+        /* Service Carousel */
+        .carousel-wrapper {
+            padding: 16px;
+        }
+
+        .carousel-container {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 10px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        .carousel-container::-webkit-scrollbar-track {
+            background: rgba(20, 40, 29, 0.1);
+            border-radius: 10px;
+        }
+
+        .carousel-container::-webkit-scrollbar-thumb {
+            background: #D4A574;
+            border-radius: 10px;
+        }
+
+        .carousel-item {
+            flex-shrink: 0;
+            width: calc(33.333% - 8px);
+            min-width: 100px;
+            max-width: 140px;
+            border-radius: 12px;
+            padding: 14px 10px;
+            border: 2px solid #14281D;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(20, 40, 29, 0.3) 0%, rgba(244, 164, 96, 0.2) 100%);
+            z-index: 1;
+        }
+
+        .carousel-item-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .carousel-item-1 {
+            background-image: url('images/book-sale.png');
+        }
+
+        .carousel-item-2 {
+            background-image: url('images/makkah.png');
+        }
+
+        .carousel-item-3 {
+            background-image: url('images/online-courses.png');
+        }
+
+        .carousel-icon {
+            font-size: 32px;
+            color: #FFFCDC;
+            text-shadow: 0 2px 4px rgba(20, 40, 29, 0.4);
+        }
+
+        .carousel-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #FFFCDC;
+            text-shadow: 0 1px 3px rgba(20, 40, 29, 0.4);
+            line-height: 1.2;
+        }
+
+        .carousel-discount {
+            font-size: 18px;
+            font-weight: 800;
+            color: #FFFCDC;
+            text-shadow: 0 1px 3px rgba(20, 40, 29, 0.4);
+        }
+
+        .carousel-btn {
+            background-color: #F4A460;
+            color: #14281D;
+            padding: 6px 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: center;
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            box-shadow: 0 2px 6px rgba(244, 164, 96, 0.3);
+        }
+
+        .carousel-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Carousel Dots */
+        .carousel-dots {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .carousel-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 3px;
+            background-color: #D4A574;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: #14281D;
+            width: 9px;
+            height: 9px;
+        }
+
+        /* Notice Banner */
+        .notice-section {
+            padding: 12px 16px;
+        }
+
+        .notice-banner {
+            background: linear-gradient(90deg, #F4A460 0%, #FFB84D 100%);
+            border-radius: 20px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(244, 164, 96, 0.2);
+        }
+
+        .notice-icon {
+            font-size: 18px;
+            color: #14281D;
+            flex-shrink: 0;
+        }
+
+        .notice-badge {
+            background-color: #F4A460;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 700;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .notice-text {
+            color: #14281D;
+            font-size: 11px;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .notice-arrow {
+            font-size: 14px;
+            color: #14281D;
+            flex-shrink: 0;
+        }
+
+        /* Activities Section */
+        .activities-section {
+            padding: 20px 16px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: #14281D;
+            margin-bottom: 20px;
+        }
+
+        .ornament {
+            color: #D4A574;
+            font-size: 18px;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .activity-card {
+            background-color: #FFFCDC;
+            border: 2px solid #14281D;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(20, 40, 29, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(20, 40, 29, 0.15);
+        }
+
+        .activity-icon {
+            font-size: 42px;
+            margin-bottom: 8px;
+            color: #14281D;
+        }
+
+        .activity-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #14281D;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 0 16px 20px 16px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #14281D;
+            box-shadow: 0 2px 6px rgba(20, 40, 29, 0.1);
+        }
+
+        .view-all-btn {
+            width: 100%;
+            background-color: #14281D;
+            color: #FFFCDC;
+            padding: 11px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .view-all-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Fixed Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #14281D 0%, #1a3a2a 100%);
+            color: #FFFCDC;
+            padding: 10px 16px;
+            z-index: 50;
+            border-top: 1px solid rgba(255, 252, 220, 0.2);
+        }
+
+        .footer-content {
+            max-width: 100%;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .footer-title {
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-icon {
+            font-size: 14px;
+        }
+
+        .footer-contact {
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .footer-contact i {
+            font-size: 12px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 252, 220, 0.2);
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(255, 252, 220, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 252, 220, 0.25);
+            color: #FFFCDC;
+        }
+
+        .social-icon:active {
+            transform: scale(0.95);
+        }
+
+        .footer-copyright {
+            font-size: 9px;
+            color: rgba(255, 252, 220, 0.6);
+            text-align: center;
+            margin-top: 6px;
+        }
+
+        /* Responsive */
+        @media (max-width: 320px) {
+            .header-nav {
+                font-size: 11px;
+                gap: 8px;
+            }
+
+            .carousel-item {
+                width: calc(33.333% - 8px);
+                max-width: none;
+            }
+
+            .hero-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed Header -->
+    <header class="header-container">
+        <!-- Header Top -->
+        <div class="header-top">
+            <div class="header-logo">
+                <div class="logo-circle">
+                    <i class="fas fa-mosque logo-icon"></i>
+                </div>
+                <div class="header-title">
+                    Darul Islam Institute
+                </div>
+            </div>
+            <div class="header-icons">
+                <button class="header-icon-btn" title="Camera">
+                    <i class="fas fa-camera"></i>
+                </button>
+                <button class="header-icon-btn" title="Settings">
+                    <i class="fas fa-sliders-h"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="header-nav">
+            <a href="#home"><i class="fas fa-home"></i> Home</a>
+            <a href="#about"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="#donation"><i class="fas fa-hand-holding-heart"></i> Donation</a>
+            <a href="#english">English</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <!-- Hero Section with Background Carousel -->
+        <section class="hero-container">
+            <!-- Background Carousel -->
+            <div class="hero-carousel-wrapper">
+                <div class="hero-slide active"
+                    style="background-image: url('images/slide1.png')">
+                </div>
+                <div class="hero-slide"
+                    style="background-image: url('images/slide2.png')">
+                </div>
+                <div class="hero-slide"
+                    style="background-image: url('images/slide3.png')">
+                </div>
+            </div>
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <h2 class="hero-title">Darul Islam Institute</h2>
+                <p class="hero-subtitle">Education • Islamic Library • Dawah • Donation</p>
+
+                <div class="btn-group">
+                    <button class="btn-enroll">
+                        <i class="fas fa-user-plus"></i> Enroll Now
+                    </button>
+                    <button class="btn-donate">
+                        <i class="fas fa-hand-holding-heart"></i> Make a Donation
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hero Carousel Dots -->
+            <div class="hero-carousel-dots">
+                <div class="hero-carousel-dot active"></div>
+                <div class="hero-carousel-dot"></div>
+                <div class="hero-carousel-dot"></div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        <section class="description-text">
+            <i class="fas fa-book-open"></i> Education • <i class="fas fa-building"></i> Islamic Library • <i
+                class="fas fa-users"></i> Dawah • <i class="fas fa-donate"></i> Donation
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="stat-label">Total Students</div>
+                <div class="stat-number">350</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-chalkboard-user"></i>
+                </div>
+                <div class="stat-label">Total Teachers</div>
+                <div class="stat-number">25</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="stat-label">Courses</div>
+                <div class="stat-number">12</div>
+            </div>
+        </section>
+
+        <!-- Carousel Section -->
+        <section class="carousel-wrapper">
+            <div class="carousel-container" id="carousel">
+                <!-- Item 1 -->
+                <div class="carousel-item carousel-item-1">
+                    <div class="carousel-item-content">
+                        <div class="carousel-icon">
+                            <i class="fas fa-book-quran"></i>
+                        </div>
+                        <div class="carousel-title">Islamic Book Sale</div>
+                        <div class="carousel-discount">25% off</div>
+                        <button class="carousel-btn">
+                            <i class="fas fa-shopping-cart"></i> Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="carousel-item carousel-item-2">
+                    <div class="carousel-item-content">
+                        <div class="carousel-icon">
+                            <i class="fas fa-kaaba"></i>
+                        </div>
+                        <div class="carousel-title">Hajj & Umrah</div>
+                        <button class="carousel-btn">
+                            <i class="fas fa-arrow-right"></i> Learn
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="carousel-item carousel-item-3">
+                    <div class="carousel-item-content">
+                        <div class="carousel-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="carousel-title">Online Courses</div>
+                        <button class="carousel-btn">
+                            <i class="fas fa-user-check"></i> Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Dots -->
+            <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+            </div>
+        </section>
+
+        <!-- Notice Section -->
+        <section class="notice-section">
+            <div class="notice-banner">
+                <span class="notice-icon">
+                    <i class="fas fa-bell"></i>
+                </span>
+                <span class="notice-badge">Notice</span>
+                <span class="notice-text">New Admission Open! Annual Exam Schedule Published</span>
+                <span class="notice-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section class="activities-section">
+            <h2 class="section-title">
+                <span class="ornament">✦✦</span> Our Activities <span class="ornament">✦✦</span>
+            </h2>
+
+            <!-- Activity Cards -->
+            <div class="activities-grid grid-cols-4">
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="activity-label">Education Programs</div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="activity-label">Islamic Library</div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <div class="activity-label">Dawah Programs</div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="activity-label">Donation Projects</div>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="gallery-section mb-20">
+                <div class="gallery-grid grid-cols-4">
+                    <img src="https://images.unsplash.com/photo-1427504494785-cdedca239cc0?w=300&h=200&fit=crop"
+                        alt="Gallery 1" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1523432129207-c2a7c4e5b5a9?w=300&h=200&fit=crop"
+                        alt="Gallery 2" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=200&fit=crop"
+                        alt="Gallery 3" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=300&h=200&fit=crop"
+                        alt="Gallery 4" class="gallery-img">
+                </div>
+                <button class="view-all-btn">
+                    <i class="fas fa-images"></i> View All Photos
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Fixed Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-title">
+                    <i class="fas fa-mosque footer-icon"></i>
+                    <span>Darul Islam</span>
+                </div>
+                <div class="footer-contact">
+                    <i class="fas fa-phone"></i> +88017xxxxxx
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="social-icon" title="Phone">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="social-icon" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="social-icon" title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </div>
+                <div class="social-icon" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="social-icon" title="Globe">
+                    <i class="fas fa-globe"></i>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                © 2026 Darul Islam Institute | All Rights Reserved
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hero Background Carousel
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDots = document.querySelectorAll('.hero-carousel-dot');
+        let heroIndex = 0;
+
+        function showHeroSlide(n) {
+            heroSlides.forEach(slide => slide.classList.remove('active'));
+            heroDots.forEach(dot => dot.classList.remove('active'));
+
+            heroIndex = (n + heroSlides.length) % heroSlides.length;
+            heroSlides[heroIndex].classList.add('active');
+            heroDots[heroIndex].classList.add('active');
+        }
+
+        // Auto-change hero slides every 4 seconds
+        setInterval(() => {
+            showHeroSlide(heroIndex + 1);
+        }, 4000);
+
+        // Click handler for hero dots
+        heroDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showHeroSlide(index);
+            });
+        });
+
+        // Service Carousel functionality
+        const carousel = document.getElementById('carousel');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function updateDotsOnScroll() {
+            const itemWidth = carousel.querySelector('.carousel-item').offsetWidth + 12;
+            const scrollLeft = carousel.scrollLeft;
+            const currentIndex = Math.round(scrollLeft / itemWidth);
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        carousel.addEventListener('scroll', updateDotsOnScroll);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const itemWidth = carousel.querySelector('.carousel-item').offsetWidth + 12;
+                carousel.scrollLeft = index * itemWidth;
+            });
+        });
+
+        // Auto-scroll carousel every 5 seconds
+        let carouselIndex = 0;
+        setInterval(() => {
+            carouselIndex = (carouselIndex + 1) % dots.length;
+            const itemWidth = carousel.querySelector('.carousel-item').offsetWidth + 12;
+            carousel.scrollLeft = carouselIndex * itemWidth;
+            updateDotsOnScroll();
+        }, 5000);
+
+        // Button click effects
+        const buttons = document.querySelectorAll('button[class*="btn"]');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                this.style.opacity = '0.7';
+                setTimeout(() => {
+                    this.style.opacity = '1';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+
+</html>

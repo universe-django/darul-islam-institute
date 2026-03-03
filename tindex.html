@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darul Islam – Home with notice link</title>
+    <!-- Tailwind + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#14281D",
+                        secondary: "#FFFCDC",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.4s ease;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .notice-clickable:active {
+            background-color: #f0e9b0;
+        }
+    </style>
+</head>
+
+<body class="bg-secondary text-primary font-serif">
+
+    <!-- ================= HEADER ================= -->
+    <!-- ================= STICKY COMBINED NAVBAR ================= -->
+    <header class="sticky top-0 z-50 shadow-md">
+
+        <!-- ===== TOP GREEN HEADER ===== -->
+        <div class="bg-gradient-to-b from-[#0f5132] to-[#0b3d2e] border-b border-[#d4af37]">
+            <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center gap-4">
+
+                <!-- Logo -->
+                <div class="w-12 h-12 bg-[#e9f5ec] rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-mosque text-[#0b3d2e] text-lg"></i>
+                </div>
+
+                <!-- Name + Menu + Language Toggle -->
+                <div class="flex flex-col items-center">
+
+                    <div class="flex gap-2">
+                        <!-- Site Name -->
+                        <h1 class="text-xl md:text-2xl font-bold text-[#f5e6b3] font-serif tracking-wide">
+                            Darul Islam Institute
+                        </h1>
+                        <!-- Small Language Toggle -->
+                        <div
+                            class="flex items-center bg-[#e9f5ec] rounded-full px-2 py-[2px] text-[10px] font-semibold">
+                            <span class="text-[#0b3d2e]">EN</span>
+                            <button class="relative mx-1 w-7 h-3 bg-[#0b3d2e] rounded-full">
+                                <span class="absolute left-1 top-[2px] w-2 h-2 bg-[#e9f5ec] rounded-full"></span>
+                            </button>
+                            <span class="text-[#0b3d2e]">BN</span>
+                        </div>
+                    </div>
+
+                    <!-- Menu Inline -->
+                    <nav class="flex items-center text-[#f5e6b3] text-xs md:text-sm font-medium font-serif gap-3">
+                        <a href="#" class="hover:text-[#d4af37] transition">Home</a>
+                        <span class="text-[#d4af37]">•</span>
+                        <a href="#" class="hover:text-[#d4af37] transition">About Us</a>
+                        <span class="text-[#d4af37]">•</span>
+                        <a href="donation.html" class="hover:text-[#d4af37] transition">Donation</a>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== 6 ICON NAV (UNCHANGED STRUCTURE) ===== -->
+        <div class="bg-white">
+            <div class="grid grid-cols-6 text-center text-[11px] max-w-7xl mx-auto py-2">
+
+                <a href="index.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-house text-primary text-sm"></i>
+                    <span data-bn="হোম" data-en="Home">হোম</span>
+                </a>
+
+                <a href="library.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-book-quran text-primary text-sm"></i>
+                    <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
+                </a>
+
+                <a href="education.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-graduation-cap text-primary text-sm"></i>
+                    <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
+                </a>
+
+                <a href="dawah.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-hands-praying text-primary text-sm"></i>
+                    <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
+                </a>
+
+                <a href="donation.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-hand-holding-dollar text-primary text-sm"></i>
+                    <span data-bn="দান" data-en="Donate">দান</span>
+                </a>
+
+                <a href="registration.html" class="flex flex-col items-center text-primary">
+                    <i class="fa-solid fa-user text-primary text-sm"></i>
+                    <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
+                </a>
+
+            </div>
+        </div>
+
+    </header>
+
+    <!-- ================= Carousel section ============== -->
+    <section class="p-4">
+        <div class="relative overflow-hidden rounded-xl shadow-md aspect-video">
+
+            <div id="heroSlider" class="flex w-full h-full transition-transform duration-700">
+                <div class="w-full flex-shrink-0">
+                    <img src="https://img.pikbest.com/backgrounds/20240530/islamic-green-background-with-madala_10590351.jpg!sw800"
+                        class="w-full h-full object-cover" />
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <img src="https://img.freepik.com/premium-vector/green-islamic-banner-background-event_191346-483.jpg"
+                        class="w-full h-full object-cover" />
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/017/475/673/small/islamic-green-banner-background-free-vector.jpg"
+                        class="w-full h-full object-cover" />
+                </div>
+            </div>
+
+            <!-- ===== Text Overlay with Backdrop ===== -->
+            <div
+                class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 select-none pointer-events-none">
+
+                <!-- BACKDROP: Dark semi-transparent layer -->
+                <div class="absolute inset-0 bg-black/50 rounded-xl"></div>
+
+                <!-- Content wrapper to be above backdrop -->
+                <div class="relative z-10">
+
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-white drop-shadow-md leading-snug">
+                        Darul Islam Institute
+                    </h2>
+
+                    <p class="mt-1 text-sm md:text-base text-white font-semibold font-sans tracking-wide">
+                        Education <span class="mx-1">•</span> Islamic Library <span class="mx-1">•</span> Dawah <span
+                            class="mx-1">•</span> Donation
+                    </p>
+
+                    <div class="mt-4 flex gap-3 pointer-events-auto justify-center">
+                        <a href="admission_form.html"
+                            class="bg-green-800 hover:bg-green-900 text-white font-semibold py-1.5 px-5 rounded shadow-md transition text-sm md:text-base">Enroll
+                            Now</a>
+
+                        <a href="donation.html"
+                            class="bg-yellow-500 hover:bg-yellow-600 text-green-900 font-semibold py-1.5 px-5 rounded shadow-md transition text-sm md:text-base">
+                            Make a Donation &rsaquo;</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= STATS ================= -->
+    <section class="px-2 py-6">
+        <div class="grid grid-cols-4 gap-2 text-center text-xs">
+            <div class="bg-white rounded-lg shadow p-2"><i class="fa-solid fa-users text-primary"></i>
+                <p>Students</p>
+                <p class="font-bold">350</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2"><i class="fa-solid fa-chalkboard-user text-primary"></i>
+                <p>Teachers</p>
+                <p class="font-bold">25</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2"><i class="fa-solid fa-book-open text-primary"></i>
+                <p>Courses</p>
+                <p class="font-bold">12</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-2"><i class="fa-solid fa-building-columns text-primary"></i>
+                <p>Dept</p>
+                <p class="font-bold">6</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SMALL FEATURE BOXES ================= -->
+    <!-- feature section -->
+    <section class="w-full py-6">
+
+        <!-- Scroll Container -->
+        <div class="flex overflow-x-auto scroll-smooth gap-3 px-3">
+
+            <!-- Card -->
+            <div class="flex-shrink-0 w-1/3">
+                <div class="relative rounded-xl overflow-hidden shadow-lg h-32">
+                    <img src="images/book-sale.png" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-900/80 to-green-600/40"></div>
+                    <div class="relative z-10 p-3 text-white">
+                        <h2 class="text-sm font-bold">Islamic Books</h2>
+                        <p class="text-xs mt-1">25% Off</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-shrink-0 w-1/3">
+                <div class="relative rounded-xl overflow-hidden shadow-lg h-32">
+                    <img src="images/gallery-gathering.png" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-600/40"></div>
+                    <div class="relative z-10 p-3 text-white">
+                        <h2 class="text-sm font-bold">Hajj & Umrah Packages</h2>
+                        <p class="text-xs mt-1">Best Packages</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-shrink-0 w-1/3">
+                <div class="relative rounded-xl overflow-hidden shadow-lg h-32">
+                    <img src="images/online-courses.png" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-emerald-900/80 to-emerald-600/40"></div>
+                    <div class="relative z-10 p-3 text-white">
+                        <h2 class="text-sm font-bold">Courses</h2>
+                        <p class="text-xs mt-1">Start Today</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more cards same way -->
+
+        </div>
+
+    </section>
+
+    <script>
+        const slider = document.getElementById('promoSlider');
+        const dots = document.querySelectorAll('.dot');
+        let index = 0;
+        const totalSlides = 3;
+
+        function showSlide(i) {
+            slider.style.transform = `translateX(-${i * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('bg-green-700'));
+            dots.forEach(dot => dot.classList.add('bg-gray-300'));
+            dots[i].classList.remove('bg-gray-300');
+            dots[i].classList.add('bg-green-700');
+        }
+
+        function autoSlide() {
+            index = (index + 1) % totalSlides;
+            showSlide(index);
+        }
+
+        // Auto scroll every 3 seconds
+        let autoScroll = setInterval(autoSlide, 3000);
+
+        // Enable auto-scroll on landscape only
+        function checkOrientation() {
+            if (window.innerWidth > window.innerHeight) {
+                autoScroll = setInterval(autoSlide, 3000);
+            } else {
+                clearInterval(autoScroll);
+            }
+        }
+
+        window.addEventListener("resize", checkOrientation);
+        checkOrientation();
+    </script>
+
+    <!-- ================= NOTICE (clickable card + more button -> notice.html) ================= -->
+    <section class="px-4 py-4">
+        <!-- main clickable card: links to notice.html -->
+        <a href="notice.html" class="block cursor-pointer">
+            <div
+                class="bg-yellow-200 text-primary rounded-xl p-4 shadow text-sm flex items-center gap-2 notice-clickable hover:bg-yellow-300 transition">
+                <i class="fa-solid fa-bullhorn text-lg"></i>
+                <div class="flex-1">
+                    <span class="font-semibold">📢 New Admission Open! </span>
+                    <span class="text-xs bg-primary/20 px-2 py-0.5 rounded-full ml-1 whitespace-nowrap">latest</span>
+                    <p class="text-xs mt-1 opacity-80">Annual Exam Schedule Published · Hifz & Alim programs</p>
+                </div>
+                <i class="fa-solid fa-chevron-right text-primary/70"></i>
+            </div>
+        </a>
+
+        <!-- "more notices" button linking to notice.html -->
+        <div class="flex justify-end mt-2">
+            <a href="notice.html"
+                class="bg-white text-primary border border-primary/30 text-xs px-4 py-2 rounded-full inline-flex items-center gap-1 shadow-sm">
+                <i class="fa-regular fa-bell"></i> More notices <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ================= ADS ================= -->
+    <section class="px-4 py-6">
+        <div class="fade-in bg-white rounded-xl shadow p-6 text-center">
+            <p class="text-lg font-semibold">Sponsored Islamic Course</p>
+            <p class="text-sm mt-2">Enroll now and get 30% discount.</p>
+            <button class="mt-4 bg-primary text-secondary px-4 py-2 rounded-full">Learn More</button>
+        </div>
+    </section>
+
+    <!-- ================= OUR ACTIVITIES ================= -->
+    <section class="bg-[#f6efe3] py-8">
+        <div class="max-w-5xl mx-auto px-4">
+
+            <!-- Heading -->
+            <div class="flex items-center justify-center mb-6">
+                <span class="w-14 h-[2px] bg-amber-500"></span>
+                <h2 class="mx-3 text-2xl md:text-3xl font-semibold text-[#2f3e2f] font-serif">
+                    Our Activities
+                </h2>
+                <span class="w-14 h-[2px] bg-amber-500"></span>
+            </div>
+
+            <!-- Activities Wrapper -->
+            <div class="relative flex items-center">
+
+                <!-- Left Arrow -->
+                <button
+                    class="absolute -left-3 z-10 bg-white shadow-md rounded-full w-8 h-8 flex items-center justify-center text-amber-500 hover:bg-amber-50 text-sm">
+                    &#10094;
+                </button>
+
+                <!-- Cards -->
+                <div class="grid grid-cols-4 gap-4 w-full">
+
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition w-full">
+                        <img src="https://i.pinimg.com/736x/26/c5/d0/26c5d025347fc5332918618af340303d.jpg"
+                            alt="Education" class="w-16 h-16 mx-auto mb-3 object-contain">
+                        <h3 class="text-sm font-semibold text-[#2f3e2f] font-serif">
+                            Education Programs
+                        </h3>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition w-full">
+                        <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" alt="Library"
+                            class="w-16 h-16 mx-auto mb-3 object-contain">
+                        <h3 class="text-sm font-semibold text-[#2f3e2f] font-serif">
+                            Islamic Library
+                        </h3>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition w-full">
+                        <img src="https://static.vecteezy.com/system/resources/previews/055/132/656/non_2x/stunning-blue-mosque-architectural-design-islamic-architecture-free-png.png"
+                            alt="Dawah" class="w-16 h-16 mx-auto mb-3 object-contain">
+                        <h3 class="text-sm font-semibold text-[#2f3e2f] font-serif">
+                            Dawah Programs
+                        </h3>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition w-full">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2331/2331945.png" alt="Donation"
+                            class="w-16 h-16 mx-auto mb-3 object-contain">
+                        <h3 class="text-sm font-semibold text-[#2f3e2f] font-serif">
+                            Donation Projects
+                        </h3>
+                    </div>
+
+                </div>
+
+                <!-- Right Arrow -->
+                <button
+                    class="absolute -right-3 z-10 bg-white shadow-md rounded-full w-8 h-8 flex items-center justify-center text-amber-500 hover:bg-amber-50 text-sm">
+                    &#10095;
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= STUDENT GALLERY ================= -->
+    <section class="w-full bg-[#f6f1e8] py-10">
+
+        <!-- Container -->
+        <div class="max-w-6xl mx-auto px-4 text-center">
+
+            <!-- Title -->
+            <div class="flex items-center justify-center gap-4 mb-8">
+                <div class="h-[2px] w-16 bg-yellow-500"></div>
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 flex items-center gap-2">
+                    Student Gallery
+                </h2>
+                <div class="h-[2px] w-16 bg-yellow-500"></div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-4 gap-2">
+
+                <!-- Image Card 1 -->
+                <div class="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <img src="images/book-sale.png" class="w-full h-40 object-cover">
+                </div>
+
+                <!-- Image Card 2 -->
+                <div class="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <img src="images/gallery-gathering.png" class="w-full h-40 object-cover">
+                </div>
+
+                <!-- Image Card 3 -->
+                <div class="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <img src="images/online-courses.png" class="w-full h-40 object-cover">
+                </div>
+
+                <!-- Image Card 4 -->
+                <div class="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+                    <img src="images/book-sale.png" class="w-full h-40 object-cover">
+                </div>
+
+            </div>
+
+            <!-- Button -->
+            <div class="mt-8">
+                <button class="px-6 py-3 rounded-xl border border-green-700 text-green-900 font-semibold 
+                           bg-white hover:bg-green-50 transition shadow-sm">
+                    View All Photos →
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= OUR COURSES ================= -->
+    <section class="px-4 py-6 pb-24">
+        <h2 class="font-bold mb-4">Our Courses</h2>
+        <div class="relative">
+            <button onclick="slide('courseSlider',-1)"
+                class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow px-2 rounded-full z-10">‹</button>
+            <button onclick="slide('courseSlider',1)"
+                class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow px-2 rounded-full z-10">›</button>
+            <div id="courseSlider" class="grid grid-cols-2 overflow-hidden" data-index="0">
+                <div class="min-w-full p-2">
+                    <div class="bg-white rounded-lg shadow flex items-center gap-3 p-3"><img
+                            src="https://static.vecteezy.com/system/resources/thumbnails/073/659/392/small/student-learning-at-school-with-teacher-supervision-free-vector.jpg"
+                            class="w-16 h-16 rounded object-cover">
+                        <div>
+                            <h3 class="font-semibold">Hifz Program</h3>
+                            <p class="text-xs">Memorization of Quran</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="min-w-full p-2">
+                    <div class="bg-white rounded-lg shadow flex items-center gap-3 p-3"><img
+                            src="https://static.vecteezy.com/system/resources/thumbnails/073/659/392/small/student-learning-at-school-with-teacher-supervision-free-vector.jpg"
+                            class="w-16 h-16 rounded object-cover">
+                        <div>
+                            <h3 class="font-semibold">Alim Course</h3>
+                            <p class="text-xs">Islamic Studies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FIXED SOCIAL FOOTER ================= -->
+    <!-- Fixed Footer -->
+    <footer
+        class="fixed bottom-0 left-0 right-0 bg-gradient-to-br from-[#14281D] to-[#1a3a2a] text-[#FFFCDC] px-4 py-2.5 z-50 border-t border-[#FFFCDC]/20">
+        <div class="max-w-full">
+            <div class="flex justify-between items-center mb-2">
+                <div class="text-xs font-bold flex items-center gap-1.5"><i
+                        class="fas fa-mosque text-xl"></i><span>Darul Islam Institute</span></div>
+                <div class="text-[11px] flex items-center gap-1"><i class="fas fa-phone text-xs"></i> +88017xxxxxx</div>
+            </div>
+            <div class="flex justify-center gap-1.5 pt-2 border-t border-[#FFFCDC]/20">
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="Phone"><i class="fas fa-phone"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="WhatsApp"><i class="fab fa-whatsapp"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="Facebook"><i class="fab fa-facebook"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="YouTube"><i class="fab fa-youtube"></i></div>
+                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
+                    title="Globe"><i class="fas fa-globe"></i></div>
+            </div>
+            <div class="text-sm text-[#FFFCDC]/60 text-center mt-1.5">&copy; 2026 Darul Islam Institute | All Rights
+                Reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // hamburger toggle
+            const menuBtn = document.getElementById("menuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener("click", function () {
+                    mobileMenu.classList.toggle("hidden");
+                });
+            }
+
+            // language toggle (exact original)
+            let currentLang = "en";
+            const langToggle = document.getElementById("langToggle");
+            const langDot = document.getElementById("langDot");
+            const langLabel = document.getElementById("langLabel");
+            if (langToggle) {
+                langToggle.addEventListener("click", function () {
+                    currentLang = currentLang === "en" ? "bn" : "en";
+                    document.querySelectorAll(".lang").forEach(el => {
+                        if (el.dataset[currentLang]) el.textContent = el.dataset[currentLang];
+                    });
+                    if (langDot && langLabel) {
+                        if (currentLang === "bn") {
+                            langDot.style.left = "22px";
+                            langLabel.textContent = "বাংলা";
+                        } else {
+                            langDot.style.left = "4px";
+                            langLabel.textContent = "EN";
+                        }
+                    }
+                });
+            }
+
+            // hero slider
+            const heroSlider = document.getElementById("heroSlider");
+            if (heroSlider) {
+                let heroIndex = 0;
+                const heroSlides = heroSlider.children.length;
+                setInterval(() => {
+                    heroIndex = (heroIndex + 1) % heroSlides;
+                    heroSlider.style.transform = `translateX(-${heroIndex * 100}%)`;
+                }, 4000);
+            }
+
+            // gallery slider
+            const gallerySlider = document.getElementById("gallerySlider");
+            if (gallerySlider) {
+                let galleryIndex = 0;
+                const gallerySlides = gallerySlider.children.length;
+                setInterval(() => {
+                    galleryIndex = (galleryIndex + 1) % gallerySlides;
+                    gallerySlider.style.transform = `translateX(-${galleryIndex * 100}%)`;
+                }, 3500);
+            }
+
+            // fade in observer
+            const faders = document.querySelectorAll(".fade-in");
+            if (faders.length > 0) {
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show");
+                        }
+                    });
+                }, { threshold: 0.2 });
+                faders.forEach(el => observer.observe(el));
+            }
+        });
+
+        // slide function for activity/course sliders
+        function slide(id, direction) {
+            const slider = document.getElementById(id);
+            if (!slider) return;
+            let index = parseInt(slider.getAttribute("data-index") || 0);
+            const total = slider.children.length;
+            index = (index + direction + total) % total;
+            slider.setAttribute("data-index", index);
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+    </script>
+</body>
+
+</html>
