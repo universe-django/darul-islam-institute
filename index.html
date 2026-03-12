@@ -5,13 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darul Islam Institute · Tailwind (refined)</title>
-    <!-- Tailwind via CDN (v3) + Poppins + Font Awesome -->
+    <!-- Tailwind cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+
+
+    <!-- google ads script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
+        crossorigin="anonymous"></script>
+
+    <!-- aos initial head -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        /* minimal essential overrides — background images, carousel overlays, scrollbar */
         html {
             scroll-behavior: smooth;
         }
@@ -100,14 +108,222 @@
             background: #D4A574;
             border-radius: 10px;
         }
+
+        /* drawer custom styles */
+        .menu-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 320px;
+            height: 100vh;
+            background-color: #E2D4B9;
+            z-index: 1000;
+            transition: right 0.3s ease-out;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #menu-toggle:checked~.menu-drawer {
+            right: 0;
+        }
+
+        #menu-toggle:checked~.drawer-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(2px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+            pointer-events: none;
+        }
+
+        .drawer-header {
+            background-color: #30360E;
+            padding: 1.2rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid #787F56;
+            border-top-left-radius: 20px;
+        }
+
+        .drawer-header .mosque-icon-small {
+            background-color: #E2D4B9;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #30360E;
+        }
+
+        .drawer-header span {
+            color: #E2D4B9;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .close-drawer {
+            background: transparent;
+            border: none;
+            color: #E2D4B9;
+            font-size: 1.4rem;
+            margin-left: auto;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0.8rem 0.5rem 2rem 0.5rem;
+            margin: 0;
+        }
+
+        .menu-item {
+            margin-bottom: 0.2rem;
+            border-radius: 12px;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-checkbox {
+            display: none;
+        }
+
+        .dropdown-toggle {
+            background-color: #f1eadc;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #30360E;
+            border-left: 4px solid #787F56;
+            margin-bottom: 2px;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .dropdown-toggle i {
+            font-size: 0.9rem;
+            color: #30360E;
+            transition: transform 0.2s;
+        }
+
+        .dropdown-checkbox:checked~.dropdown-toggle i {
+            transform: rotate(90deg);
+        }
+
+        .dropdown-checkbox:checked~.submenu {
+            max-height: 500px;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu {
+            list-style: none;
+            background-color: rgba(226, 212, 185, 0.8);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-left: 0.5rem;
+            padding-left: 0.5rem;
+            border-left: 2px dashed #787F56;
+        }
+
+        .submenu li a {
+            display: block;
+            padding: 0.6rem 1rem 0.6rem 1.5rem;
+            font-size: 0.95rem;
+            color: #1e2a0f;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(48, 54, 14, 0.1);
+            font-weight: 500;
+        }
+
+        .submenu li a:hover {
+            background-color: #787F56;
+            color: #faf6e8;
+            border-radius: 6px;
+        }
+
+        .main-menu-link {
+            background-color: #f1eadc;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #30360E;
+            border-left: 4px solid #787F56;
+            margin-bottom: 2px;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+        }
+
+        body:has(#menu-toggle:checked) {
+            overflow: hidden;
+        }
+
+        .dynamic-note {
+            font-style: italic;
+            background-color: rgba(48, 54, 14, 0.05);
+        }
+
+        /* ensure original header button unchanged */
+        .hamburger-btn {
+            transition: all 0.1s;
+            cursor: pointer;
+        }
+
+        /* hide the checkbox */
+        #menu-toggle {
+            display: none;
+        }
     </style>
 </head>
 
-<body class="bg-[#FFFCDC] pt-[72px] pb-[70px] font-['Poppins',sans-serif] overflow-x-auto">
+<body class="bg-[#FFFCDC] pb-[70px] font-['Poppins',sans-serif] overflow-x-auto">
 
-    <!-- Fixed Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#14281D] shadow-md">
-        <!-- Header Top – reduced height: py-1 instead of py-2, w-9 h-9 instead of w-11 h-11 -->
+    <!-- Hidden checkbox for menu toggle -->
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- Header -->
+    <header class="bg-[#14281D] shadow-md">
         <div class="flex items-center justify-between px-3 py-1 border-b border-[#FFFCDC]/20">
             <div class="flex items-center gap-2">
                 <div class="w-9 h-9 bg-[#FFFCDC] rounded-full flex items-center justify-center shrink-0">
@@ -118,64 +334,211 @@
                 </div>
             </div>
             <div class="flex gap-2.5">
-                <button
-                    class="text-[#FFFCDC] text-base cursor-pointer transition-all w-7 h-7 flex items-center justify-center rounded-md bg-[#FFFCDC]/10 border-0"
-                    title="Settings">
+                <label for="menu-toggle"
+                    class="text-[#FFFCDC] text-base cursor-pointer transition-all w-7 h-7 flex items-center justify-center rounded-md bg-[#FFFCDC]/10 border-0 hamburger-btn"
+                    title="Menu">
                     <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Navigation – reduced padding py-1, smaller gap, smaller text-xs -->
-        <nav class="bg-[#14281D] px-3 py-1 flex justify-center gap-2 border-b-2 border-[#F4A460] text-[11px]">
-            <a href="#home"
-                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
-                    class="fas fa-home"></i> Home</a>
-            <a href="#about"
-                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
-                    class="fas fa-info-circle"></i> About Us</a>
-            <a href="#donation"
-                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
-                    class="fas fa-hand-holding-heart"></i> Donation</a>
-            <a href="#english"
-                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10">English</a>
-        </nav>
-
-        <!-- 6 ICON NAV (unchanged structure, just background white) -->
-        <div class="bg-white">
-            <div class="grid grid-cols-6 text-center text-[11px] max-w-7xl mx-auto py-2">
-                <a href="index.html" class="flex flex-col items-center text-[#14281D]">
-                    <i class="fa-solid fa-house text-[#14281D] text-sm"></i>
-                    <span data-bn="হোম" data-en="Home">হোম</span>
-                </a>
-                <a href="library.html" class="flex flex-col items-center text-[#14281D]">
-                    <i class="fa-solid fa-book-quran text-[#14281D] text-sm"></i>
-                    <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
-                </a>
-                <a href="education.html" class="flex flex-col items-center text-[#14281D]">
-                    <i class="fa-solid fa-graduation-cap text-[#14281D] text-sm"></i>
-                    <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
-                </a>
-                <a href="dawah.html" class="flex flex-col items-center text-[#14281D]">
-                    <i class="fa-solid fa-hands-praying text-[#14281D] text-sm"></i>
-                    <span data-bn="দাওয়াহ" data-en="Dawah">দাওয়াহ</span>
-                </a>
-                <a href="donation.html" class="flex flex-col items-center text-[#14281D]">
-                    <i class="fa-solid fa-hand-holding-dollar text-[#14281D] text-sm"></i>
-                    <span data-bn="দান" data-en="Donate">দান</span>
-                </a>
-                <a href="registration.html" class="flex flex-col items-center text-[#14281D]">
-                    <i class="fa-solid fa-user text-[#14281D] text-sm"></i>
-                    <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
-                </a>
+                </label>
             </div>
         </div>
     </header>
 
+    <!-- overlay -->
+    <label for="menu-toggle" class="drawer-overlay" id="drawerOverlay"></label>
+
+    <!-- sliding drawer -->
+    <aside class="menu-drawer" id="menuDrawer">
+        <div class="drawer-header">
+            <div class="mosque-icon-small">
+                <i class="fas fa-mosque"></i>
+            </div>
+            <span>Darul Islam Institute</span>
+            <label for="menu-toggle" class="close-drawer" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </label>
+        </div>
+
+        <!-- menu list  -->
+        <ul class="menu-list">
+            <!-- Home -->
+            <li class="menu-item">
+                <a href="#" class="main-menu-link">Home</a>
+            </li>
+
+            <!-- About us -->
+            <li class="menu-item dropdown">
+                <input type="checkbox" id="dropdown-about" class="dropdown-checkbox">
+                <label for="dropdown-about" class="dropdown-toggle">
+                    About us <i class="fas fa-chevron-right"></i>
+                </label>
+                <ul class="submenu">
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Mission & Vision</a></li>
+                    <li><a href="#">Management /board member</a></li>
+                </ul>
+            </li>
+
+            <!-- Academic detail -->
+            <li class="menu-item dropdown">
+                <input type="checkbox" id="dropdown-academic" class="dropdown-checkbox">
+                <label for="dropdown-academic" class="dropdown-toggle">
+                    Academic detail <i class="fas fa-chevron-right"></i>
+                </label>
+                <ul class="submenu">
+                    <li><a href="#">Teacher Profile</a></li>
+                    <li><a href="#">academic</a></li>
+                </ul>
+            </li>
+
+            <!-- Departments -->
+            <li class="menu-item dropdown">
+                <input type="checkbox" id="dropdown-departments" class="dropdown-checkbox">
+                <label for="dropdown-departments" class="dropdown-toggle">
+                    Departments <i class="fas fa-chevron-right"></i>
+                </label>
+                <ul class="submenu">
+                    <li><a href="#">Offline Course</a></li>
+                    <li><a href="#">Online Courses</a></li>
+                </ul>
+            </li>
+
+            <!-- Courses -->
+            <li class="menu-item dropdown">
+                <input type="checkbox" id="dropdown-courses" class="dropdown-checkbox">
+                <label for="dropdown-courses" class="dropdown-toggle">
+                    Courses <i class="fas fa-chevron-right"></i>
+                </label>
+                <ul class="submenu">
+                    <li><a href="#" class="dynamic-note">Courses name will dynamically show</a></li>
+                </ul>
+            </li>
+
+            <!-- Notice -->
+            <li class="menu-item dropdown">
+                <input type="checkbox" id="dropdown-notice" class="dropdown-checkbox">
+                <label for="dropdown-notice" class="dropdown-toggle">
+                    Notice <i class="fas fa-chevron-right"></i>
+                </label>
+                <ul class="submenu">
+                    <li><a href="#">notice board</a></li>
+                    <li><a href="#">important notice</a></li>
+                </ul>
+            </li>
+
+            <!-- Islamic Library -->
+            <li class="menu-item dropdown">
+                <input type="checkbox" id="dropdown-library" class="dropdown-checkbox">
+                <label for="dropdown-library" class="dropdown-toggle">
+                    Islamic Library <i class="fas fa-chevron-right"></i>
+                </label>
+                <ul class="submenu">
+                    <li><a href="#">Ilm</a></li>
+                    <li><a href="#">Amal</a></li>
+                </ul>
+            </li>
+
+            <!-- Donation -->
+            <li class="menu-item">
+                <a href="#" class="main-menu-link">Donation</a>
+            </li>
+
+            <!-- Contact us -->
+            <li class="menu-item">
+                <a href="#" class="main-menu-link">Contact us</a>
+            </li>
+
+            <!-- Admission Details -->
+            <li class="menu-item">
+                <a href="#" class="main-menu-link">Admission Details</a>
+            </li>
+
+            <!-- Review & Ratings -->
+            <li class="menu-item dropdown">
+                <input type="checkbox" id="dropdown-review" class="dropdown-checkbox">
+                <label for="dropdown-review" class="dropdown-toggle">
+                    Review & Ratings <i class="fas fa-chevron-right"></i>
+                </label>
+                <ul class="submenu">
+                    <li><a href="#">Student Review</a></li>
+                    <li><a href="#">Guardian Review</a></li>
+                </ul>
+            </li>
+
+            <!-- gallery -->
+            <li class="menu-item dropdown">
+                <input type="checkbox" id="dropdown-gallery" class="dropdown-checkbox">
+                <label for="dropdown-gallery" class="dropdown-toggle">
+                    gallery <i class="fas fa-chevron-right"></i>
+                </label>
+                <ul class="submenu">
+                    <li><a href="#">image gallery</a></li>
+                    <li><a href="#">video gallery</a></li>
+                </ul>
+            </li>
+
+            <!-- accounts -->
+            <li class="menu-item dropdown">
+                <input type="checkbox" id="dropdown-accounts" class="dropdown-checkbox">
+                <label for="dropdown-accounts" class="dropdown-toggle">
+                    accounts <i class="fas fa-chevron-right"></i>
+                </label>
+                <ul class="submenu">
+                    <li><a href="#">login./logout</a></li>
+                    <li><a href="#">settings</a></li>
+                    <li><a href="#">profile edit</a></li>
+                    <li><a href="#">registration</a></li>
+                </ul>
+            </li>
+
+            <!-- Others -->
+            <li class="menu-item dropdown">
+                <input type="checkbox" id="dropdown-others" class="dropdown-checkbox">
+                <label for="dropdown-others" class="dropdown-toggle">
+                    Others <i class="fas fa-chevron-right"></i>
+                </label>
+                <ul class="submenu">
+                    <li><a href="#">Career Update</a></li>
+                    <li><a href="#">Partnership</a></li>
+                    <li><a href="#">Certificate verification</a></li>
+                    <li><a href="#">settings</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- 6 ICON NAV -->
+    <div class="bg-[#E2D4B9] sticky top-0 z-50">
+        <div class="grid grid-cols-6 text-center text-[11px] max-w-7xl mx-auto py-2">
+            <a href="index.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-house text-[#14281D] text-sm"></i>
+                <span data-bn="হোম" data-en="Home">হোম</span>
+            </a>
+            <a href="library.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-book-quran text-[#14281D] text-sm"></i>
+                <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
+            </a>
+            <a href="education.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-graduation-cap text-[#14281D] text-sm"></i>
+                <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
+            </a>
+            <a href="dawah.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-cart-shopping text-[#14281D] text-sm"></i>
+                <span data-bn="ইসলামিক শপ" data-en="Dawah">ইসলামিক শপ</span>
+            </a>
+            <a href="donation.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-hand-holding-dollar text-[#14281D] text-sm"></i>
+                <span data-bn="দান" data-en="Donate">দান</span>
+            </a>
+            <a href="registration.html" class="flex flex-col items-center text-[#14281D]">
+                <i class="fa-solid fa-user text-[#14281D] text-sm"></i>
+                <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
+            </a>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <main class="content-wrapper">
-
-        <!-- Hero Section with Background Carousel -->
+        <!-- Hero Section -->
         <section class="relative h-[240px] overflow-hidden flex items-center justify-center">
             <div class="hero-carousel-wrapper">
                 <div class="hero-slide active" style="background-image: url('images/slide1.png')"></div>
@@ -184,7 +547,7 @@
             </div>
             <div class="hero-overlay"></div>
 
-            <!-- Centered content container with flex column for perfect centering -->
+            <!-- content container -->
             <div class="relative z-[3] w-full h-full flex flex-col items-center justify-center px-4">
                 <h2
                     class="text-2xl font-extrabold text-[#14281D] mb-2 drop-shadow-[0_2px_4px_rgba(255,252,220,0.3)] text-center">
@@ -204,7 +567,7 @@
                 </div>
             </div>
 
-            <!-- Hero dots - positioned absolutely at bottom -->
+            <!-- Hero dots -->
             <div class="absolute bottom-2 left-1/2 -translate-x-1/2 z-[4] flex gap-1">
                 <div
                     class="w-1.5 h-1.5 rounded-full bg-[#FFFCDC]/70 cursor-pointer transition-all hero-carousel-dot active hover:bg-[#FFFCDC]">
@@ -224,7 +587,7 @@
                 class="fas fa-users"></i> Dawah • <i class="fas fa-donate"></i> Donation
         </section>
 
-        <!-- Stats Section (grid 3 cols) -->
+        <!-- Stats Section -->
         <section class="p-4 grid grid-cols-3 gap-2.5">
             <div
                 class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
@@ -307,14 +670,23 @@
 
         <!-- Notice Banner -->
         <section class="px-4 py-3">
-            <div
-                class="bg-gradient-to-r from-[#F4A460] to-[#FFB84D] rounded-2xl p-2.5 flex items-center gap-2 shadow-[0_2px_8px_rgba(244,164,96,0.2)]">
-                <span class="text-[#14281D] text-lg shrink-0"><i class="fas fa-bell"></i></span>
-                <span
-                    class="bg-[#F4A460] text-white px-2.5 py-1 rounded-lg text-[10px] font-bold whitespace-nowrap shrink-0">Notice</span>
-                <span class="text-[#14281D] text-xs font-semibold flex-1">New Admission Open! Annual Exam Schedule
-                    Published</span>
-                <span class="text-[#14281D] text-sm shrink-0"><i class="fas fa-chevron-right"></i></span>
+            <a href="notice.html" class="">
+                <div
+                    class="bg-gradient-to-r from-[#F4A460] to-[#FFB84D] rounded-2xl p-2.5 flex items-center gap-2 shadow-[0_2px_8px_rgba(244,164,96,0.2)]">
+                    <span class="text-[#14281D] text-lg shrink-0"><i class="fas fa-bell"></i></span>
+                    <span class="text-[#14281D] text-xs font-semibold flex-1">New Admission Open! Annual Exam Schedule
+                        Published</span>
+                    <span class="text-[#14281D] text-sm shrink-0"><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </a>
+        </section>
+
+        <!-- ================= ADS ================= -->
+        <section class="px-4 py-6" data-aos="fade-down">
+            <div class="fade-in bg-white rounded-xl shadow p-6 text-center">
+                <p class="text-lg font-semibold">Sponsored Islamic Course</p>
+                <p class="text-sm mt-2">Enroll now and get 30% discount.</p>
+                <button class="mt-4 bg-primary text-secondary px-4 py-2 rounded-full">Learn More</button>
             </div>
         </section>
 
@@ -347,7 +719,7 @@
                 </div>
             </div>
 
-            <!-- Gallery (exact same images) -->
+            <!-- Gallery -->
             <div class="px-0 pb-5">
                 <div class="grid grid-cols-4 gap-2.5 mb-4">
                     <img src="images/gallery-gathering.png" alt="Gallery 1"
@@ -378,26 +750,8 @@
                 <p class="text-center text-xs text-[#8B7355] mt-1 font-medium">Islamic Education for All Levels</p>
             </div>
 
-            <!-- Course Categories Tabs -->
-            <div class="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide">
-                <button
-                    class="bg-[#14281D] text-[#FFFCDC] px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border-2 border-[#14281D] transition-all hover:bg-[#1f3a2c] active:scale-95">All
-                    Courses</button>
-                <button
-                    class="bg-transparent text-[#14281D] px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border-2 border-[#14281D] transition-all hover:bg-[#14281D]/10 active:scale-95">Quran</button>
-                <button
-                    class="bg-transparent text-[#14281D] px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border-2 border-[#14281D] transition-all hover:bg-[#14281D]/10 active:scale-95">Arabic</button>
-                <button
-                    class="bg-transparent text-[#14281D] px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border-2 border-[#14281D] transition-all hover:bg-[#14281D]/10 active:scale-95">Islamic
-                    Studies</button>
-                <button
-                    class="bg-transparent text-[#14281D] px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap border-2 border-[#14281D] transition-all hover:bg-[#14281D]/10 active:scale-95">Kids
-                    Program</button>
-            </div>
-
-            <!-- Courses Grid -->
+            <!-- Courses Grid-->
             <div class="grid grid-cols-2 gap-3">
-                <!-- Course Card 1 - Quran Memorization -->
                 <div
                     class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
                     <div class="flex items-center gap-2 mb-2">
@@ -425,161 +779,6 @@
                     <button
                         class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
                         <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </button>
-                </div>
-
-                <!-- Course Card 2 - Arabic Language -->
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-language text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Arabic Language</h3>
-                            <p class="text-[10px] text-[#8B7355]">Beginner to Advanced</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">1.5 hours • Mon/Wed/Fri</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">18 students</span>
-                        </div>
-                        <span
-                            class="bg-[#14281D] text-[#FFFCDC] text-[9px] font-bold px-2 py-0.5 rounded-full">$35/mo</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </button>
-                </div>
-
-                <!-- Course Card 3 - Tajweed Rules -->
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-microphone-alt text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Tajweed Rules</h3>
-                            <p class="text-[10px] text-[#8B7355]">Proper Quran Recitation</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">1 hour • Tue/Thu</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">15 students</span>
-                        </div>
-                        <span
-                            class="bg-[#14281D] text-[#FFFCDC] text-[9px] font-bold px-2 py-0.5 rounded-full">$25/mo</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </button>
-                </div>
-
-                <!-- Course Card 4 - Islamic Studies -->
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-mosque text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Islamic Studies</h3>
-                            <p class="text-[10px] text-[#8B7355]">Fiqh, Hadith, Seerah</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">2 hours • Sat/Sun</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">22 students</span>
-                        </div>
-                        <span
-                            class="bg-[#14281D] text-[#FFFCDC] text-[9px] font-bold px-2 py-0.5 rounded-full">$30/mo</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </button>
-                </div>
-
-                <!-- Course Card 5 - Kids Islamic Program -->
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-child text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Kids Islamic Program</h3>
-                            <p class="text-[10px] text-[#8B7355]">Ages 5-12</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">1.5 hours • Sat only</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">30 students</span>
-                        </div>
-                        <span
-                            class="bg-[#14281D] text-[#FFFCDC] text-[9px] font-bold px-2 py-0.5 rounded-full">$20/mo</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </button>
-                </div>
-
-                <!-- Course Card 6 - Ijazah Program -->
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-certificate text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Ijazah Program</h3>
-                            <p class="text-[10px] text-[#8B7355]">Advanced Certification</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">Flexible schedule</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">8 students</span>
-                        </div>
-                        <span
-                            class="bg-[#F4A460] text-[#14281D] text-[9px] font-bold px-2 py-0.5 rounded-full">Contact</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-phone-alt"></i> Request Info
                     </button>
                 </div>
             </div>
@@ -612,16 +811,15 @@
                 </button>
             </div>
         </section>
-
     </main>
 
-    <!-- Fixed Footer -->
+    <!-- Footer -->
     <footer
         class="fixed bottom-0 left-0 right-0 bg-gradient-to-br from-[#14281D] to-[#1a3a2a] text-[#FFFCDC] px-4 py-2.5 z-50 border-t border-[#FFFCDC]/20">
         <div class="max-w-full">
             <div class="flex justify-between items-center mb-2">
                 <div class="text-xs font-bold flex items-center gap-1.5"><i
-                        class="fas fa-mosque text-sm"></i><span>Darul Islam</span></div>
+                        class="fas fa-mosque text-sm"></i><span>Darul Islam Institute</span></div>
                 <div class="text-[11px] flex items-center gap-1"><i class="fas fa-phone text-xs"></i> +88017xxxxxx</div>
             </div>
             <div class="flex justify-center gap-1.5 pt-2 border-t border-[#FFFCDC]/20">
@@ -636,13 +834,14 @@
                 <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
                     title="Globe"><i class="fas fa-globe"></i></div>
             </div>
-            <div class="text-[9px] text-[#FFFCDC]/60 text-center mt-1.5">© 2026 Darul Islam Institute | All Rights
+            <div class="text-[9px] text-[#FFFCDC]/60 text-center mt-1.5">&copy; 2026 Darul Islam Institute | All Rights
                 Reserved</div>
         </div>
     </footer>
 
-    <!-- JavaScript (exact same functionality) -->
+    <!-- JavaScript -->
     <script>
+        // original carousel/hero script
         const heroSlides = document.querySelectorAll('.hero-slide');
         const heroDots = document.querySelectorAll('.hero-carousel-dot');
         let heroIndex = 0;
@@ -666,20 +865,22 @@
             const currentIndex = Math.round(scrollLeft / itemWidth);
             dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentIndex); });
         }
-        carousel.addEventListener('scroll', updateDotsOnScroll);
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                const itemWidth = (carousel.querySelector('.carousel-item')?.offsetWidth || 112) + 12;
-                carousel.scrollLeft = index * itemWidth;
+        if (carousel) {
+            carousel.addEventListener('scroll', updateDotsOnScroll);
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const itemWidth = (carousel.querySelector('.carousel-item')?.offsetWidth || 112) + 12;
+                    carousel.scrollLeft = index * itemWidth;
+                });
             });
-        });
-        let carouselIndex = 0;
-        setInterval(() => {
-            carouselIndex = (carouselIndex + 1) % dots.length;
-            const itemWidth = (carousel.querySelector('.carousel-item')?.offsetWidth || 112) + 12;
-            carousel.scrollLeft = carouselIndex * itemWidth;
-            updateDotsOnScroll();
-        }, 5000);
+            let carouselIndex = 0;
+            setInterval(() => {
+                carouselIndex = (carouselIndex + 1) % dots.length;
+                const itemWidth = (carousel.querySelector('.carousel-item')?.offsetWidth || 112) + 12;
+                carousel.scrollLeft = carouselIndex * itemWidth;
+                updateDotsOnScroll();
+            }, 5000);
+        }
 
         const buttons = document.querySelectorAll('button[class*="btn"], .btn-enroll, .btn-donate, .carousel-btn, .view-all-btn, .social-icon');
         buttons.forEach(btn => {
@@ -688,6 +889,11 @@
                 setTimeout(() => this.style.opacity = '1', 100);
             });
         });
+    </script>
+    <!-- aos initial js -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
     </script>
 </body>
 

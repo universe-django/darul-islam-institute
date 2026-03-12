@@ -1,0 +1,426 @@
+<style>
+    /* drawer custom styles */
+    .menu-drawer {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: #E2D4B9;
+        z-index: 1000;
+        transition: right 0.3s ease-out;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #menu-toggle:checked~.menu-drawer {
+        right: 0;
+    }
+
+    #menu-toggle:checked~.drawer-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .drawer-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(2px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.2s;
+        pointer-events: none;
+    }
+
+    .drawer-header {
+        background-color: #30360E;
+        padding: 1.2rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        border-bottom: 2px solid #787F56;
+        border-top-left-radius: 20px;
+    }
+
+    .drawer-header .mosque-icon-small {
+        background-color: #E2D4B9;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        color: #30360E;
+    }
+
+    .drawer-header span {
+        color: #E2D4B9;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    .close-drawer {
+        background: transparent;
+        border: none;
+        color: #E2D4B9;
+        font-size: 1.4rem;
+        margin-left: auto;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    .menu-list {
+        list-style: none;
+        padding: 0.8rem 0.5rem 2rem 0.5rem;
+        margin: 0;
+    }
+
+    .menu-item {
+        margin-bottom: 0.2rem;
+        border-radius: 12px;
+    }
+
+    /* Dropdown styles */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-checkbox {
+        display: none;
+    }
+
+    .dropdown-toggle {
+        background-color: #f1eadc;
+        border: none;
+        width: 100%;
+        text-align: left;
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #30360E;
+        border-left: 4px solid #787F56;
+        margin-bottom: 2px;
+        border-radius: 0 8px 8px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .dropdown-toggle i {
+        font-size: 0.9rem;
+        color: #30360E;
+        transition: transform 0.2s;
+    }
+
+    .dropdown-checkbox:checked~.dropdown-toggle i {
+        transform: rotate(90deg);
+    }
+
+    .dropdown-checkbox:checked~.submenu {
+        max-height: 500px;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .submenu {
+        list-style: none;
+        background-color: rgba(226, 212, 185, 0.8);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        margin-left: 0.5rem;
+        padding-left: 0.5rem;
+        border-left: 2px dashed #787F56;
+    }
+
+    .submenu li a {
+        display: block;
+        padding: 0.6rem 1rem 0.6rem 1.5rem;
+        font-size: 0.95rem;
+        color: #1e2a0f;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(48, 54, 14, 0.1);
+        font-weight: 500;
+    }
+
+    .submenu li a:hover {
+        background-color: #787F56;
+        color: #faf6e8;
+        border-radius: 6px;
+    }
+
+    .main-menu-link {
+        background-color: #f1eadc;
+        border: none;
+        width: 100%;
+        text-align: left;
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #30360E;
+        border-left: 4px solid #787F56;
+        margin-bottom: 2px;
+        border-radius: 0 8px 8px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+    }
+
+    body:has(#menu-toggle:checked) {
+        overflow: hidden;
+    }
+
+    .dynamic-note {
+        font-style: italic;
+        background-color: rgba(48, 54, 14, 0.05);
+    }
+
+    /* ensure original header button unchanged */
+    .hamburger-btn {
+        transition: all 0.1s;
+        cursor: pointer;
+    }
+
+    /* hide the checkbox */
+    #menu-toggle {
+        display: none;
+    }
+</style>
+
+
+
+<!-- Hidden checkbox for menu toggle -->
+<input type="checkbox" id="menu-toggle">
+
+<!-- Header -->
+<header class="bg-[#14281D] shadow-md">
+    <div class="flex items-center justify-between px-3 py-1 border-b border-[#FFFCDC]/20">
+        <div class="flex items-center gap-2">
+            <div class="w-9 h-9 bg-[#FFFCDC] rounded-full flex items-center justify-center shrink-0">
+                <i class="fas fa-mosque text-[#14281D] text-xl"></i>
+            </div>
+            <div class="text-[#FFFCDC] font-bold text-lg leading-tight">
+                Darul Islam Institute
+            </div>
+        </div>
+        <div class="flex gap-2.5">
+            <label for="menu-toggle"
+                class="text-[#FFFCDC] text-base cursor-pointer transition-all w-7 h-7 flex items-center justify-center rounded-md bg-[#FFFCDC]/10 border-0 hamburger-btn"
+                title="Menu">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+        </div>
+    </div>
+</header>
+
+<!-- overlay -->
+<label for="menu-toggle" class="drawer-overlay" id="drawerOverlay"></label>
+
+<!-- sliding drawer -->
+<aside class="menu-drawer" id="menuDrawer">
+    <div class="drawer-header">
+        <div class="mosque-icon-small">
+            <i class="fas fa-mosque"></i>
+        </div>
+        <span>Darul Islam Institute</span>
+        <label for="menu-toggle" class="close-drawer" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </label>
+    </div>
+
+    <!-- menu list  -->
+    <ul class="menu-list">
+        <!-- Home -->
+        <li class="menu-item">
+            <a href="#" class="main-menu-link">Home</a>
+        </li>
+
+        <!-- About us -->
+        <li class="menu-item dropdown">
+            <input type="checkbox" id="dropdown-about" class="dropdown-checkbox">
+            <label for="dropdown-about" class="dropdown-toggle">
+                About us <i class="fas fa-chevron-right"></i>
+            </label>
+            <ul class="submenu">
+                <li><a href="#">History</a></li>
+                <li><a href="#">Mission & Vision</a></li>
+                <li><a href="#">Management /board member</a></li>
+            </ul>
+        </li>
+
+        <!-- Academic detail -->
+        <li class="menu-item dropdown">
+            <input type="checkbox" id="dropdown-academic" class="dropdown-checkbox">
+            <label for="dropdown-academic" class="dropdown-toggle">
+                Academic detail <i class="fas fa-chevron-right"></i>
+            </label>
+            <ul class="submenu">
+                <li><a href="#">Teacher Profile</a></li>
+                <li><a href="#">academic</a></li>
+            </ul>
+        </li>
+
+        <!-- Departments -->
+        <li class="menu-item dropdown">
+            <input type="checkbox" id="dropdown-departments" class="dropdown-checkbox">
+            <label for="dropdown-departments" class="dropdown-toggle">
+                Departments <i class="fas fa-chevron-right"></i>
+            </label>
+            <ul class="submenu">
+                <li><a href="#">Offline Course</a></li>
+                <li><a href="#">Online Courses</a></li>
+            </ul>
+        </li>
+
+        <!-- Courses -->
+        <li class="menu-item dropdown">
+            <input type="checkbox" id="dropdown-courses" class="dropdown-checkbox">
+            <label for="dropdown-courses" class="dropdown-toggle">
+                Courses <i class="fas fa-chevron-right"></i>
+            </label>
+            <ul class="submenu">
+                <li><a href="#" class="dynamic-note">Courses name will dynamically show</a></li>
+            </ul>
+        </li>
+
+        <!-- Notice -->
+        <li class="menu-item dropdown">
+            <input type="checkbox" id="dropdown-notice" class="dropdown-checkbox">
+            <label for="dropdown-notice" class="dropdown-toggle">
+                Notice <i class="fas fa-chevron-right"></i>
+            </label>
+            <ul class="submenu">
+                <li><a href="#">notice board</a></li>
+                <li><a href="#">important notice</a></li>
+            </ul>
+        </li>
+
+        <!-- Islamic Library -->
+        <li class="menu-item dropdown">
+            <input type="checkbox" id="dropdown-library" class="dropdown-checkbox">
+            <label for="dropdown-library" class="dropdown-toggle">
+                Islamic Library <i class="fas fa-chevron-right"></i>
+            </label>
+            <ul class="submenu">
+                <li><a href="#">Ilm</a></li>
+                <li><a href="#">Amal</a></li>
+            </ul>
+        </li>
+
+        <!-- Donation -->
+        <li class="menu-item">
+            <a href="#" class="main-menu-link">Donation</a>
+        </li>
+
+        <!-- Contact us -->
+        <li class="menu-item">
+            <a href="#" class="main-menu-link">Contact us</a>
+        </li>
+
+        <!-- Admission Details -->
+        <li class="menu-item">
+            <a href="#" class="main-menu-link">Admission Details</a>
+        </li>
+
+        <!-- Review & Ratings -->
+        <li class="menu-item dropdown">
+            <input type="checkbox" id="dropdown-review" class="dropdown-checkbox">
+            <label for="dropdown-review" class="dropdown-toggle">
+                Review & Ratings <i class="fas fa-chevron-right"></i>
+            </label>
+            <ul class="submenu">
+                <li><a href="#">Student Review</a></li>
+                <li><a href="#">Guardian Review</a></li>
+            </ul>
+        </li>
+
+        <!-- gallery -->
+        <li class="menu-item dropdown">
+            <input type="checkbox" id="dropdown-gallery" class="dropdown-checkbox">
+            <label for="dropdown-gallery" class="dropdown-toggle">
+                gallery <i class="fas fa-chevron-right"></i>
+            </label>
+            <ul class="submenu">
+                <li><a href="#">image gallery</a></li>
+                <li><a href="#">video gallery</a></li>
+            </ul>
+        </li>
+
+        <!-- accounts -->
+        <li class="menu-item dropdown">
+            <input type="checkbox" id="dropdown-accounts" class="dropdown-checkbox">
+            <label for="dropdown-accounts" class="dropdown-toggle">
+                accounts <i class="fas fa-chevron-right"></i>
+            </label>
+            <ul class="submenu">
+                <li><a href="#">login./logout</a></li>
+                <li><a href="#">settings</a></li>
+                <li><a href="#">profile edit</a></li>
+                <li><a href="#">registration</a></li>
+            </ul>
+        </li>
+
+        <!-- Others -->
+        <li class="menu-item dropdown">
+            <input type="checkbox" id="dropdown-others" class="dropdown-checkbox">
+            <label for="dropdown-others" class="dropdown-toggle">
+                Others <i class="fas fa-chevron-right"></i>
+            </label>
+            <ul class="submenu">
+                <li><a href="#">Career Update</a></li>
+                <li><a href="#">Partnership</a></li>
+                <li><a href="#">Certificate verification</a></li>
+                <li><a href="#">settings</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+
+<!-- 6 ICON NAV -->
+<div class="bg-[#E2D4B9] sticky top-0 z-50">
+    <div class="grid grid-cols-6 text-center text-[11px] max-w-7xl mx-auto py-2">
+        <a href="index.html" class="flex flex-col items-center text-[#14281D]">
+            <i class="fa-solid fa-house text-[#14281D] text-sm"></i>
+            <span data-bn="হোম" data-en="Home">হোম</span>
+        </a>
+        <a href="library.html" class="flex flex-col items-center text-[#14281D]">
+            <i class="fa-solid fa-book-quran text-[#14281D] text-sm"></i>
+            <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
+        </a>
+        <a href="education.html" class="flex flex-col items-center text-[#14281D]">
+            <i class="fa-solid fa-graduation-cap text-[#14281D] text-sm"></i>
+            <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
+        </a>
+        <a href="dawah.html" class="flex flex-col items-center text-[#14281D]">
+            <i class="fa-solid fa-cart-shopping text-[#14281D] text-sm"></i>
+            <span data-bn="ইসলামিক শপ" data-en="Dawah">ইসলামিক শপ</span>
+        </a>
+        <a href="donation.html" class="flex flex-col items-center text-[#14281D]">
+            <i class="fa-solid fa-hand-holding-dollar text-[#14281D] text-sm"></i>
+            <span data-bn="দান" data-en="Donate">দান</span>
+        </a>
+        <a href="registration.html" class="flex flex-col items-center text-[#14281D]">
+            <i class="fa-solid fa-user text-[#14281D] text-sm"></i>
+            <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
+        </a>
+    </div>
+</div>

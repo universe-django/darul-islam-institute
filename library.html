@@ -1,67 +1,79 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>দারুল ইসলাম · লাইব্রেরি</title>
-    <!-- Tailwind CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইলম - Darul Islam Institute</title>
+    <!-- Tailwind + Fonts (identical design, only utilities) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <!-- Bengali Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google fonts exactly as original: Noto Sans Bengali + Poppins fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#14281D',
-                        secondary: '#FFFCDC',
-                        accent: '#C6A15B',
-                    },
-                    fontFamily: {
-                        bengali: ['Noto Sans Bengali', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
-        .toggle-dot {
-            transition: left 0.2s ease;
+        /* minimal overrides for complex gradient/timeline that tailwind doesn't handle */
+        * {
+            font-family: 'Noto Sans Bengali', 'Poppins', sans-serif;
         }
 
-        .no-scrollbar::-webkit-scrollbar {
+        html,
+        body {
+            scroll-behavior: smooth;
+            height: 100%;
+        }
+
+        .sun-timeline-custom {
+            background: linear-gradient(90deg, #FDB813 0%, #FDB813 50%, #87CEEB 50%, #87CEEB 100%);
+            position: relative;
+        }
+
+        .sun-timeline-custom::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #FDB813;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 45%;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .prayer-progress-bg {
+            background: linear-gradient(90deg, #4CAF50 0%, #45a049 100%);
+        }
+
+        .carousel-slide {
             display: none;
         }
 
-        body {
-            font-family: 'Noto Sans Bengali', sans-serif;
-            background-color: #FFFCDC;
+        .carousel-slide.active {
+            display: block;
         }
 
-        .prayer-card {
-            background: linear-gradient(145deg, #ffffff 0%, #f8f7e5 100%);
+        /* preserve gradient slide overlay */
+        .slide-gradient {
+            background: linear-gradient(135deg, #F4A460 0%, #FFB84D 100%);
         }
 
-        .ramadan-card {
-            background: linear-gradient(135deg, #14281D 0%, #1e3a2a 100%);
+        /* bottom nav gradient */
+        .bottom-nav-gradient {
+            background: linear-gradient(135deg, #14281D 0%, #1a3a2a 100%);
         }
 
-        .library-card {
-            transition: transform 0.2s ease;
-        }
-
-        .library-card:active {
-            transform: scale(0.97);
+        .profile-gradient {
+            background: linear-gradient(135deg, #F4A460 0%, #14281D 100%);
         }
     </style>
-
 </head>
 
-<body class="bg-secondary text-primary min-h-screen pb-32 pt-[72px] font-bengali">
+<body class="bg-[#FFFCDC] pt-20 pb-20 overflow-x-hidden">
 
     <!-- Fixed Header -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-[#14281D] shadow-md">
@@ -83,21 +95,6 @@
                 </button>
             </div>
         </div>
-
-        <!-- Navigation – reduced padding py-1, smaller gap, smaller text-xs -->
-        <nav class="bg-[#14281D] px-3 py-1 flex justify-center gap-2 border-b-2 border-[#F4A460] text-[11px]">
-            <a href="#home"
-                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
-                    class="fas fa-home"></i> Home</a>
-            <a href="#about"
-                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
-                    class="fas fa-info-circle"></i> About Us</a>
-            <a href="#donation"
-                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10"><i
-                    class="fas fa-hand-holding-heart"></i> Donation</a>
-            <a href="#english"
-                class="text-[#FFFCDC] no-underline font-medium transition-all px-2 py-0.5 rounded flex items-center gap-1 hover:bg-[#FFFCDC]/10">English</a>
-        </nav>
 
         <!-- 6 ICON NAV (unchanged structure, just background white) -->
         <div class="bg-white">
@@ -130,254 +127,194 @@
         </div>
     </header>
 
-    <!-- ========== HERO SECTION ========== -->
-    <section
-        class="relative h-36 bg-gradient-to-b from-green-800 to-green-700 flex items-end p-5 text-white overflow-hidden">
-        <div class="absolute inset-0 opacity-10"
-            style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
-        <div class="relative z-10 w-full max-w-7xl mx-auto">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-book-quran text-3xl text-accent"></i>
-                <div>
-                    <h2 class="text-xl font-bold" data-bn="ইসলামিক লাইব্রেরি" data-en="Islamic Library">ইসলামিক
-                        লাইব্রেরি</h2>
-                    <p class="text-xs opacity-90" data-bn="দুআ, কুরআন, হাদিস ও আরও অনেক কিছু"
-                        data-en="Duas, Quran, Hadith & more">দুআ, কুরআন, হাদিস ও আরও অনেক কিছু</p>
+    <!-- Main Content -->
+    <main class="px-4 mt-12 mb-20">
+        <!-- Top Info Bar -->
+        <div class="flex justify-between items-center mb-4 px-2">
+            <div class="flex items-center gap-1 text-sm font-semibold text-[#14281D]">
+                <i class="fas fa-chevron-down"></i>
+                <span>মাৎ-০৪</span>
+            </div>
+            <div class="flex gap-2 items-center">
+                <i class="fas fa-bell text-[#F4A460] text-lg"></i>
+                <div
+                    class="flex items-center gap-1.5 bg-[#14281D] text-[#FFFCDC] py-1.5 px-3 rounded-full text-xs font-semibold cursor-pointer">
+                    <span>ঢাকা ১২২১</span>
+                    <i class="fas fa-chevron-down text-[10px]"></i>
                 </div>
+                <div
+                    class="w-9 h-9 profile-gradient rounded-full flex items-center justify-center text-[#FFFCDC] text-lg border-2 border-[#14281D]">
+                    👨</div>
             </div>
         </div>
-    </section>
 
-    <!-- ========== SALAT TIMES (PRAYER TIMES) ========== -->
-    <section class="px-4 py-5 max-w-7xl mx-auto">
-        <div class="prayer-card rounded-2xl shadow-lg p-5 border border-primary/10">
-            <div class="flex items-center gap-2 mb-4">
-                <i class="fa-solid fa-clock text-accent text-xl"></i>
-                <h3 class="font-bold text-lg" data-bn="আজকের সালাতের সময়" data-en="Today's Prayer Times">আজকের সালাতের
-                    সময়</h3>
-            </div>
+        <!-- Prayer Time Card -->
+        <div
+            class="bg-gradient-to-br from-[#F4A460]/10 to-[#FFFCDC]/50 rounded-2xl p-4 mb-4 border border-[#14281D]/10 shadow-[0_2px_8px_rgba(20,40,29,0.08)]">
+            <div class="text-center font-bold text-base text-[#14281D] mb-2">১৪ রমাযান ১৪৪৭ হিঃ ইসলামুল আরবিয়া 🌙</div>
+            <div class="text-center text-xs text-gray-600 mb-3">বুধবার, ১৯ ফাল্গুন ১৪৩২ বঙ্গাব্দ, বসন্তকাল</div>
 
-            <div class="grid grid-cols-3 gap-3 text-center">
-                <div class="bg-primary/5 p-3 rounded-xl">
-                    <p class="text-xs font-semibold" data-bn="ফজর" data-en="Fajr">ফজর</p>
-                    <p class="text-sm font-bold">৫:১২ AM</p>
+            <!-- Sun/Moon times -->
+            <div class="flex items-center justify-between mb-3 relative">
+                <div class="flex flex-col items-center gap-1">
+                    <div class="text-2xl">🌅</div>
+                    <div class="text-[13px] font-semibold text-[#14281D]">৬:०৮</div>
+                    <div class="text-[11px] text-gray-500">সূর্যোদয় শেষ</div>
                 </div>
-                <div class="bg-primary/5 p-3 rounded-xl">
-                    <p class="text-xs font-semibold" data-bn="যোহর" data-en="Dhuhr">যোহর</p>
-                    <p class="text-sm font-bold">১২:৩০ PM</p>
-                </div>
-                <div class="bg-primary/5 p-3 rounded-xl">
-                    <p class="text-xs font-semibold" data-bn="আসর" data-en="Asr">আসর</p>
-                    <p class="text-sm font-bold">৩:৪৫ PM</p>
-                </div>
-                <div class="bg-primary/5 p-3 rounded-xl">
-                    <p class="text-xs font-semibold" data-bn="মাগরিব" data-en="Maghrib">মাগরিব</p>
-                    <p class="text-sm font-bold">৬:০২ PM</p>
-                </div>
-                <div class="bg-primary/5 p-3 rounded-xl">
-                    <p class="text-xs font-semibold" data-bn="ইশা" data-en="Isha">ইশা</p>
-                    <p class="text-sm font-bold">৭:৩০ PM</p>
-                </div>
-                <div class="bg-primary/5 p-3 rounded-xl">
-                    <p class="text-xs font-semibold" data-bn="জুমা" data-en="Jumuah">জুমা</p>
-                    <p class="text-sm font-bold">১:১৫ PM</p>
-                </div>
-            </div>
-
-            <p class="text-xs text-center mt-3 text-primary/60" data-bn="📍 ঢাকা, বাংলাদেশ · ২৫ ফেব্রুয়ারি ২০২৬"
-                data-en="📍 Dhaka, Bangladesh · February 25, 2026">📍 ঢাকা, বাংলাদেশ · ২৫ ফেব্রুয়ারি ২০২৬</p>
-        </div>
-    </section>
-
-    <!-- ========== RAMADAN IFTAR & SUHUR TIMES ========== -->
-    <section class="px-4 py-2 max-w-7xl mx-auto">
-        <div class="ramadan-card rounded-2xl shadow-xl p-5 text-white">
-            <div class="flex items-center gap-2 mb-3">
-                <i class="fa-solid fa-moon text-accent text-2xl"></i>
-                <h3 class="font-bold text-lg" data-bn="রমজান ২০২৬" data-en="Ramadan 2026">রমজান ২০২৬</h3>
-            </div>
-
-            <div class="bg-white/10 rounded-xl p-4 backdrop-blur-sm mb-3">
-                <p class="text-center text-sm mb-2" data-bn="আগামীকালের সময়সূচী" data-en="Tomorrow's Schedule">
-                    আগামীকালের সময়সূচী</p>
-                <div class="flex justify-between items-center">
+                <div class="flex-1 flex items-center justify-center gap-2">
+                    <div class="text-2xl">☀️</div>
                     <div class="text-center">
-                        <i class="fa-solid fa-sun text-accent text-xl"></i>
-                        <p class="text-xs mt-1" data-bn="সেহরি" data-en="Suhur">সেহরি</p>
-                        <p class="font-bold">৪:৫২ AM</p>
-                    </div>
-                    <div class="h-10 w-px bg-white/30"></div>
-                    <div class="text-center">
-                        <i class="fa-solid fa-moon text-accent text-xl"></i>
-                        <p class="text-xs mt-1" data-bn="ইফতার" data-en="Iftar">ইফতার</p>
-                        <p class="font-bold">৬:০২ PM</p>
+                        <div class="text-xs text-gray-600">१२:०८</div>
                     </div>
                 </div>
+                <div class="flex flex-col items-center gap-1">
+                    <div class="text-2xl">🌆</div>
+                    <div class="text-[13px] font-semibold text-[#14281D]">৬:०২</div>
+                    <div class="text-[11px] text-gray-500">ইফতার</div>
+                </div>
+            </div>
+            <!-- hidden timeline from original? Actually original had a timeline but it was after icons; we replicate exactly: there was a hidden sun-timeline but not used; add as per original structure? the original had a sun-moon-section with timeline hidden, but we preserve the exact same look: no timeline visible except what we want? Actually original had sun-timeline but it was not used because it was in a separate div with display none? Let's re-check: In original, after sun-moon-section there is a div with class 'sun-timeline' but it's inside the flex? Wait: original structure: .sun-moon-section has .time-item, then a div with flex and sun icon, then .time-item. The .sun-timeline is separate? Actually I see the original code: <div class="sun-timeline"> inside a div with flex. To be pixel-perfect: we include the exact hidden timeline element? No need. We follow the output: there's no visible timeline bar in the final design? Actually there is a "sun-timeline" div with gradient, but it's not used? In given screenshot? I'll include the timeline exactly as original: after sun-moon-section there is a separate .sun-timeline? Let's copy original HTML structure exactly using tailwind classes. I'll add a hidden one? Actually the original had a <div class="sun-timeline"></div> inside a div with flex. We'll replicate it precisely so no visual change: -->
+            <div class="flex items-center justify-between mb-3 relative">
+                <!-- left item duplicate? No, we have already. Let's replicate the exact original block: they had .sun-moon-section with three children: .time-item, a div with flex, .time-item. Then after that they had a separate .sun-timeline? Actually re-reading original: .sun-moon-section contains .time-item (sunrise), then a div with flex and sun icon, then .time-item (iftar). Then later a separate .sun-timeline? Actually the original code snippet: 
+                    <div class="sun-moon-section">
+                        <div class="time-item">...</div>
+                        <div style="flex:1; display:flex;...">...</div>
+                        <div class="time-item">...</div>
+                    </div>
+                    and then a separate <div class="sun-timeline"></div>? Wait: In the original, after the .sun-moon-section there is a .prayer-section, not a timeline. So the timeline might be omitted. To be safe, we keep exactly the same elements: no extra timeline. -->
             </div>
 
-            <div class="grid grid-cols-3 gap-2 text-center text-xs">
-                <div class="bg-white/5 p-2 rounded-lg">
-                    <p data-bn="রমজান" data-en="Ramadan">রমজান</p>
-                    <p class="font-bold">১</p>
+            <!-- Prayer Times (exact match) -->
+            <div class="bg-[#F5F5F5] rounded-xl p-3 mb-3">
+                <div class="flex justify-between items-center mb-2">
+                    <div class="flex items-center gap-2 text-[13px] font-bold text-[#14281D]">
+                        <span class="text-[#4CAF50] text-base">●</span> যুহর
+                    </div>
+                    <div class="text-[13px] font-semibold text-[#14281D]">१२:११ - ०४:२६</div>
                 </div>
-                <div class="bg-white/5 p-2 rounded-lg">
-                    <p data-bn="জুমা" data-en="Jumuah">জুমা</p>
-                    <p class="font-bold">২৭</p>
+                <div class="w-full h-2 bg-gray-300 rounded overflow-hidden">
+                    <div class="h-full prayer-progress-bg w-[45%] rounded"></div>
                 </div>
-                <div class="bg-white/5 p-2 rounded-lg">
-                    <p data-bn="শেষ ১০ দিন" data-en="Last 10 Days">শেষ ১০ দিন</p>
-                    <p class="font-bold">✨</p>
-                </div>
+                <div class="text-[11px] text-gray-600 mt-1">२ ঘণ্টা ४७ মিনিট বাকি</div>
             </div>
         </div>
-    </section>
 
-    <!-- ========== ISLAMIC LIBRARY CARDS (CLICKABLE) ========== -->
-    <section class="px-4 py-5 max-w-7xl mx-auto">
-        <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-book-open text-accent"></i>
-            <span data-bn="শেখার বিষয় সমূহ" data-en="Learning Topics">শেখার বিষয় সমূহ</span>
-        </h3>
+        <!-- Carousel Banner -->
+        <div class="relative rounded-xl overflow-hidden mb-5 shadow-[0_4px_12px_rgba(20,40,29,0.15)]">
+            <!-- slide 1 active -->
+            <div class="carousel-slide active relative">
+                <img src="https://images.unsplash.com/photo-1507842217343-583f20270319?w=400&h=200&fit=crop"
+                    alt="Slide 1" class="w-full h-[200px] object-cover">
+                <div
+                    class="absolute right-0 top-0 bottom-0 w-3/5 slide-gradient p-4 flex flex-col justify-center gap-2">
+                    <div class="text-sm font-bold text-[#14281D] leading-tight">যাকাত ও ফিতরা</div>
+                    <div class="text-xs font-semibold text-[#14281D]">আদায়ের সুয়ায়</div>
+                    <div class="text-[11px] text-[#14281D] leading-tight">দুর্বলদের মাথ তালাব, ইয়াতিমি, দুর্বলদের
+                        সাহায্য</div>
+                </div>
+            </div>
+            <div class="carousel-slide relative">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop"
+                    alt="Slide 2" class="w-full h-[200px] object-cover" loading="lazy">
+                <div
+                    class="absolute right-0 top-0 bottom-0 w-3/5 slide-gradient p-4 flex flex-col justify-center gap-2">
+                    <div class="text-sm font-bold text-[#14281D] leading-tight">ঈদের আমল</div>
+                    <div class="text-xs font-semibold text-[#14281D]">সঠিক নিয়মে</div>
+                    <div class="text-[11px] text-[#14281D] leading-tight">ঈদের প্রস্তুতি এবং আমল সম্পর্কে জানুন</div>
+                </div>
+            </div>
+            <!-- additional slides placeholder (dots show 6, so we add empty slides? we have 2 only but dots 6 – to keep design identical we keep 2 slides, but original had 6 dots. We'll replicate exactly but functional dots only for existing slides. In original they had 6 dots but only 2 slides? Actually they have 6 dots in HTML, but only 2 slides defined. We'll keep exactly that: 6 dots, but only first two functional, rest just visual. That's fine -->
+            <div class="carousel-slide relative hidden"></div>
 
-        <div class="grid grid-cols-2 gap-4">
-            <!-- Dua Card -->
-            <a href="#" class="library-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="h-28 bg-primary/20 overflow-hidden">
-                    <img src="https://cdn.pixabay.com/photo/2017/08/30/07/52/quran-2692672_1280.jpg"
-                        class="w-full h-full object-cover">
+            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10">
+                <div class="banner-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer transition-all active-dot">
                 </div>
-                <div class="p-3 text-center">
-                    <i class="fa-solid fa-hand-paper text-primary text-xl mb-1"></i>
-                    <h4 class="font-bold text-sm" data-bn="দুআ ও যিকির" data-en="Duas & Dhikr">দুআ ও যিকির</h4>
-                    <p class="text-xs text-primary/60" data-bn="১০০+ দুআ" data-en="100+ Duas">১০০+ দুআ</p>
-                </div>
-            </a>
-
-            <!-- Quran Card -->
-            <a href="#" class="library-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="h-28 bg-primary/20 overflow-hidden">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/29/10/38/quran-1868740_1280.jpg"
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="p-3 text-center">
-                    <i class="fa-solid fa-book-quran text-primary text-xl mb-1"></i>
-                    <h4 class="font-bold text-sm" data-bn="কুরআন" data-en="Quran">কুরআন</h4>
-                    <p class="text-xs text-primary/60" data-bn="তাফসির সহ" data-en="With Tafsir">তাফসির সহ</p>
-                </div>
-            </a>
-
-            <!-- Hadith Card -->
-            <a href="#" class="library-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="h-28 bg-primary/20 overflow-hidden">
-                    <img src="https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="p-3 text-center">
-                    <i class="fa-solid fa-scroll text-primary text-xl mb-1"></i>
-                    <h4 class="font-bold text-sm" data-bn="হাদিস" data-en="Hadith">হাদিস</h4>
-                    <p class="text-xs text-primary/60" data-bn="বুখারী ও মুসলিম" data-en="Bukhari & Muslim">বুখারী ও
-                        মুসলিম</p>
-                </div>
-            </a>
-
-            <!-- Seerah Card -->
-            <a href="#" class="library-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="h-28 bg-primary/20 overflow-hidden">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/18/19/01/mosque-1836082_1280.jpg"
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="p-3 text-center">
-                    <i class="fa-solid fa-mosque text-primary text-xl mb-1"></i>
-                    <h4 class="font-bold text-sm" data-bn="সীরাত" data-en="Seerah">সীরাত</h4>
-                    <p class="text-xs text-primary/60" data-bn="নবীর জীবনী" data-en="Prophet's Life">নবীর জীবনী</p>
-                </div>
-            </a>
-
-            <!-- Fiqh Card -->
-            <a href="#" class="library-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="h-28 bg-primary/20 overflow-hidden">
-                    <img src="https://images.pexels.com/photos/6804102/pexels-photo-6804102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="p-3 text-center">
-                    <i class="fa-solid fa-scale-balanced text-primary text-xl mb-1"></i>
-                    <h4 class="font-bold text-sm" data-bn="ফিকহ" data-en="Fiqh">ফিকহ</h4>
-                    <p class="text-xs text-primary/60" data-bn="ইবাদাত" data-en="Worship">ইবাদাত</p>
-                </div>
-            </a>
-
-            <!-- Arabic Card -->
-            <a href="#" class="library-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="h-28 bg-primary/20 overflow-hidden">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/21/16/02/book-1846098_1280.jpg"
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="p-3 text-center">
-                    <i class="fa-solid fa-language text-primary text-xl mb-1"></i>
-                    <h4 class="font-bold text-sm" data-bn="আরবি ভাষা" data-en="Arabic Language">আরবি ভাষা</h4>
-                    <p class="text-xs text-primary/60" data-bn="গ্রামার" data-en="Grammar">গ্রামার</p>
-                </div>
-            </a>
-
-            <!-- Tafsir Card -->
-            <a href="#" class="library-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="h-28 bg-primary/20 overflow-hidden">
-                    <img src="https://images.pexels.com/photos/208511/pexels-photo-208511.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="p-3 text-center">
-                    <i class="fa-solid fa-book text-primary text-xl mb-1"></i>
-                    <h4 class="font-bold text-sm" data-bn="তাফসির" data-en="Tafsir">তাফসির</h4>
-                    <p class="text-xs text-primary/60" data-bn="কুরআন ব্যাখ্যা" data-en="Quran Explanation">কুরআন
-                        ব্যাখ্যা</p>
-                </div>
-            </a>
-
-            <!-- Islamic History Card -->
-            <a href="#" class="library-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="h-28 bg-primary/20 overflow-hidden">
-                    <img src="https://images.pexels.com/photos/159758/books-stack-learn-study-159758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        class="w-full h-full object-cover">
-                </div>
-                <div class="p-3 text-center">
-                    <i class="fa-solid fa-landmark text-primary text-xl mb-1"></i>
-                    <h4 class="font-bold text-sm" data-bn="ইতিহাস" data-en="History">ইতিহাস</h4>
-                    <p class="text-xs text-primary/60" data-bn="ইসলামের ইতিহাস" data-en="Islamic History">ইসলামের ইতিহাস
-                    </p>
-                </div>
-            </a>
+                <div class="banner-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer transition-all"></div>
+                <div class="banner-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer transition-all"></div>
+                <div class="banner-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer transition-all"></div>
+                <div class="banner-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer transition-all"></div>
+                <div class="banner-dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer transition-all"></div>
+            </div>
         </div>
-    </section>
 
-    <!-- ========== FEATURED DUA SECTION (BIG CARD) ========== -->
-    <section class="px-4 py-5 max-w-7xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-lg p-5">
-            <div class="flex items-center gap-2 mb-3">
-                <i class="fa-solid fa-star text-accent"></i>
-                <h3 class="font-bold text-lg" data-bn="আজকের দুআ" data-en="Dua of the Day">আজকের দুআ</h3>
+        <!-- Search Button (fixed) -->
+        <button
+            class="fixed bottom-[90px] right-4 w-14 h-14 rounded-full bg-[#4CAF50] text-white border-0 text-2xl cursor-pointer shadow-[0_4px_12px_rgba(76,175,80,0.4)] transition-transform active:scale-95 flex items-center justify-center z-40">
+            <i class="fas fa-search"></i>
+        </button>
+
+        <!-- ইলম Section -->
+        <div
+            class="text-lg font-bold text-[#14281D] mb-4 px-2 flex items-center gap-2 before:content-[''] before:w-1 before:h-6 before:bg-[#14281D] before:rounded-sm">
+            ইলম</div>
+
+        <!-- category grid -->
+        <div class="grid grid-cols-4 gap-3 mb-6">
+            <div
+                class="bg-[#F5F5F5] rounded-xl p-4 text-center flex flex-col items-center gap-2 cursor-pointer transition-all hover:bg-[#F0F0F0] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.1)] border border-[#E8E8E8]">
+                <div class="text-[42px] text-[#14281D]">📖</div>
+                <div class="text-[13px] font-semibold text-[#14281D]">কুরআন</div>
             </div>
-
-            <div class="bg-secondary p-5 rounded-xl text-center">
-                <p class="text-2xl mb-3" dir="rtl">رَبِّ زِدْنِي عِلْمًا</p>
-                <p class="font-semibold" data-bn="রব্বি যিদনি ইলমা" data-en="Rabbi zidni ilma">রব্বি যিদনি ইলমা</p>
-                <p class="text-sm text-primary/70 mt-2"
-                    data-bn="অর্থ: হে আমার পালনকর্তা, আমার জ্ঞান বৃদ্ধি করে দিন। (সূরা ত্বোয়া-হা, ২০:১১৪)"
-                    data-en="Meaning: O my Lord, increase me in knowledge. (Surah Taha, 20:114)">অর্থ: হে আমার
-                    পালনকর্তা, আমার জ্ঞান বৃদ্ধি করে দিন। (সূরা ত্বোয়া-হা, ২০:১১৪)</p>
+            <div
+                class="bg-[#F5F5F5] rounded-xl p-4 text-center flex flex-col items-center gap-2 cursor-pointer transition-all hover:bg-[#F0F0F0] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.1)] border border-[#E8E8E8]">
+                <div class="text-[42px] text-[#14281D]">📚</div>
+                <div class="text-[13px] font-semibold text-[#14281D]">কিতাব</div>
             </div>
-
-            <div class="flex gap-2 mt-3 overflow-x-auto no-scrollbar">
-                <span class="bg-primary/10 px-3 py-1 rounded-full text-xs whitespace-nowrap">সকালের দুআ</span>
-                <span class="bg-primary/10 px-3 py-1 rounded-full text-xs whitespace-nowrap">সন্ধ্যার দুআ</span>
-                <span class="bg-primary/10 px-3 py-1 rounded-full text-xs whitespace-nowrap">ঘুমানোর দুআ</span>
-                <span class="bg-primary/10 px-3 py-1 rounded-full text-xs whitespace-nowrap">খাওয়ার দুআ</span>
-                <span class="bg-primary/10 px-3 py-1 rounded-full text-xs whitespace-nowrap">ভ্রমণের দুআ</span>
+            <div
+                class="bg-[#F5F5F5] rounded-xl p-4 text-center flex flex-col items-center gap-2 cursor-pointer transition-all hover:bg-[#F0F0F0] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.1)] border border-[#E8E8E8]">
+                <div class="text-[42px] text-[#14281D]">🕌</div>
+                <div class="text-[13px] font-semibold text-[#14281D]">হাদীস</div>
             </div>
-
-            <button class="w-full mt-4 bg-primary text-secondary py-3 rounded-full text-sm font-semibold"
-                data-bn="সকল দুআ দেখুন" data-en="View All Duas">সকল দুআ দেখুন</button>
+            <div
+                class="bg-[#F5F5F5] rounded-xl p-4 text-center flex flex-col items-center gap-2 cursor-pointer transition-all hover:bg-[#F0F0F0] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.1)] border border-[#E8E8E8]">
+                <div class="text-[42px] text-[#14281D]">📝</div>
+                <div class="text-[13px] font-semibold text-[#14281D]">প্রবন্ধ</div>
+            </div>
+            <div
+                class="bg-[#F5F5F5] rounded-xl p-4 text-center flex flex-col items-center gap-2 cursor-pointer transition-all hover:bg-[#F0F0F0] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.1)] border border-[#E8E8E8]">
+                <div class="text-[42px] text-[#14281D]">💡</div>
+                <div class="text-[13px] font-semibold text-[#14281D]">রওয়ান</div>
+            </div>
+            <div
+                class="bg-[#F5F5F5] rounded-xl p-4 text-center flex flex-col items-center gap-2 cursor-pointer transition-all hover:bg-[#F0F0F0] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.1)] border border-[#E8E8E8]">
+                <div class="text-[42px] text-[#14281D]">📖</div>
+                <div class="text-[13px] font-semibold text-[#14281D]">কুরআন শিক্ষা</div>
+            </div>
+            <div
+                class="bg-[#F5F5F5] rounded-xl p-4 text-center flex flex-col items-center gap-2 cursor-pointer transition-all hover:bg-[#F0F0F0] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.1)] border border-[#E8E8E8]">
+                <div class="text-[42px] text-[#14281D]">🕋</div>
+                <div class="text-[13px] font-semibold text-[#14281D]">নামায শিক্ষা</div>
+            </div>
         </div>
-    </section>
+
+        <!-- আমল Section -->
+        <div
+            class="text-lg font-bold text-[#14281D] mb-4 px-2 flex items-center gap-2 before:content-[''] before:w-1 before:h-6 before:bg-[#14281D] before:rounded-sm">
+            আমল</div>
+
+        <div class="grid grid-cols-4 gap-2 mb-6">
+            <div
+                class="bg-[#F5F5F5] rounded-xl p-4 text-center flex flex-col items-center gap-2 cursor-pointer transition-all hover:bg-[#F0F0F0] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.1)] border border-[#E8E8E8]">
+                <div class="text-[42px] text-[#14281D]">🌍</div>
+                <div class="text-[13px] font-semibold text-[#14281D]">নামাযের সময়</div>
+            </div>
+            <div
+                class="bg-[#F5F5F5] rounded-xl p-4 text-center flex flex-col items-center gap-2 cursor-pointer transition-all hover:bg-[#F0F0F0] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.1)] border border-[#E8E8E8]">
+                <div class="text-[42px] text-[#14281D]">📖</div>
+                <div class="text-[13px] font-semibold text-[#14281D]">তিলাওয়াত</div>
+            </div>
+            <div
+                class="bg-[#F5F5F5] rounded-xl p-4 text-center flex flex-col items-center gap-2 cursor-pointer transition-all hover:bg-[#F0F0F0] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.1)] border border-[#E8E8E8]">
+                <div class="text-[42px] text-[#14281D]">🤲</div>
+                <div class="text-[13px] font-semibold text-[#14281D]">দু'আ</div>
+            </div>
+            <div
+                class="bg-[#F5F5F5] rounded-xl p-4 text-center flex flex-col items-center gap-2 cursor-pointer transition-all hover:bg-[#F0F0F0] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.1)] border border-[#E8E8E8]">
+                <div class="text-[42px] text-[#14281D]">🌙</div>
+                <div class="text-[13px] font-semibold text-[#14281D]">তারাবীহ</div>
+            </div>
+        </div>
+    </main>
 
     <!-- Fixed Footer -->
     <footer
@@ -406,48 +343,96 @@
     </footer>
 
     <script>
-            (function () {
-                // Language Toggle
-                let currentLang = 'bn';
-                const langToggle = document.getElementById('langToggle');
-                const langDot = document.getElementById('langDot');
-                const langLabelBn = document.getElementById('langLabelBn');
-                const langLabelEn = document.getElementById('langLabelEn');
+        (function () {
+            // Carousel logic (exact as original)
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.banner-dot');
+            let currentSlide = 0;
 
-                function updateLanguage(lang) {
-                    document.querySelectorAll('[data-bn][data-en]').forEach(el => {
-                        el.textContent = lang === 'bn' ? el.getAttribute('data-bn') : el.getAttribute('data-en');
-                    });
-
-                    if (lang === 'bn') {
-                        langDot.style.left = '4px';
-                        langLabelBn.className = 'px-1 font-bold';
-                        langLabelEn.className = 'px-1 opacity-60';
-                    } else {
-                        langDot.style.left = '28px';
-                        langLabelEn.className = 'px-1 font-bold';
-                        langLabelBn.className = 'px-1 opacity-60';
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active', 'bg-white'));
+                // in original active dot gets white bg and bigger size; we use class active-dot via JS?
+                // original uses .banner-dot.active with background white and width 8px. We'll replicate exactly.
+                currentSlide = (n + slides.length) % slides.length;
+                if (slides[currentSlide]) slides[currentSlide].classList.add('active');
+                if (dots[currentSlide]) {
+                    dots[currentSlide].classList.add('active', 'bg-white');
+                    dots[currentSlide].style.width = '8px';
+                    dots[currentSlide].style.height = '8px';
+                }
+                // reset others
+                dots.forEach((d, i) => {
+                    if (i !== currentSlide) {
+                        d.classList.remove('active', 'bg-white');
+                        d.style.width = '6px';
+                        d.style.height = '6px';
                     }
-                }
+                });
+            }
 
-                if (langToggle) {
-                    langToggle.addEventListener('click', () => {
-                        currentLang = currentLang === 'bn' ? 'en' : 'bn';
-                        updateLanguage(currentLang);
-                    });
-                }
-                updateLanguage('bn');
+            // Auto change every 5s
+            setInterval(() => { showSlide(currentSlide + 1); }, 5000);
 
-                // Mobile menu toggle
-                const menuBtn = document.getElementById('menuBtn');
-                const mobileMenu = document.getElementById('mobileMenu');
-                if (menuBtn && mobileMenu) {
-                    menuBtn.addEventListener('click', () => {
-                        mobileMenu.classList.toggle('hidden');
+            // Click dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => { showSlide(index); });
+            });
+
+            // Category card click
+            document.querySelectorAll('.category-card, .grid > div').forEach(card => {
+                card.addEventListener('click', function (e) {
+                    const label = this.querySelector('.category-label')?.textContent || 'card';
+                    console.log('Category clicked:', label);
+                });
+            });
+
+            // Bottom nav click (active class)
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    navItems.forEach(n => {
+                        n.classList.remove('text-[#4CAF50]');
+                        n.classList.add('text-[#FFFCDC]/60');
                     });
-                }
-            })();
+                    this.classList.add('text-[#4CAF50]');
+                    this.classList.remove('text-[#FFFCDC]/60');
+                });
+            });
+            // set first active by default
+            if (navItems[0]) {
+                navItems[0].classList.add('text-[#4CAF50]');
+                navItems[0].classList.remove('text-[#FFFCDC]/60');
+            }
+
+            // Search button
+            document.querySelector('.search-btn')?.addEventListener('click', () => console.log('Search clicked'));
+
+            // initial dot styling
+            showSlide(0);
+        })();
     </script>
+
+    <!-- tiny extra style to ensure dots behave like original -->
+    <style>
+        .banner-dot.active {
+            background-color: white;
+            width: 8px;
+            height: 8px;
+        }
+
+        .banner-dot {
+            transition: all 0.3s ease;
+        }
+
+        .nav-item.active {
+            color: #4CAF50;
+        }
+
+        .profile-gradient {
+            background: linear-gradient(135deg, #F4A460 0%, #14281D 100%);
+        }
+    </style>
 </body>
 
 </html>
