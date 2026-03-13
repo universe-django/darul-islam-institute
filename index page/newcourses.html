@@ -1,0 +1,392 @@
+<!-- courses section start -->
+<section class="px-4 pt-4 pb-2 relative">
+    <h2 class="text-center text-2xl font-extrabold mb-3" style="color: #30360E;">
+        <span style="color: #E2D4B9; text-shadow: 0 1px 2px #30360E;">✦</span> নতুন কোর্স সমূহ <span
+            style="color: #E2D4B9; text-shadow: 0 1px 2px #30360E;">✦</span>
+    </h2>
+
+    <!-- Navigation Arrows -->
+    <button id="prevCourse"
+        class="absolute left-2 top-1/2 z-10 bg-[#30360E] text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md hover:bg-[#87F56] hover:text-[#30360E] transition-all -translate-y-1/2">
+        <i class="fas fa-chevron-left text-sm"></i>
+    </button>
+    <button id="nextCourse"
+        class="absolute right-2 top-1/2 z-10 bg-[#30360E] text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md hover:bg-[#87F56] hover:text-[#30360E] transition-all -translate-y-1/2">
+        <i class="fas fa-chevron-right text-sm"></i>
+    </button>
+
+    <!-- Course carousel -->
+    <div id="courseCarousel"
+        class="course-carousel-container flex gap-3 overflow-x-auto snap-x scroll-smooth scrollbar-hide">
+        <!-- course card 1 -->
+        <div
+            class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+            <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                <!-- banner image -->
+                <img src="images/course1.jpg" alt="কুরআন কোর্স" class="h-40 w-full object-cover">
+                <div class="p-3 flex flex-col flex-1">
+                    <h3 class="font-bold text-sm text-[#30360E] mb-1">কুরআন মেমোরাইজেশন</h3>
+                    <p class="text-[10px] text-[#30360E] mb-2">হিফজ প্রোগ্রাম • দৈনিক ২ঘ • ৫দিন</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs font-bold text-[#30360E]">২,৫০০ ৳/মাস</span>
+                        <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২৪</span>
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                            ভর্তি
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- course card 2 -->
+        <div
+            class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+            <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                <img src="images/course2.jpg" alt="আরবি কোর্স" class="h-40 w-full object-cover">
+                <div class="p-3 flex flex-col flex-1">
+                    <h3 class="font-bold text-sm text-[#30360E] mb-1">আরবি ভাষা কোর্স</h3>
+                    <p class="text-[10px] text-[#30360E] mb-2">নতুনদের জন্য • দৈনিক ১.৫ঘ • ৪দিন</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs font-bold text-[#30360E]">১,৮০০ ৳/মাস</span>
+                        <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>১৮</span>
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                            ভর্তি
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- course card 3 -->
+        <div
+            class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+            <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                <img src="images/course3.jpg" alt="ফিকহ কোর্স" class="h-40 w-full object-cover">
+                <div class="p-3 flex flex-col flex-1">
+                    <h3 class="font-bold text-sm text-[#30360E] mb-1">ফিকহ্‌ ও আকিদা</h3>
+                    <p class="text-[10px] text-[#30360E] mb-2">মৌলিক জ্ঞান • সপ্তাহে ৩ ক্লাস</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs font-bold text-[#30360E]">২,২০০ ৳/মাস</span>
+                        <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>৩০</span>
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                            ভর্তি
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- course card 4 -->
+        <div
+            class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+            <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                <img src="images/course3.jpg" alt="তাফসীর কোর্স" class="h-40 w-full object-cover">
+                <div class="p-3 flex flex-col flex-1">
+                    <h3 class="font-bold text-sm text-[#30360E] mb-1">তাফসীরুল কুরআন</h3>
+                    <p class="text-[10px] text-[#30360E] mb-2">কুরআন ব্যাখ্যা • সপ্তাহে ২ ক্লাস</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs font-bold text-[#30360E]">২,৮০০ ৳/মাস</span>
+                        <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২২</span>
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                            ভর্তি
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- course card 5 -->
+        <div
+            class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+            <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                <img src="images/course5.jpg" alt="হাদীস কোর্স" class="h-40 w-full object-cover">
+                <div class="p-3 flex flex-col flex-1">
+                    <h3 class="font-bold text-sm text-[#30360E] mb-1">হাদীস অধ্যয়ন</h3>
+                    <p class="text-[10px] text-[#30360E] mb-2">বুখারী ও মুসলিম • সপ্তাহে ৩ ক্লাস</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs font-bold text-[#30360E]">২,৪০০ ৳/মাস</span>
+                        <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২৮</span>
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                            ভর্তি
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- course card 6 -->
+        <div
+            class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+            <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                <img src="images/course6.jpg" alt="সীরাহ কোর্স" class="h-40 w-full object-cover">
+                <div class="p-3 flex flex-col flex-1">
+                    <h3 class="font-bold text-sm text-[#30360E] mb-1">সীরাতুন নবী</h3>
+                    <p class="text-[10px] text-[#30360E] mb-2">নবীর জীবনী • সপ্তাহে ২ ক্লাস</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs font-bold text-[#30360E]">১,৯০০ ৳/মাস</span>
+                        <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২০</span>
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                            ভর্তি
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Course Carousel Section Styles */
+    .course-section-title {
+        color: #30360E;
+        font-weight: 800;
+        position: relative;
+        display: inline-block;
+    }
+
+    .course-section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: #87F56;
+        border-radius: 2px;
+    }
+
+    /* Course Carousel Container */
+    .course-carousel-container {
+        scroll-snap-type: x mandatory;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .course-carousel-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Course Slide Banner */
+    .course-slide-banner {
+        scroll-snap-align: start;
+        padding: 0 4px;
+    }
+
+    /* Course Card Styles */
+    .course-card {
+        background-color: white;
+        border-radius: 0.5rem;
+        border: 1px solid #30360E;
+        overflow: hidden;
+        height: 280px;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .course-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(48, 54, 14, 0.1);
+    }
+
+    .course-card-image {
+        height: 160px;
+        width: 100%;
+        object-fit: cover;
+        border-bottom: 1px solid #30360E;
+    }
+
+    .course-card-content {
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .course-title {
+        font-weight: 700;
+        font-size: 0.875rem;
+        color: #30360E;
+        margin-bottom: 0.25rem;
+    }
+
+    .course-description {
+        font-size: 0.625rem;
+        color: #30360E;
+        margin-bottom: 0.5rem;
+        opacity: 0.8;
+    }
+
+    .course-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+    }
+
+    .course-price {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #30360E;
+    }
+
+    .course-students {
+        font-size: 0.625rem;
+        color: #30360E;
+    }
+
+    .course-students i {
+        margin-right: 0.25rem;
+    }
+
+    .course-enroll-btn {
+        background-color: #87F56;
+        color: #30360E;
+        font-size: 0.625rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.25rem;
+        border: 1px solid #30360E;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .course-enroll-btn:hover {
+        background-color: #6fd46f;
+    }
+
+    /* Navigation Arrows */
+    .course-nav-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background-color: #30360E;
+        color: white;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .course-nav-arrow:hover {
+        background-color: #87F56;
+        color: #30360E;
+    }
+
+    .course-nav-arrow:active {
+        transform: translateY(-50%) scale(0.95);
+    }
+
+    .course-nav-arrow.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .course-nav-arrow.prev {
+        left: 0.5rem;
+    }
+
+    .course-nav-arrow.next {
+        right: 0.5rem;
+    }
+
+    /* Responsive Widths */
+    @media (max-width: 640px) {
+        .course-slide-banner {
+            width: calc(100% - 48px);
+        }
+    }
+
+    @media (min-width: 640px) and (max-width: 768px) {
+        .course-slide-banner {
+            width: calc(50% - 24px);
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        .course-slide-banner {
+            width: calc(33.333% - 24px);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .course-slide-banner {
+            width: calc(25% - 24px);
+        }
+    }
+</style>
+
+<script>
+    // Course carousel with navigation arrows
+    const courseCarousel = document.getElementById('courseCarousel');
+    const prevBtn = document.getElementById('prevCourse');
+    const nextBtn = document.getElementById('nextCourse');
+
+    if (courseCarousel && prevBtn && nextBtn) {
+        // Scroll function
+        const scroll = (direction) => {
+            const cardWidth = courseCarousel.querySelector('.course-slide-banner').offsetWidth;
+            const gap = 12; 
+            const scrollAmount = cardWidth + gap;
+
+            if (direction === 'next') {
+                courseCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            } else {
+                courseCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+        };
+
+        // Event listeners
+        prevBtn.addEventListener('click', () => scroll('prev'));
+        nextBtn.addEventListener('click', () => scroll('next'));
+
+        // Auto scroll every 5 seconds
+        let autoScroll = setInterval(() => scroll('next'), 5000);
+
+        // Pause auto-scroll on hover
+        courseCarousel.addEventListener('mouseenter', () => {
+            clearInterval(autoScroll);
+        });
+
+        courseCarousel.addEventListener('mouseleave', () => {
+            autoScroll = setInterval(() => scroll('next'), 5000);
+        });
+
+        // Hide/show arrows based on scroll position
+        const updateArrows = () => {
+            const maxScroll = courseCarousel.scrollWidth - courseCarousel.clientWidth;
+            if (courseCarousel.scrollLeft <= 0) {
+                prevBtn.classList.add('opacity-50', 'pointer-events-none');
+            } else {
+                prevBtn.classList.remove('opacity-50', 'pointer-events-none');
+            }
+
+            if (courseCarousel.scrollLeft >= maxScroll - 10) {
+                nextBtn.classList.add('opacity-50', 'pointer-events-none');
+            } else {
+                nextBtn.classList.remove('opacity-50', 'pointer-events-none');
+            }
+        };
+
+        courseCarousel.addEventListener('scroll', updateArrows);
+        window.addEventListener('resize', updateArrows);
+        setTimeout(updateArrows, 100);
+    }
+</script>
+<!-- courses section end -->

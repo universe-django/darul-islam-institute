@@ -1,31 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darul Islam Institute · Tailwind (refined)</title>
+    <title>দারুল ইসলাম ইনস্টিটিউট · বাংলা</title>
     <!-- Tailwind cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    <!-- Bangla fonts: Noto Serif Bengali (classic print) with Sutonny MJ fallback -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-
-    <!-- google ads script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
-        crossorigin="anonymous"></script>
-
-    <!-- aos initial head -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <!-- Style for css -->
     <style>
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Noto Serif Bengali', 'Sutonny MJ', 'Poppins', sans-serif;
+        }
+
+        /* force bangla serif for all text elements, icons stay poppins via fa */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        span,
+        a,
+        div,
+        button,
+        li,
+        label,
+        .menu-list,
+        .dropdown-toggle,
+        .main-menu-link,
+        .submenu li a {
+            font-family: 'Noto Serif Bengali', 'Sutonny MJ', 'Poppins', sans-serif;
+        }
+
+        /* keep icon fonts unaffected */
+        .fas,
+        .fab,
+        .far,
+        .fa-solid,
+        .fa-regular {
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Poppins', sans-serif;
         }
 
         .hero-slide {
@@ -109,7 +134,7 @@
             border-radius: 10px;
         }
 
-        /* drawer custom styles */
+        /* drawer styles */
         .menu-drawer {
             position: fixed;
             top: 0;
@@ -206,7 +231,6 @@
             border-radius: 12px;
         }
 
-        /* Dropdown styles */
         .dropdown {
             position: relative;
         }
@@ -304,20 +328,354 @@
             background-color: rgba(48, 54, 14, 0.05);
         }
 
-        /* ensure original header button unchanged */
         .hamburger-btn {
             transition: all 0.1s;
             cursor: pointer;
         }
 
-        /* hide the checkbox */
         #menu-toggle {
+            display: none;
+        }
+
+        /* Category section styles */
+        .category-section-title {
+            color: #30360E;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .category-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #87F56;
+            border-radius: 2px;
+        }
+
+        .category-card {
+            background-color: #FFFCDC;
+            border: 2px solid #30360E;
+            border-radius: 1rem;
+            box-shadow: 0 4px 0 #30360E;
+            transition: all 0.2s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 0 #30360E;
+        }
+
+        .category-icon {
+            background-color: #E2D4B9;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #30360E;
+            border: 2px solid #30360E;
+            box-shadow: 0 2px 0 #30360E;
+        }
+
+        .category-badge {
+            background-color: #30360E;
+            color: #E2D4B9;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.6rem;
+            border-radius: 9999px;
+            display: inline-block;
+        }
+
+        .learn-btn {
+            background-color: #87F56;
+            color: #30360E;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.75rem;
+            border: 2px solid #30360E;
+            box-shadow: 0 2px 0 #30360E;
+            transition: all 0.1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            width: fit-content;
+        }
+
+        .learn-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 0px 0 #30360E;
+        }
+
+        /* Redesigned Teacher section styles */
+        .teacher-section-title {
+            color: #30360E;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .teacher-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #87F56;
+            border-radius: 2px;
+        }
+
+        .teacher-card-redesigned {
+            background: linear-gradient(145deg, #FFFCDC 0%, #f5efd0 100%);
+            border: 2px solid #30360E;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 0 #30360E;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .teacher-card-redesigned:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 13px 0 #30360E;
+        }
+
+        .teacher-card-redesigned::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(135deg, #30360E 0%, #87F56 100%);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .teacher-avatar-redesigned {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #87F56;
+            box-shadow: 0 4px 0 #30360E;
+            object-fit: cover;
+            background: linear-gradient(135deg, #E2D4B9, #f5ead4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: #30360E;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .teacher-card-redesigned:hover .teacher-avatar-redesigned {
+            transform: scale(1.05);
+            border-color: #30360E;
+        }
+
+        .teacher-badge-redesigned {
+            background: linear-gradient(135deg, #87F56, #9effa0);
+            color: #30360E;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            border: 1.5px solid #30360E;
+            display: inline-block;
+            box-shadow: 0 2px 0 #30360E;
+            letter-spacing: 0.3px;
+        }
+
+        .teacher-stats {
+            background-color: #E2D4B9;
+            border-radius: 2rem;
+            padding: 0.3rem 0.8rem;
+            border: 1.5px solid #30360E;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #30360E;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            box-shadow: 0 2px 0 #30360E;
+        }
+
+        .teacher-social-redesigned {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #E2D4B9;
+            border: 2px solid #30360E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #30360E;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 0 #30360E;
+        }
+
+        .teacher-social-redesigned:hover {
+            background-color: #87F56;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 0 #30360E;
+        }
+
+        .teacher-social-redesigned:active {
+            transform: translateY(2px);
+            box-shadow: 0 0px 0 #30360E;
+        }
+
+        .profile-btn-redesigned {
+            background: linear-gradient(135deg, #30360E, #4a541a);
+            color: #E2D4B9;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.6rem 1rem;
+            border-radius: 2rem;
+            border: 2px solid #87F56;
+            box-shadow: 0 4px 0 #1a1f0a;
+            transition: all 0.2s;
+            width: 100%;
+            letter-spacing: 0.3px;
+        }
+
+        .profile-btn-redesigned:hover {
+            background: linear-gradient(135deg, #4a541a, #30360E);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #1a1f0a;
+        }
+
+        .profile-btn-redesigned:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #1a1f0a;
+        }
+
+        /* Student Reviews Section */
+        .reviews-section-title {
+            color: #30360E;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .reviews-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #87F56;
+            border-radius: 2px;
+        }
+
+        .review-card {
+            background-color: #FFFCDC;
+            border: 2px solid #30360E;
+            border-radius: 1.5rem;
+            box-shadow: 0 6px 0 #30360E;
+            transition: all 0.2s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 1.2rem 0.8rem;
+            position: relative;
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 0 #30360E;
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            font-size: 6rem;
+            color: #87F56;
+            opacity: 0.2;
+            font-family: serif;
+            transform: rotate(180deg);
+        }
+
+        .student-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #87F56;
+            box-shadow: 0 3px 0 #30360E;
+            object-fit: cover;
+            background: linear-gradient(135deg, #E2D4B9, #f5ead4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #30360E;
+        }
+
+        .rating-stars {
+            color: #FFB84D;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            font-size: 0.8rem;
+            line-height: 1.4;
+            color: #30360E;
+            font-style: italic;
+            margin: 0.5rem 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .student-name {
+            font-weight: 800;
+            color: #30360E;
+            font-size: 0.9rem;
+        }
+
+        .student-course {
+            background-color: #E2D4B9;
+            padding: 0.2rem 0.8rem;
+            border-radius: 9999px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: #30360E;
+            border: 1px solid #30360E;
+            display: inline-block;
+        }
+
+        .hidden-section {
             display: none;
         }
     </style>
 </head>
 
-<body class="bg-[#FFFCDC] pb-[70px] font-['Poppins',sans-serif] overflow-x-auto">
+<body class="bg-[#FFFCDC] overflow-x-auto">
 
     <!-- Hidden checkbox for menu toggle -->
     <input type="checkbox" id="menu-toggle">
@@ -330,13 +688,13 @@
                     <i class="fas fa-mosque text-[#14281D] text-xl"></i>
                 </div>
                 <div class="text-[#FFFCDC] font-bold text-lg leading-tight">
-                    Darul Islam Institute
+                    দারুল ইসলাম ইনস্টিটিউট
                 </div>
             </div>
             <div class="flex gap-2.5">
                 <label for="menu-toggle"
                     class="text-[#FFFCDC] text-base cursor-pointer transition-all w-7 h-7 flex items-center justify-center rounded-md bg-[#FFFCDC]/10 border-0 hamburger-btn"
-                    title="Menu">
+                    title="মেনু">
                     <i class="fa-solid fa-bars"></i>
                 </label>
             </div>
@@ -349,190 +707,127 @@
     <!-- sliding drawer -->
     <aside class="menu-drawer" id="menuDrawer">
         <div class="drawer-header">
-            <div class="mosque-icon-small">
-                <i class="fas fa-mosque"></i>
-            </div>
-            <span>Darul Islam Institute</span>
-            <label for="menu-toggle" class="close-drawer" aria-label="Close menu">
-                <i class="fas fa-times"></i>
-            </label>
+            <div class="mosque-icon-small"><i class="fas fa-mosque"></i></div>
+            <span>দারুল ইসলাম ইনস্টিটিউট</span>
+            <label for="menu-toggle" class="close-drawer" aria-label="মেনু বন্ধ করুন"><i
+                    class="fas fa-times"></i></label>
         </div>
-
-        <!-- menu list  -->
         <ul class="menu-list">
-            <!-- Home -->
-            <li class="menu-item">
-                <a href="#" class="main-menu-link">Home</a>
-            </li>
-
-            <!-- About us -->
+            <li class="menu-item"><a href="#" class="main-menu-link">হোম</a></li>
             <li class="menu-item dropdown">
                 <input type="checkbox" id="dropdown-about" class="dropdown-checkbox">
-                <label for="dropdown-about" class="dropdown-toggle">
-                    About us <i class="fas fa-chevron-right"></i>
-                </label>
+                <label for="dropdown-about" class="dropdown-toggle">আমাদের সম্পর্কে <i
+                        class="fas fa-chevron-right"></i></label>
                 <ul class="submenu">
-                    <li><a href="#">History</a></li>
-                    <li><a href="#">Mission & Vision</a></li>
-                    <li><a href="#">Management /board member</a></li>
+                    <li><a href="#">ইতিহাস</a></li>
+                    <li><a href="#">লক্ষ্য ও উদ্দেশ্য</a></li>
+                    <li><a href="#">পরিচালনা পর্ষদ</a></li>
                 </ul>
             </li>
-
-            <!-- Academic detail -->
             <li class="menu-item dropdown">
                 <input type="checkbox" id="dropdown-academic" class="dropdown-checkbox">
-                <label for="dropdown-academic" class="dropdown-toggle">
-                    Academic detail <i class="fas fa-chevron-right"></i>
-                </label>
+                <label for="dropdown-academic" class="dropdown-toggle">একাডেমিক বিবরণ <i
+                        class="fas fa-chevron-right"></i></label>
                 <ul class="submenu">
-                    <li><a href="#">Teacher Profile</a></li>
-                    <li><a href="#">academic</a></li>
+                    <li><a href="#">শিক্ষক প্রোফাইল</a></li>
+                    <li><a href="#">একাডেমিক</a></li>
                 </ul>
             </li>
-
-            <!-- Departments -->
             <li class="menu-item dropdown">
                 <input type="checkbox" id="dropdown-departments" class="dropdown-checkbox">
-                <label for="dropdown-departments" class="dropdown-toggle">
-                    Departments <i class="fas fa-chevron-right"></i>
-                </label>
+                <label for="dropdown-departments" class="dropdown-toggle">বিভাগসমূহ <i
+                        class="fas fa-chevron-right"></i></label>
                 <ul class="submenu">
-                    <li><a href="#">Offline Course</a></li>
-                    <li><a href="#">Online Courses</a></li>
+                    <li><a href="#">অফলাইন কোর্স</a></li>
+                    <li><a href="#">অনলাইন কোর্স</a></li>
                 </ul>
             </li>
-
-            <!-- Courses -->
             <li class="menu-item dropdown">
                 <input type="checkbox" id="dropdown-courses" class="dropdown-checkbox">
-                <label for="dropdown-courses" class="dropdown-toggle">
-                    Courses <i class="fas fa-chevron-right"></i>
-                </label>
+                <label for="dropdown-courses" class="dropdown-toggle">কোর্সসমূহ <i
+                        class="fas fa-chevron-right"></i></label>
                 <ul class="submenu">
-                    <li><a href="#" class="dynamic-note">Courses name will dynamically show</a></li>
+                    <li><a href="#" class="dynamic-note">কোর্সের নাম ডায়নামিক দেখাবে</a></li>
                 </ul>
             </li>
-
-            <!-- Notice -->
             <li class="menu-item dropdown">
                 <input type="checkbox" id="dropdown-notice" class="dropdown-checkbox">
-                <label for="dropdown-notice" class="dropdown-toggle">
-                    Notice <i class="fas fa-chevron-right"></i>
-                </label>
+                <label for="dropdown-notice" class="dropdown-toggle">নোটিশ <i class="fas fa-chevron-right"></i></label>
                 <ul class="submenu">
-                    <li><a href="#">notice board</a></li>
-                    <li><a href="#">important notice</a></li>
+                    <li><a href="#">নোটিশ বোর্ড</a></li>
+                    <li><a href="#">গুরুত্বপূর্ণ নোটিশ</a></li>
                 </ul>
             </li>
-
-            <!-- Islamic Library -->
             <li class="menu-item dropdown">
                 <input type="checkbox" id="dropdown-library" class="dropdown-checkbox">
-                <label for="dropdown-library" class="dropdown-toggle">
-                    Islamic Library <i class="fas fa-chevron-right"></i>
-                </label>
+                <label for="dropdown-library" class="dropdown-toggle">ইসলামিক লাইব্রেরি <i
+                        class="fas fa-chevron-right"></i></label>
                 <ul class="submenu">
-                    <li><a href="#">Ilm</a></li>
-                    <li><a href="#">Amal</a></li>
+                    <li><a href="#">ইল্ম</a></li>
+                    <li><a href="#">আমল</a></li>
                 </ul>
             </li>
-
-            <!-- Donation -->
-            <li class="menu-item">
-                <a href="#" class="main-menu-link">Donation</a>
-            </li>
-
-            <!-- Contact us -->
-            <li class="menu-item">
-                <a href="#" class="main-menu-link">Contact us</a>
-            </li>
-
-            <!-- Admission Details -->
-            <li class="menu-item">
-                <a href="#" class="main-menu-link">Admission Details</a>
-            </li>
-
-            <!-- Review & Ratings -->
+            <li class="menu-item"><a href="#" class="main-menu-link">দান</a></li>
+            <li class="menu-item"><a href="#" class="main-menu-link">যোগাযোগ</a></li>
+            <li class="menu-item"><a href="#" class="main-menu-link">ভর্তির বিবরণ</a></li>
             <li class="menu-item dropdown">
                 <input type="checkbox" id="dropdown-review" class="dropdown-checkbox">
-                <label for="dropdown-review" class="dropdown-toggle">
-                    Review & Ratings <i class="fas fa-chevron-right"></i>
-                </label>
+                <label for="dropdown-review" class="dropdown-toggle">রিভিউ ও রেটিং <i
+                        class="fas fa-chevron-right"></i></label>
                 <ul class="submenu">
-                    <li><a href="#">Student Review</a></li>
-                    <li><a href="#">Guardian Review</a></li>
+                    <li><a href="#">শিক্ষার্থীর রিভিউ</a></li>
+                    <li><a href="#">অভিভাবকের রিভিউ</a></li>
                 </ul>
             </li>
-
-            <!-- gallery -->
             <li class="menu-item dropdown">
                 <input type="checkbox" id="dropdown-gallery" class="dropdown-checkbox">
-                <label for="dropdown-gallery" class="dropdown-toggle">
-                    gallery <i class="fas fa-chevron-right"></i>
-                </label>
+                <label for="dropdown-gallery" class="dropdown-toggle">গ্যালারি <i
+                        class="fas fa-chevron-right"></i></label>
                 <ul class="submenu">
-                    <li><a href="#">image gallery</a></li>
-                    <li><a href="#">video gallery</a></li>
+                    <li><a href="#">চিত্র গ্যালারি</a></li>
+                    <li><a href="#">ভিডিও গ্যালারি</a></li>
                 </ul>
             </li>
-
-            <!-- accounts -->
             <li class="menu-item dropdown">
                 <input type="checkbox" id="dropdown-accounts" class="dropdown-checkbox">
-                <label for="dropdown-accounts" class="dropdown-toggle">
-                    accounts <i class="fas fa-chevron-right"></i>
-                </label>
+                <label for="dropdown-accounts" class="dropdown-toggle">অ্যাকাউন্ট <i
+                        class="fas fa-chevron-right"></i></label>
                 <ul class="submenu">
-                    <li><a href="#">login./logout</a></li>
-                    <li><a href="#">settings</a></li>
-                    <li><a href="#">profile edit</a></li>
-                    <li><a href="#">registration</a></li>
+                    <li><a href="#">লগইন/লগআউট</a></li>
+                    <li><a href="#">সেটিংস</a></li>
+                    <li><a href="#">প্রোফাইল এডিট</a></li>
+                    <li><a href="#">রেজিস্ট্রেশন</a></li>
                 </ul>
             </li>
-
-            <!-- Others -->
             <li class="menu-item dropdown">
                 <input type="checkbox" id="dropdown-others" class="dropdown-checkbox">
-                <label for="dropdown-others" class="dropdown-toggle">
-                    Others <i class="fas fa-chevron-right"></i>
-                </label>
+                <label for="dropdown-others" class="dropdown-toggle">অন্যান্য <i
+                        class="fas fa-chevron-right"></i></label>
                 <ul class="submenu">
-                    <li><a href="#">Career Update</a></li>
-                    <li><a href="#">Partnership</a></li>
-                    <li><a href="#">Certificate verification</a></li>
-                    <li><a href="#">settings</a></li>
+                    <li><a href="#">ক্যারিয়ার আপডেট</a></li>
+                    <li><a href="#">পার্টনারশিপ</a></li>
+                    <li><a href="#">সার্টিফিকেট ভেরিফিকেশন</a></li>
+                    <li><a href="#">সেটিংস</a></li>
                 </ul>
             </li>
         </ul>
     </aside>
 
-    <!-- 6 ICON NAV -->
-    <div class="bg-[#E2D4B9] sticky top-0 z-50">
+    <!-- 6 ICON Nav -->
+    <div class="bg-[#E2D4B9] sticky top-0 z-50 h-12">
         <div class="grid grid-cols-6 text-center text-[11px] max-w-7xl mx-auto py-2">
-            <a href="index.html" class="flex flex-col items-center text-[#14281D]">
-                <i class="fa-solid fa-house text-[#14281D] text-sm"></i>
-                <span data-bn="হোম" data-en="Home">হোম</span>
-            </a>
-            <a href="library.html" class="flex flex-col items-center text-[#14281D]">
-                <i class="fa-solid fa-book-quran text-[#14281D] text-sm"></i>
-                <span data-bn="লাইব্রেরি" data-en="Library">লাইব্রেরি</span>
-            </a>
-            <a href="education.html" class="flex flex-col items-center text-[#14281D]">
-                <i class="fa-solid fa-graduation-cap text-[#14281D] text-sm"></i>
-                <span data-bn="শিক্ষা" data-en="Education">শিক্ষা</span>
-            </a>
-            <a href="dawah.html" class="flex flex-col items-center text-[#14281D]">
-                <i class="fa-solid fa-cart-shopping text-[#14281D] text-sm"></i>
-                <span data-bn="ইসলামিক শপ" data-en="Dawah">ইসলামিক শপ</span>
-            </a>
-            <a href="donation.html" class="flex flex-col items-center text-[#14281D]">
-                <i class="fa-solid fa-hand-holding-dollar text-[#14281D] text-sm"></i>
-                <span data-bn="দান" data-en="Donate">দান</span>
-            </a>
-            <a href="registration.html" class="flex flex-col items-center text-[#14281D]">
-                <i class="fa-solid fa-user text-[#14281D] text-sm"></i>
-                <span data-bn="অ্যাকাউন্ট" data-en="Account">অ্যাকাউন্ট</span>
-            </a>
+            <a href="index.html" class="flex flex-col items-center text-[#14281D]"><i
+                    class="fa-solid fa-house text-[#14281D] text-sm"></i><span>হোম</span></a>
+            <a href="library.html" class="flex flex-col items-center text-[#14281D]"><i
+                    class="fa-solid fa-book-quran text-[#14281D] text-sm"></i><span>লাইব্রেরি</span></a>
+            <a href="education.html" class="flex flex-col items-center text-[#14281D]"><i
+                    class="fa-solid fa-graduation-cap text-[#14281D] text-sm"></i><span>শিক্ষা</span></a>
+            <a href="dawah.html" class="flex flex-col items-center text-[#14281D]"><i
+                    class="fa-solid fa-cart-shopping text-[#14281D] text-sm"></i><span>শপ</span></a>
+            <a href="donation.html" class="flex flex-col items-center text-[#14281D]"><i
+                    class="fa-solid fa-hand-holding-dollar text-[#14281D] text-sm"></i><span>দান</span></a>
+            <a href="registration.html" class="flex flex-col items-center text-[#14281D]"><i
+                    class="fa-solid fa-user text-[#14281D] text-sm"></i><span>অ্যাকাউন্ট</span></a>
         </div>
     </div>
 
@@ -546,28 +841,22 @@
                 <div class="hero-slide" style="background-image: url('images/slide3.png')"></div>
             </div>
             <div class="hero-overlay"></div>
-
-            <!-- content container -->
             <div class="relative z-[3] w-full h-full flex flex-col items-center justify-center px-4">
                 <h2
                     class="text-2xl font-extrabold text-[#14281D] mb-2 drop-shadow-[0_2px_4px_rgba(255,252,220,0.3)] text-center">
-                    Darul Islam Institute
-                </h2>
+                    দারুল ইসলাম ইনস্টিটিউট</h2>
                 <p
                     class="text-sm text-[#14281D] mb-4 font-medium tracking-wide drop-shadow-[0_1px_2px_rgba(255,252,220,0.2)] text-center">
-                    Education • Islamic Library • Dawah • Donation
-                </p>
+                    শিক্ষা • ইসলামিক লাইব্রেরি • দাওয়াহ • দান</p>
                 <div class="flex gap-2.5 justify-center flex-wrap">
                     <button
                         class="bg-green-800 text-[#FFFCDC] px-5 py-2.5 rounded-md font-bold text-xs flex items-center gap-1.5 shadow-[0_2px_8px_rgba(20,40,29,0.3)] transition-all hover:scale-105 active:scale-95"><i
-                            class="fas fa-user-plus"></i> Enroll Now</button>
+                            class="fas fa-user-plus"></i> এখনই ভর্তি হোন</button>
                     <button
                         class="bg-yellow-500 text-[#14281D] px-5 py-2.5 rounded-md font-bold text-xs flex items-center gap-1.5 shadow-[0_2px_8px_rgba(244,164,96,0.3)] transition-all hover:scale-105 active:scale-95"><i
-                            class="fas fa-hand-holding-heart"></i> Make a Donation</button>
+                            class="fas fa-hand-holding-heart"></i> দান করুন</button>
                 </div>
             </div>
-
-            <!-- Hero dots -->
             <div class="absolute bottom-2 left-1/2 -translate-x-1/2 z-[4] flex gap-1">
                 <div
                     class="w-1.5 h-1.5 rounded-full bg-[#FFFCDC]/70 cursor-pointer transition-all hero-carousel-dot active hover:bg-[#FFFCDC]">
@@ -581,10 +870,1147 @@
             </div>
         </section>
 
-        <!-- Description -->
-        <section class="text-center text-[#14281D] text-[10px] px-4 py-3 font-medium tracking-wide">
-            <i class="fas fa-book-open"></i> Education • <i class="fas fa-building"></i> Islamic Library • <i
-                class="fas fa-users"></i> Dawah • <i class="fas fa-donate"></i> Donation
+        <!-- courses section start -->
+        <section class="px-4 pt-4 pb-2 relative">
+            <h2 class="text-center text-2xl font-extrabold mb-3" style="color: #30360E;">
+                <span style="color: #E2D4B9; text-shadow: 0 1px 2px #30360E;">✦</span> নতুন কোর্স সমূহ <span
+                    style="color: #E2D4B9; text-shadow: 0 1px 2px #30360E;">✦</span>
+            </h2>
+
+            <!-- Navigation Arrows -->
+            <button id="prevCourse"
+                class="absolute left-2 top-1/2 z-10 bg-[#30360E] text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md hover:bg-[#87F56] hover:text-[#30360E] transition-all -translate-y-1/2">
+                <i class="fas fa-chevron-left text-sm"></i>
+            </button>
+            <button id="nextCourse"
+                class="absolute right-2 top-1/2 z-10 bg-[#30360E] text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md hover:bg-[#87F56] hover:text-[#30360E] transition-all -translate-y-1/2">
+                <i class="fas fa-chevron-right text-sm"></i>
+            </button>
+
+            <!-- Course carousel -->
+            <div id="courseCarousel"
+                class="course-carousel-container flex gap-3 overflow-x-auto snap-x scroll-smooth scrollbar-hide">
+                <!-- course card 1 -->
+                <div
+                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                        <!-- banner image -->
+                        <img src="images/course1.jpg" alt="কুরআন কোর্স" class="h-40 w-full object-cover">
+                        <div class="p-3 flex flex-col flex-1">
+                            <h3 class="font-bold text-sm text-[#30360E] mb-1">কুরআন মেমোরাইজেশন</h3>
+                            <p class="text-[10px] text-[#30360E] mb-2">হিফজ প্রোগ্রাম • দৈনিক ২ঘ • ৫দিন</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="text-xs font-bold text-[#30360E]">২,৫০০ ৳/মাস</span>
+                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২৪</span>
+                                <button
+                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                                    ভর্তি
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- course card 2 -->
+                <div
+                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                        <img src="images/course2.jpg" alt="আরবি কোর্স" class="h-40 w-full object-cover">
+                        <div class="p-3 flex flex-col flex-1">
+                            <h3 class="font-bold text-sm text-[#30360E] mb-1">আরবি ভাষা কোর্স</h3>
+                            <p class="text-[10px] text-[#30360E] mb-2">নতুনদের জন্য • দৈনিক ১.৫ঘ • ৪দিন</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="text-xs font-bold text-[#30360E]">১,৮০০ ৳/মাস</span>
+                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>১৮</span>
+                                <button
+                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                                    ভর্তি
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- course card 3 -->
+                <div
+                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                        <img src="images/course3.jpg" alt="ফিকহ কোর্স" class="h-40 w-full object-cover">
+                        <div class="p-3 flex flex-col flex-1">
+                            <h3 class="font-bold text-sm text-[#30360E] mb-1">ফিকহ্‌ ও আকিদা</h3>
+                            <p class="text-[10px] text-[#30360E] mb-2">মৌলিক জ্ঞান • সপ্তাহে ৩ ক্লাস</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="text-xs font-bold text-[#30360E]">২,২০০ ৳/মাস</span>
+                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>৩০</span>
+                                <button
+                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                                    ভর্তি
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- course card 4 -->
+                <div
+                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                        <img src="images/course3.jpg" alt="তাফসীর কোর্স" class="h-40 w-full object-cover">
+                        <div class="p-3 flex flex-col flex-1">
+                            <h3 class="font-bold text-sm text-[#30360E] mb-1">তাফসীরুল কুরআন</h3>
+                            <p class="text-[10px] text-[#30360E] mb-2">কুরআন ব্যাখ্যা • সপ্তাহে ২ ক্লাস</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="text-xs font-bold text-[#30360E]">২,৮০০ ৳/মাস</span>
+                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২২</span>
+                                <button
+                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                                    ভর্তি
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- course card 5 -->
+                <div
+                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                        <img src="images/course5.jpg" alt="হাদীস কোর্স" class="h-40 w-full object-cover">
+                        <div class="p-3 flex flex-col flex-1">
+                            <h3 class="font-bold text-sm text-[#30360E] mb-1">হাদীস অধ্যয়ন</h3>
+                            <p class="text-[10px] text-[#30360E] mb-2">বুখারী ও মুসলিম • সপ্তাহে ৩ ক্লাস</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="text-xs font-bold text-[#30360E]">২,৪০০ ৳/মাস</span>
+                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২৮</span>
+                                <button
+                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                                    ভর্তি
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- course card 6 -->
+                <div
+                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
+                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
+                        <img src="images/course6.jpg" alt="সীরাহ কোর্স" class="h-40 w-full object-cover">
+                        <div class="p-3 flex flex-col flex-1">
+                            <h3 class="font-bold text-sm text-[#30360E] mb-1">সীরাতুন নবী</h3>
+                            <p class="text-[10px] text-[#30360E] mb-2">নবীর জীবনী • সপ্তাহে ২ ক্লাস</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="text-xs font-bold text-[#30360E]">১,৯০০ ৳/মাস</span>
+                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২০</span>
+                                <button
+                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
+                                    ভর্তি
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Course Carousel Section Styles */
+            .course-section-title {
+                color: #30360E;
+                font-weight: 800;
+                position: relative;
+                display: inline-block;
+            }
+
+            .course-section-title::after {
+                content: '';
+                position: absolute;
+                bottom: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background-color: #87F56;
+                border-radius: 2px;
+            }
+
+            /* Course Carousel Container */
+            .course-carousel-container {
+                scroll-snap-type: x mandatory;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .course-carousel-container::-webkit-scrollbar {
+                display: none;
+            }
+
+            /* Course Slide Banner */
+            .course-slide-banner {
+                scroll-snap-align: start;
+                padding: 0 4px;
+            }
+
+            /* Course Card Styles */
+            .course-card {
+                background-color: white;
+                border-radius: 0.5rem;
+                border: 1px solid #30360E;
+                overflow: hidden;
+                height: 280px;
+                display: flex;
+                flex-direction: column;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .course-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(48, 54, 14, 0.1);
+            }
+
+            .course-card-image {
+                height: 160px;
+                width: 100%;
+                object-fit: cover;
+                border-bottom: 1px solid #30360E;
+            }
+
+            .course-card-content {
+                padding: 0.75rem;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+
+            .course-title {
+                font-weight: 700;
+                font-size: 0.875rem;
+                color: #30360E;
+                margin-bottom: 0.25rem;
+            }
+
+            .course-description {
+                font-size: 0.625rem;
+                color: #30360E;
+                margin-bottom: 0.5rem;
+                opacity: 0.8;
+            }
+
+            .course-footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: auto;
+            }
+
+            .course-price {
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #30360E;
+            }
+
+            .course-students {
+                font-size: 0.625rem;
+                color: #30360E;
+            }
+
+            .course-students i {
+                margin-right: 0.25rem;
+            }
+
+            .course-enroll-btn {
+                background-color: #87F56;
+                color: #30360E;
+                font-size: 0.625rem;
+                padding: 0.25rem 0.75rem;
+                border-radius: 0.25rem;
+                border: 1px solid #30360E;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+            }
+
+            .course-enroll-btn:hover {
+                background-color: #6fd46f;
+            }
+
+            /* Navigation Arrows */
+            .course-nav-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 10;
+                background-color: #30360E;
+                color: white;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 9999px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: all 0.2s ease;
+                border: none;
+                cursor: pointer;
+            }
+
+            .course-nav-arrow:hover {
+                background-color: #87F56;
+                color: #30360E;
+            }
+
+            .course-nav-arrow:active {
+                transform: translateY(-50%) scale(0.95);
+            }
+
+            .course-nav-arrow.disabled {
+                opacity: 0.5;
+                pointer-events: none;
+            }
+
+            .course-nav-arrow.prev {
+                left: 0.5rem;
+            }
+
+            .course-nav-arrow.next {
+                right: 0.5rem;
+            }
+
+            /* Responsive Widths */
+            @media (max-width: 640px) {
+                .course-slide-banner {
+                    width: calc(100% - 48px);
+                }
+            }
+
+            @media (min-width: 640px) and (max-width: 768px) {
+                .course-slide-banner {
+                    width: calc(50% - 24px);
+                }
+            }
+
+            @media (min-width: 768px) and (max-width: 1024px) {
+                .course-slide-banner {
+                    width: calc(33.333% - 24px);
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .course-slide-banner {
+                    width: calc(25% - 24px);
+                }
+            }
+        </style>
+
+        <script>
+            // Course carousel with navigation arrows
+            const courseCarousel = document.getElementById('courseCarousel');
+            const prevBtn = document.getElementById('prevCourse');
+            const nextBtn = document.getElementById('nextCourse');
+
+            if (courseCarousel && prevBtn && nextBtn) {
+                // Scroll function
+                const scroll = (direction) => {
+                    const cardWidth = courseCarousel.querySelector('.course-slide-banner').offsetWidth;
+                    const gap = 12;
+                    const scrollAmount = cardWidth + gap;
+
+                    if (direction === 'next') {
+                        courseCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    } else {
+                        courseCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    }
+                };
+
+                // Event listeners
+                prevBtn.addEventListener('click', () => scroll('prev'));
+                nextBtn.addEventListener('click', () => scroll('next'));
+
+                // Auto scroll every 5 seconds
+                let autoScroll = setInterval(() => scroll('next'), 5000);
+
+                // Pause auto-scroll on hover
+                courseCarousel.addEventListener('mouseenter', () => {
+                    clearInterval(autoScroll);
+                });
+
+                courseCarousel.addEventListener('mouseleave', () => {
+                    autoScroll = setInterval(() => scroll('next'), 5000);
+                });
+
+                // Hide/show arrows based on scroll position
+                const updateArrows = () => {
+                    const maxScroll = courseCarousel.scrollWidth - courseCarousel.clientWidth;
+                    if (courseCarousel.scrollLeft <= 0) {
+                        prevBtn.classList.add('opacity-50', 'pointer-events-none');
+                    } else {
+                        prevBtn.classList.remove('opacity-50', 'pointer-events-none');
+                    }
+
+                    if (courseCarousel.scrollLeft >= maxScroll - 10) {
+                        nextBtn.classList.add('opacity-50', 'pointer-events-none');
+                    } else {
+                        nextBtn.classList.remove('opacity-50', 'pointer-events-none');
+                    }
+                };
+
+                courseCarousel.addEventListener('scroll', updateArrows);
+                window.addEventListener('resize', updateArrows);
+                setTimeout(updateArrows, 100);
+            }
+        </script>
+        <!-- courses section end -->
+
+        <!-- New Category Section start -->
+        <section class="px-4 py-4">
+            <!-- Section Title -->
+            <div class="text-center mb-6">
+                <h2
+                    class="text-2xl font-extrabold text-[#30360E] relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-0.5 after:bg-[#87F56] after:rounded">
+                    ধারাবাহিক ভাবে বিষয়ভিত্তিক ইলমে দ্বীন শিখুন
+                </h2>
+            </div>
+
+            <!-- Category Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                <!-- Category 1-->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">আরবী ভাষা</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">৫টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-scale-balanced"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">ফিকহ</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">১১টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category 3-->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">হাদীস</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">২টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-house-chimney"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">হোমস্কুলিং</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">১টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category 5 -->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-star-and-crescent"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">ইসলামী বিশ্বাস</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">৭টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category 6 -->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-hand-peace"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">আদব-কায়দা</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">২টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category 7 -->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-people-group"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">পারিবারিক জীবন</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">৫টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category 8 -->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-sparkles"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">নতুন কোর্স</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">১৩টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category 9 -->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">প্রোডাক্টিভিটি</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">৫টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category 10 -->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-book-quran"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">কুরআন শিক্ষা</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">৩টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category 11 -->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">সীরাহ ও ইতিহাস</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">৬টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category 12 -->
+                <div
+                    class="bg-white border border-[#30360E] rounded-lg p-3 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                    <div class="flex items-start gap-2 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-sm flex-shrink-0">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-sm text-[#30360E] truncate">সুন্নাহ লাইফস্টাইল</h3>
+                            <span
+                                class="inline-block bg-[#30360E] text-[#E2D4B9] text-[0.6rem] font-semibold px-2 py-0.5 rounded-full mt-0.5">৫টি
+                                কোর্স</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-[#87F56] text-[#30360E] text-[0.65rem] font-semibold px-3 py-1 rounded border border-[#30360E] hover:bg-[#6fd46f] transition-colors inline-flex items-center gap-1">
+                            শেখা শুরু করুন <i class="fas fa-arrow-right text-[0.55rem]"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Categories Button -->
+            <div class="flex justify-center mt-6">
+                <button
+                    class="bg-[#30360E] text-[#E2D4B9] px-5 py-2 rounded-full font-bold text-xs flex items-center gap-2 border-2 border-[#87F56] shadow-[0_3px_0_#1a1f0a] hover:-translate-y-1 hover:shadow-[0_5px_0_#1a1f0a] active:translate-y-1 active:shadow-[0_1px_0_#1a1f0a] transition-all">
+                    <i class="fas fa-grid-2"></i> সকল বিষয় দেখুন
+                </button>
+            </div>
+        </section>
+        <!-- category section end -->
+
+        <!-- ADS BANNER SECTION start -->
+        <style>
+            /* Ads Banner Container */
+            .ads-banner-container {
+                scroll-snap-type: x mandatory;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .ads-banner-container::-webkit-scrollbar {
+                display: none;
+            }
+
+            /* Ads Banner Slide */
+            .ads-banner-slide {
+                scroll-snap-align: start;
+                flex: 0 0 100%;
+                min-width: 100%;
+                background: transparent;
+            }
+
+            .ads-banner-slide img {
+                width: 100%;
+                height: 140px;
+                object-fit: cover;
+                display: block;
+                border-radius: 0.75rem;
+                border: 2px solid #14281D;
+            }
+
+            /* Sponsored Label */
+            .ads-sponsored-label {
+                position: absolute;
+                top: -0.25rem;
+                right: 1rem;
+                background-color: #14281D;
+                color: #FFFCDC;
+                font-size: 0.75rem;
+                padding: 0.125rem 0.5rem;
+                border-radius: 0.375rem;
+                z-index: 5;
+            }
+        </style>
+
+        <!-- ADS BANNER SECTION -->
+        <section class="px-4 pt-3 pb-1">
+            <div class="relative">
+                <!-- Ads Banner Carousel -->
+                <div id="adsBanner" class="ads-banner-container flex gap-0 overflow-x-auto rounded-xl">
+                    <div class="ads-banner-slide shrink-0 w-full snap-start">
+                        <img src="images/adslide1.png" alt="বিজ্ঞাপন ১"
+                            class="w-full h-36 object-cover rounded-xl border-2 border-[#14281D]">
+                    </div>
+                    <div class="ads-banner-slide shrink-0 w-full snap-start">
+                        <img src="images/adslide2.png" alt="বিজ্ঞাপন ২"
+                            class="w-full h-36 object-cover rounded-xl border-2 border-[#14281D]">
+                    </div>
+                    <div class="ads-banner-slide shrink-0 w-full snap-start">
+                        <img src="images/adslide3.png" alt="বিজ্ঞাপন ৩"
+                            class="w-full h-36 object-cover rounded-xl border-2 border-[#14281D]">
+                    </div>
+                    <div class="ads-banner-slide shrink-0 w-full snap-start">
+                        <img src="images/adslide4.png" alt="বিজ্ঞাপন ৪"
+                            class="w-full h-36 object-cover rounded-xl border-2 border-[#14281D]">
+                    </div>
+                </div>
+
+                <!-- Sponsored Label -->
+                <div class="ads-sponsored-label">বিজ্ঞাপন</div>
+            </div>
+        </section>
+
+        <!-- ADS BANNER JAVASCRIPT -->
+        <script>
+            (function () {
+                // Ads banner auto-scroll
+                const adsBanner = document.getElementById('adsBanner');
+                if (adsBanner) {
+                    let adsIdx = 0;
+                    const adsSlides = document.querySelectorAll('.ads-banner-slide');
+                    let adsInterval;
+
+                    // Start auto scroll
+                    function startAdsAutoScroll() {
+                        adsInterval = setInterval(() => {
+                            adsIdx = (adsIdx + 1) % adsSlides.length;
+                            const slideWidth = adsBanner.clientWidth;
+                            adsBanner.scrollTo({
+                                left: adsIdx * slideWidth,
+                                behavior: 'smooth'
+                            });
+                        }, 4000);
+                    }
+
+                    // Start auto scroll
+                    startAdsAutoScroll();
+
+                    // Pause on hover
+                    adsBanner.addEventListener('mouseenter', () => {
+                        clearInterval(adsInterval);
+                    });
+
+                    // Resume on mouse leave
+                    adsBanner.addEventListener('mouseleave', () => {
+                        startAdsAutoScroll();
+                    });
+
+                    // Handle window resize
+                    window.addEventListener('resize', () => {
+                        // Maintain scroll position after resize
+                        const slideWidth = adsBanner.clientWidth;
+                        adsBanner.scrollLeft = adsIdx * slideWidth;
+                    });
+                }
+            })();
+        </script>
+        <!-- ads banner section end -->
+
+        <!-- Redesigned Ostads Section -->
+        <section class="px-4 pt-4 pb-4">
+            <div class="text-center mb-4">
+                <h2 class="teacher-section-title text-2xl font-extrabold text-center inline-block"
+                    style="color: #30360E;">
+                    আমাদের উস্তাদগণ
+                </h2>
+                <p class="text-xs text-[#30360E] mt-2 opacity-75">দক্ষ ও অভিজ্ঞ শিক্ষকমণ্ডলী</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <!-- Teacher 1 - Simple -->
+                <div class="bg-white rounded-lg border border-[#30360E] p-3">
+                    <div
+                        class="w-14 h-14 mx-auto mb-2 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-lg">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="font-bold text-xs text-center text-[#30360E]">প্রফেসর ড. আব্দুর রহমান</h3>
+                    <p class="text-[8px] text-center text-[#30360E] mt-0.5 mb-1">হাদীস বিভাগ</p>
+                    <p class="text-[8px] text-center text-[#30360E]">১৫+ বছর • ২৫০+ ছাত্র</p>
+                    <p class="text-[7px] text-center text-[#30360E] mb-2">ইসলামী বিশ্ববিদ্যালয়, মদিনা</p>
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <button class="w-full bg-[#30360E] text-white text-[8px] py-1 rounded border border-[#87F56]">
+                        প্রোফাইল
+                    </button>
+                </div>
+
+                <!-- Teacher 2 - Simple -->
+                <div class="bg-white rounded-lg border border-[#30360E] p-3">
+                    <div
+                        class="w-14 h-14 mx-auto mb-2 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-lg">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="font-bold text-xs text-center text-[#30360E]">মাওলানা মুহাম্মদ ইউসুফ</h3>
+                    <p class="text-[8px] text-center text-[#30360E] mt-0.5 mb-1">ফিকহ বিভাগ</p>
+                    <p class="text-[8px] text-center text-[#30360E]">১২+ বছর • ১৮০+ ছাত্র</p>
+                    <p class="text-[7px] text-center text-[#30360E] mb-2">দারুল উলুম দেওবন্দ</p>
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <button class="w-full bg-[#30360E] text-white text-[8px] py-1 rounded border border-[#87F56]">
+                        প্রোফাইল
+                    </button>
+                </div>
+
+                <!-- Teacher 3 - Simple -->
+                <div class="bg-white rounded-lg border border-[#30360E] p-3">
+                    <div
+                        class="w-14 h-14 mx-auto mb-2 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-lg">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <h3 class="font-bold text-xs text-center text-[#30360E]">ড. আয়েশা সিদ্দিকা</h3>
+                    <p class="text-[8px] text-center text-[#30360E] mt-0.5 mb-1">কুরআন বিভাগ</p>
+                    <p class="text-[8px] text-center text-[#30360E]">১০+ বছর • ১৫০+ ছাত্র</p>
+                    <p class="text-[7px] text-center text-[#30360E] mb-2">আল-আজহার বিশ্ববিদ্যালয়</p>
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <button class="w-full bg-[#30360E] text-white text-[8px] py-1 rounded border border-[#87F56]">
+                        প্রোফাইল
+                    </button>
+                </div>
+
+                <!-- Teacher 4 - Simple -->
+                <div class="bg-white rounded-lg border border-[#30360E] p-3">
+                    <div
+                        class="w-14 h-14 mx-auto mb-2 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-lg">
+                        <i class="fas fa-user-nurse"></i>
+                    </div>
+                    <h3 class="font-bold text-xs text-center text-[#30360E]">উস্তাজা ফাতেমা খাতুন</h3>
+                    <p class="text-[8px] text-center text-[#30360E] mt-0.5 mb-1">আরবি ভাষা</p>
+                    <p class="text-[8px] text-center text-[#30360E]">৮+ বছর • ১২০+ ছাত্র</p>
+                    <p class="text-[7px] text-center text-[#30360E] mb-2">ইসলামিক ইউনিভার্সিটি, মদিনা</p>
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <button class="w-full bg-[#30360E] text-white text-[8px] py-1 rounded border border-[#87F56]">
+                        প্রোফাইল
+                    </button>
+                </div>
+
+                <!-- Teacher 5 - Simple -->
+                <div class="bg-white rounded-lg border border-[#30360E] p-3">
+                    <div
+                        class="w-14 h-14 mx-auto mb-2 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-lg">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="font-bold text-xs text-center text-[#30360E]">মুফতি শাহিন আহমেদ</h3>
+                    <p class="text-[8px] text-center text-[#30360E] mt-0.5 mb-1">ফাতওয়া বিভাগ</p>
+                    <p class="text-[8px] text-center text-[#30360E]">২০+ বছর • ৩০০+ ছাত্র</p>
+                    <p class="text-[7px] text-center text-[#30360E] mb-2">জামিয়া কাসিমুল উলুম</p>
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <button class="w-full bg-[#30360E] text-white text-[8px] py-1 rounded border border-[#87F56]">
+                        প্রোফাইল
+                    </button>
+                </div>
+
+                <!-- Teacher 6 - Simple -->
+                <div class="bg-white rounded-lg border border-[#30360E] p-3">
+                    <div
+                        class="w-14 h-14 mx-auto mb-2 rounded-full bg-[#E2D4B9] border border-[#30360E] flex items-center justify-center text-[#30360E] text-lg">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="font-bold text-xs text-center text-[#30360E]">প্রফেসর ড. জাকির নায়েক</h3>
+                    <p class="text-[8px] text-center text-[#30360E] mt-0.5 mb-1">তাফসীর বিভাগ</p>
+                    <p class="text-[8px] text-center text-[#30360E]">২৫+ বছর • ৫০০+ ছাত্র</p>
+                    <p class="text-[7px] text-center text-[#30360E] mb-2">ইসলামিক রিসার্চ ফাউন্ডেশন</p>
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="text-[#30360E] text-xs"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <button class="w-full bg-[#30360E] text-white text-[8px] py-1 rounded border border-[#87F56]">
+                        প্রোফাইল
+                    </button>
+                </div>
+            </div>
+
+            <!-- View All Teachers Button -->
+            <div class="flex justify-center mt-4">
+                <button
+                    class="bg-[#30360E] text-[#E2D4B9] px-5 py-2 rounded-full font-bold text-xs flex items-center gap-2 border-2 border-[#87F56] shadow-[0_3px_0_#1a1f0a] transition-all hover:-translate-y-1 hover:shadow-[0_5px_0_#1a1f0a] active:translate-y-1 active:shadow-[0_1px_0_#1a1f0a]">
+                    <i class="fas fa-chalkboard-user"></i> সকল উস্তাদ দেখুন
+                </button>
+            </div>
+        </section>
+
+        <!-- Student Reviews Section -->
+        <section class="px-4 pt-4 pb-4">
+            <div class="text-center mb-4">
+                <h2 class="reviews-section-title text-2xl font-extrabold text-center inline-block"
+                    style="color: #30360E;">
+                    শিক্ষার্থীদের রিভিউ
+                </h2>
+                <p class="text-xs text-[#30360E] mt-2 opacity-75">আমাদের ছাত্র-ছাত্রীদের অভিজ্ঞতা</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="student-avatar shrink-0">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="student-name text-sm">মুহাম্মদ ইব্রাহিম</h3>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text text-xs">
+                        "আলহামদুলিল্লাহ! দারুল ইসলাম ইনস্টিটিউট থেকে কুরআন মেমোরাইজেশন কোর্স সম্পন্ন করেছি। উস্তাদগণের
+                        অত্যন্ত যত্নশীল ও দক্ষ নির্দেশনায় খুব দ্রুত হিফজ সম্পন্ন হয়েছে।"
+                    </p>
+                    <div class="flex items-center justify-between mt-2">
+                        <span class="student-course">কুরআন মেমোরাইজেশন</span>
+                        <span class="text-[7px] text-[#30360E] opacity-60">২ মাস আগে</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="student-avatar shrink-0">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="student-name text-sm">আব্দুল্লাহ আল মামুন</h3>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text text-xs">
+                        "আরবি ভাষা কোর্সটি আমার জন্য ছিল অসাধারণ। মাত্র ৬ মাসে আমি কুরআনের আরবি বুঝতে শুরু করেছি।
+                        উস্তাজা ফাতেমা খাতুনের শিক্ষাদানের পদ্ধতি অত্যন্ত প্র্যাকটিক্যাল।"
+                    </p>
+                    <div class="flex items-center justify-between mt-2">
+                        <span class="student-course">আরবি ভাষা কোর্স</span>
+                        <span class="text-[7px] text-[#30360E] opacity-60">১ মাস আগে</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="student-avatar shrink-0">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="student-name text-sm">ফাতেমা আক্তার</h3>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text text-xs">
+                        "ফিকহ কোর্সটি খুবই উপকারী হয়েছে। মুফতি শাহিন আহমেদ সাহেব অত্যন্ত সহজভাবে জটিল মাসয়ালাগুলো
+                        বুঝিয়ে দেন। প্রতিটি ক্লাসেই নতুন কিছু শিখতে পারি।"
+                    </p>
+                    <div class="flex items-center justify-between mt-2">
+                        <span class="student-course">ফিকহ কোর্স</span>
+                        <span class="text-[7px] text-[#30360E] opacity-60">৩ সপ্তাহ আগে</span>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="student-avatar shrink-0">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="student-name text-sm">উম্মে কুলসুম</h3>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text text-xs">
+                        "হোমস্কুলিং ও প্যারেন্টিং কোর্সটি আমার সন্তানদের ইসলামিক শিক্ষায় অনেক সাহায্য করেছে। ছোট ছোট
+                        বিষয়গুলো খুব সুন্দরভাবে শেখানো হয়েছে।"
+                    </p>
+                    <div class="flex items-center justify-between mt-2">
+                        <span class="student-course">হোমস্কুলিং</span>
+                        <span class="text-[7px] text-[#30360E] opacity-60">২ সপ্তাহ আগে</span>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="student-avatar shrink-0">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="student-name text-sm">হামজা আলী</h3>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text text-xs">
+                        "হাদীস কোর্সটি নেওয়ার পর আমার দৈনন্দিন জীবন পাল্টে গেছে। প্রফেসর ড. আব্দুর রহমান সাহেবের বর্ণনা
+                        শৈলী অসাধারণ। প্রতিটি হাদীসের বাস্তব প্রয়োগ বুঝতে পারছি।"
+                    </p>
+                    <div class="flex items-center justify-between mt-2">
+                        <span class="student-course">হাদীস কোর্স</span>
+                        <span class="text-[7px] text-[#30360E] opacity-60">৫ দিন আগে</span>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="student-avatar shrink-0">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="student-name text-sm">সাদিয়া ইসলাম</h3>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text text-xs">
+                        "তাফসীর কোর্সটি আমার ঈমানকে শক্তিশালী করেছে। প্রফেসর ড. জাকির নায়েক সাহেবের কুরআন ব্যাখ্যা
+                        অত্যন্ত প্রাঞ্জল ও বিজ্ঞানসম্মত। আল্লাহ তাদের উত্তম প্রতিদান দিন।"
+                    </p>
+                    <div class="flex items-center justify-between mt-2">
+                        <span class="student-course">তাফসীর কোর্স</span>
+                        <span class="text-[7px] text-[#30360E] opacity-60">১ সপ্তাহ আগে</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Reviews Button -->
+            <div class="flex justify-center mt-4">
+                <button
+                    class="bg-[#87F56] text-[#30360E] px-5 py-2 rounded-full font-bold text-xs flex items-center gap-2 border-2 border-[#30360E] shadow-[0_3px_0_#30360E] transition-all hover:-translate-y-1 hover:shadow-[0_5px_0_#30360E] active:translate-y-1 active:shadow-[0_1px_0_#30360E]">
+                    <i class="fas fa-comments"></i> সকল রিভিউ দেখুন
+                </button>
+            </div>
+
+            <!-- Overall Rating Summary -->
+            <div
+                class="mt-4 bg-gradient-to-r from-[#E2D4B9] to-[#FFFCDC] rounded-2xl p-3 border-2 border-[#30360E] shadow-[0_4px_0_#30360E]">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#30360E] flex items-center justify-center text-[#E2D4B9] font-extrabold text-lg">
+                            ৪.৮
+                        </div>
+                        <div>
+                            <div class="rating-stars text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="text-[8px] text-[#30360E]">২৫০+ শিক্ষার্থীর রিভিউ</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-[#30360E] font-bold text-xs">গুগল রেটিং</p>
+                        <p class="text-[#30360E] text-[9px]">ভিত্তি: ১৫০+ রিভিউ</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Stats Section -->
@@ -592,27 +2018,26 @@
             <div
                 class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
                 <div class="text-4xl mb-1.5 text-[#14281D]"><i class="fas fa-graduation-cap"></i></div>
-                <div class="text-xs font-semibold text-[#14281D] mb-1">Total Students</div>
-                <div class="text-[28px] font-extrabold text-[#8B7355]">350</div>
+                <div class="text-xs font-semibold text-[#14281D] mb-1">মোট শিক্ষার্থী</div>
+                <div class="text-[28px] font-extrabold text-[#8B7355]">৩৫০</div>
             </div>
             <div
                 class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
                 <div class="text-4xl mb-1.5 text-[#14281D]"><i class="fas fa-chalkboard-user"></i></div>
-                <div class="text-xs font-semibold text-[#14281D] mb-1">Total Teachers</div>
-                <div class="text-[28px] font-extrabold text-[#8B7355]">25</div>
+                <div class="text-xs font-semibold text-[#14281D] mb-1">মোট শিক্ষক</div>
+                <div class="text-[28px] font-extrabold text-[#8B7355]">২৫</div>
             </div>
             <div
                 class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
                 <div class="text-4xl mb-1.5 text-[#14281D]"><i class="fas fa-book"></i></div>
-                <div class="text-xs font-semibold text-[#14281D] mb-1">Courses</div>
-                <div class="text-[28px] font-extrabold text-[#8B7355]">12</div>
+                <div class="text-xs font-semibold text-[#14281D] mb-1">কোর্স</div>
+                <div class="text-[28px] font-extrabold text-[#8B7355]">১২</div>
             </div>
         </section>
 
         <!-- Carousel Section -->
         <section class="p-4">
             <div class="flex gap-3 overflow-x-auto snap-x scroll-smooth pb-2.5 carousel-container" id="carousel">
-                <!-- Item 1 -->
                 <div
                     class="shrink-0 w-[calc(33.333%-8px)] min-w-[100px] max-w-[140px] rounded-xl p-3.5 border-2 border-[#14281D] snap-start flex flex-col gap-2 relative bg-cover bg-center carousel-item carousel-item-1 overflow-hidden">
                     <div class="carousel-item-content flex flex-col gap-2 text-center">
@@ -620,15 +2045,13 @@
                                 class="fas fa-book-quran"></i></div>
                         <div
                             class="text-xs font-bold text-[#FFFCDC] drop-shadow-[0_1px_3px_rgba(20,40,29,0.4)] leading-tight">
-                            Islamic Book Sale</div>
+                            ইসলামিক বই বিক্রয়</div>
                         <div class="text-lg font-extrabold text-[#FFFCDC] drop-shadow-[0_1px_3px_rgba(20,40,29,0.4)]">
-                            25% off</div>
-                        <button
+                            ২৫% ছাড়</div><button
                             class="bg-[#F4A460] text-[#14281D] px-2.5 py-1.5 rounded font-semibold text-[10px] cursor-pointer transition-all self-center w-[90%] flex items-center justify-center gap-0.5 shadow-[0_2px_6px_rgba(244,164,96,0.3)]"><i
-                                class="fas fa-shopping-cart"></i> Order</button>
+                                class="fas fa-shopping-cart"></i> অর্ডার</button>
                     </div>
                 </div>
-                <!-- Item 2 -->
                 <div
                     class="shrink-0 w-[calc(33.333%-8px)] min-w-[100px] max-w-[140px] rounded-xl p-3.5 border-2 border-[#14281D] snap-start flex flex-col gap-2 relative bg-cover bg-center carousel-item carousel-item-2 overflow-hidden">
                     <div class="carousel-item-content flex flex-col gap-2 text-center">
@@ -636,13 +2059,11 @@
                                 class="fas fa-kaaba"></i></div>
                         <div
                             class="text-xs font-bold text-[#FFFCDC] drop-shadow-[0_1px_3px_rgba(20,40,29,0.4)] leading-tight">
-                            Hajj & Umrah</div>
-                        <button
+                            হজ্জ ও ওমরাহ</div><button
                             class="bg-[#F4A460] text-[#14281D] px-2.5 py-1.5 rounded font-semibold text-[10px] cursor-pointer transition-all self-center w-[90%] flex items-center justify-center gap-0.5 shadow-[0_2px_6px_rgba(244,164,96,0.3)]"><i
-                                class="fas fa-arrow-right"></i> Learn</button>
+                                class="fas fa-arrow-right"></i> জানুন</button>
                     </div>
                 </div>
-                <!-- Item 3 -->
                 <div
                     class="shrink-0 w-[calc(33.333%-8px)] min-w-[100px] max-w-[140px] rounded-xl p-3.5 border-2 border-[#14281D] snap-start flex flex-col gap-2 relative bg-cover bg-center carousel-item carousel-item-3 overflow-hidden">
                     <div class="carousel-item-content flex flex-col gap-2 text-center">
@@ -650,250 +2071,159 @@
                                 class="fas fa-laptop"></i></div>
                         <div
                             class="text-xs font-bold text-[#FFFCDC] drop-shadow-[0_1px_3px_rgba(20,40,29,0.4)] leading-tight">
-                            Online Courses</div>
-                        <button
+                            অনলাইন কোর্স</div><button
                             class="bg-[#F4A460] text-[#14281D] px-2.5 py-1.5 rounded font-semibold text-[10px] cursor-pointer transition-all self-center w-[90%] flex items-center justify-center gap-0.5 shadow-[0_2px_6px_rgba(244,164,96,0.3)]"><i
-                                class="fas fa-user-check"></i> Register</button>
+                                class="fas fa-user-check"></i> রেজিস্টার</button>
                     </div>
                 </div>
             </div>
-            <!-- Carousel Dots -->
-            <div class="text-center py-2.5">
-                <span
-                    class="w-[7px] h-[7px] rounded-full inline-block mx-0.5 bg-[#D4A574] cursor-pointer transition-all carousel-dot active"></span>
-                <span
-                    class="w-[7px] h-[7px] rounded-full inline-block mx-0.5 bg-[#D4A574] cursor-pointer transition-all carousel-dot"></span>
-                <span
+            <div class="text-center py-2.5"><span
+                    class="w-[7px] h-[7px] rounded-full inline-block mx-0.5 bg-[#D4A574] cursor-pointer transition-all carousel-dot active"></span><span
+                    class="w-[7px] h-[7px] rounded-full inline-block mx-0.5 bg-[#D4A574] cursor-pointer transition-all carousel-dot"></span><span
                     class="w-[7px] h-[7px] rounded-full inline-block mx-0.5 bg-[#D4A574] cursor-pointer transition-all carousel-dot"></span>
             </div>
         </section>
 
         <!-- Notice Banner -->
-        <section class="px-4 py-3">
-            <a href="notice.html" class="">
+        <section class="px-4 py-3"><a href="notice.html">
                 <div
                     class="bg-gradient-to-r from-[#F4A460] to-[#FFB84D] rounded-2xl p-2.5 flex items-center gap-2 shadow-[0_2px_8px_rgba(244,164,96,0.2)]">
-                    <span class="text-[#14281D] text-lg shrink-0"><i class="fas fa-bell"></i></span>
-                    <span class="text-[#14281D] text-xs font-semibold flex-1">New Admission Open! Annual Exam Schedule
-                        Published</span>
-                    <span class="text-[#14281D] text-sm shrink-0"><i class="fas fa-chevron-right"></i></span>
+                    <span class="text-[#14281D] text-lg shrink-0"><i class="fas fa-bell"></i></span><span
+                        class="text-[#14281D] text-xs font-semibold flex-1">নতুন ভর্তি শুরু! বার্ষিক পরীক্ষার রুটিন
+                        প্রকাশিত</span><span class="text-[#14281D] text-sm shrink-0"><i
+                            class="fas fa-chevron-right"></i></span>
                 </div>
-            </a>
-        </section>
-
-        <!-- ================= ADS ================= -->
-        <section class="px-4 py-6" data-aos="fade-down">
-            <div class="fade-in bg-white rounded-xl shadow p-6 text-center">
-                <p class="text-lg font-semibold">Sponsored Islamic Course</p>
-                <p class="text-sm mt-2">Enroll now and get 30% discount.</p>
-                <button class="mt-4 bg-primary text-secondary px-4 py-2 rounded-full">Learn More</button>
-            </div>
-        </section>
+            </a></section>
 
         <!-- Activities Section -->
         <section class="pt-5 px-4 pb-4">
-            <h2 class="text-center text-2xl font-extrabold text-[#14281D] mb-5">
-                <span class="text-[#D4A574] text-lg">✦✦</span> Our Activities <span
-                    class="text-[#D4A574] text-lg">✦✦</span>
-            </h2>
+            <h2 class="text-center text-2xl font-extrabold text-[#14281D] mb-5"><span
+                    class="text-[#D4A574] text-lg">✦✦</span> আমাদের কার্যক্রম <span
+                    class="text-[#D4A574] text-lg">✦✦</span></h2>
             <div class="grid grid-cols-4 gap-2.5 mb-5">
                 <div
                     class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center shadow-[0_2px_6px_rgba(20,40,29,0.1)] transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.15)]">
                     <div class="text-[42px] mb-2 text-[#14281D]"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="text-xs font-bold text-[#14281D]">Education Programs</div>
+                    <div class="text-xs font-bold text-[#14281D]">শিক্ষা কার্যক্রম</div>
                 </div>
                 <div
                     class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center shadow-[0_2px_6px_rgba(20,40,29,0.1)] transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.15)]">
                     <div class="text-[42px] mb-2 text-[#14281D]"><i class="fas fa-book-open"></i></div>
-                    <div class="text-xs font-bold text-[#14281D]">Islamic Library</div>
+                    <div class="text-xs font-bold text-[#14281D]">ইসলামিক লাইব্রেরি</div>
                 </div>
                 <div
                     class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center shadow-[0_2px_6px_rgba(20,40,29,0.1)] transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.15)]">
                     <div class="text-[42px] mb-2 text-[#14281D]"><i class="fas fa-mosque"></i></div>
-                    <div class="text-xs font-bold text-[#14281D]">Dawah Programs</div>
+                    <div class="text-xs font-bold text-[#14281D]">দাওয়াহ কার্যক্রম</div>
                 </div>
                 <div
                     class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center shadow-[0_2px_6px_rgba(20,40,29,0.1)] transition-all hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(20,40,29,0.15)]">
                     <div class="text-[42px] mb-2 text-[#14281D]"><i class="fas fa-hand-holding-heart"></i></div>
-                    <div class="text-xs font-bold text-[#14281D]">Donation Projects</div>
+                    <div class="text-xs font-bold text-[#14281D]">দান প্রকল্প</div>
                 </div>
             </div>
-
-            <!-- Gallery -->
             <div class="px-0 pb-5">
-                <div class="grid grid-cols-4 gap-2.5 mb-4">
-                    <img src="images/gallery-gathering.png" alt="Gallery 1"
+                <div class="grid grid-cols-4 gap-2.5 mb-4"><img src="images/gallery-gathering.png" alt="গ্যালারি ১"
+                        class="w-full h-32 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]"><img
+                        src="https://static.vecteezy.com/system/resources/thumbnails/048/682/339/small/closeup-of-muslim-children-in-elegant-attire-reciting-the-quran-showcasing-their-devotion-and-cultural-heritage-generated-image-photo.jpg"
+                        alt="গ্যালারি ২"
+                        class="w-full h-32 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]"><img
+                        src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA2L3Jhd3BpeGVsX29mZmljZV8zN19hX3N0dWRpb19waG90b19vZl9hX211c2xpbV9ib3lfc3R1ZGVudF9zdHVkeV8zNWQ4NzRmNS1jMzEwLTRhZmQtYjM2Ni1kYmYxMTk5Y2JjMjZfMS5qcGc.jpg"
+                        alt="গ্যালারি ৩"
+                        class="w-full h-32 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]"><img
+                        src="https://img.freepik.com/premium-photo/muslim-child-mosque-quran-with-teacher-spiritual-learning-development-growth-carpet-islamic-teaching-man-boy-holy-worship-book-reading-faith-islam-study-qatar_590464-122202.jpg"
+                        alt="গ্যালারি ৪"
                         class="w-full h-32 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
-                    <img src="https://static.vecteezy.com/system/resources/thumbnails/048/682/339/small/closeup-of-muslim-children-in-elegant-attire-reciting-the-quran-showcasing-their-devotion-and-cultural-heritage-generated-image-photo.jpg"
-                        alt="Gallery 2"
-                        class="w-full h-32 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
-                    <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA2L3Jhd3BpeGVsX29mZmljZV8zN19hX3N0dWRpb19waG90b19vZl9hX211c2xpbV9ib3lfc3R1ZGVudF9zdHVkeV8zNWQ4NzRmNS1jMzEwLTRhZmQtYjM2Ni1kYmYxMTk5Y2JjMjZfMS5qcGc.jpg"
-                        alt="Gallery 3"
-                        class="w-full h-32 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
-                    <img src="https://img.freepik.com/premium-photo/muslim-child-mosque-quran-with-teacher-spiritual-learning-development-growth-carpet-islamic-teaching-man-boy-holy-worship-book-reading-faith-islam-study-qatar_590464-122202.jpg"
-                        alt="Gallery 4"
-                        class="w-full h-32 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
-                </div>
-                <button
+                </div><button
                     class="w-full bg-[#14281D] text-[#FFFCDC] py-2.5 border-0 rounded-md font-bold text-sm flex items-center justify-center gap-1.5 transition-all active:scale-98"><i
-                        class="fas fa-images"></i> View All Photos</button>
-            </div>
-        </section>
-
-        <!-- Our Courses Section -->
-        <section class="px-4 py-6 bg-[#FFFCDC]">
-            <div class="relative mb-6">
-                <h2 class="text-center text-2xl font-extrabold text-[#14281D]">
-                    <span class="text-[#D4A574] text-lg">✦</span> Our Courses <span
-                        class="text-[#D4A574] text-lg">✦</span>
-                </h2>
-                <p class="text-center text-xs text-[#8B7355] mt-1 font-medium">Islamic Education for All Levels</p>
-            </div>
-
-            <!-- Courses Grid-->
-            <div class="grid grid-cols-2 gap-3">
-                <div
-                    class="bg-white rounded-xl p-3.5 border-2 border-[#14281D] shadow-[0_4px_0_#14281D] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#14281D]">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div
-                            class="w-10 h-10 bg-[#F4A460]/20 rounded-full flex items-center justify-center text-[#F4A460]">
-                            <i class="fas fa-book-quran text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-[#14281D] text-sm leading-tight">Quran Memorization</h3>
-                            <p class="text-[10px] text-[#8B7355]">Hifz Program</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 mb-2">
-                        <i class="fas fa-clock text-[10px] text-[#F4A460]"></i>
-                        <span class="text-[9px] text-[#14281D]">2 hours daily • 5 days/week</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-users text-[10px] text-[#8B7355]"></i>
-                            <span class="text-[9px] text-[#8B7355]">24 students</span>
-                        </div>
-                        <span
-                            class="bg-[#14281D] text-[#FFFCDC] text-[10px] font-bold px-2 py-0.5 rounded-full">$45/mo</span>
-                    </div>
-                    <button
-                        class="w-full bg-[#F4A460] text-[#14281D] text-[10px] font-bold py-1.5 rounded-lg mt-2 flex items-center justify-center gap-1 border-2 border-[#14281D] transition-all hover:bg-[#e6914e] active:scale-95">
-                        <i class="fas fa-graduation-cap"></i> Enroll Now
-                    </button>
-                </div>
-            </div>
-
-            <!-- View All Courses Button -->
-            <div class="flex justify-center mt-5">
-                <button
-                    class="bg-[#14281D] text-[#FFFCDC] px-6 py-2.5 rounded-full font-bold text-xs flex items-center gap-2 border-2 border-[#F4A460] shadow-[0_4px_0_#0f1f16] transition-all hover:-translate-y-1 hover:shadow-[0_6px_0_#0f1f16] active:translate-y-1 active:shadow-[0_2px_0_#0f1f16]">
-                    <i class="fas fa-grid-2"></i> View All Courses
-                    <i class="fas fa-arrow-right text-[#F4A460]"></i>
-                </button>
-            </div>
-
-            <!-- Free Trial Banner -->
-            <div
-                class="mt-5 mb-10 bg-gradient-to-r from-[#14281D] to-[#1f3a2c] rounded-xl p-3.5 flex items-center justify-between border-2 border-[#F4A460]">
-                <div class="flex items-center gap-2">
-                    <div
-                        class="w-10 h-10 bg-[#F4A460] rounded-full flex items-center justify-center text-[#14281D] text-xl">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-[#FFFCDC] font-extrabold text-sm">Free Trial Class</h4>
-                        <p class="text-[#FFFCDC]/80 text-[9px]">First class free for new students</p>
-                    </div>
-                </div>
-                <button
-                    class="bg-[#F4A460] text-[#14281D] text-[10px] font-bold px-4 py-2 rounded-lg border-2 border-[#FFFCDC] transition-all hover:bg-[#e6914e] active:scale-95">
-                    Book Now
-                </button>
+                        class="fas fa-images"></i> সব ছবি দেখুন</button>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer
-        class="fixed bottom-0 left-0 right-0 bg-gradient-to-br from-[#14281D] to-[#1a3a2a] text-[#FFFCDC] px-4 py-2.5 z-50 border-t border-[#FFFCDC]/20">
-        <div class="max-w-full">
-            <div class="flex justify-between items-center mb-2">
-                <div class="text-xs font-bold flex items-center gap-1.5"><i
-                        class="fas fa-mosque text-sm"></i><span>Darul Islam Institute</span></div>
-                <div class="text-[11px] flex items-center gap-1"><i class="fas fa-phone text-xs"></i> +88017xxxxxx</div>
+    <!-- FOOTER SECTION -->
+    <footer class="w-full bg-[#14281D] text-[#FFFCDC] border-t border-[#FFFCDC]/30">
+
+        <!-- TITLE -->
+        <div class="flex items-center justify-center gap-2 py-3 border-b border-[#FFFCDC]/20">
+            <div class="w-8 h-8 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center">
+                <i class="fas fa-mosque text-[#FFFCDC] text-sm"></i>
             </div>
-            <div class="flex justify-center gap-1.5 pt-2 border-t border-[#FFFCDC]/20">
-                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
-                    title="Phone"><i class="fas fa-phone"></i></div>
-                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
-                    title="WhatsApp"><i class="fab fa-whatsapp"></i></div>
-                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
-                    title="Facebook"><i class="fab fa-facebook"></i></div>
-                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
-                    title="YouTube"><i class="fab fa-youtube"></i></div>
-                <div class="w-7 h-7 rounded-full bg-[#FFFCDC]/15 flex items-center justify-center text-sm cursor-pointer transition-all border border-[#FFFCDC]/25 text-[#FFFCDC] active:scale-95"
-                    title="Globe"><i class="fas fa-globe"></i></div>
-            </div>
-            <div class="text-[9px] text-[#FFFCDC]/60 text-center mt-1.5">&copy; 2026 Darul Islam Institute | All Rights
-                Reserved</div>
+            <h2 class="text-lg md:text-xl font-semibold tracking-wide">
+                দারুল ইসলাম ইনস্টিটিউট
+            </h2>
         </div>
+
+        <!-- CONTACT + SOCIAL -->
+        <div class="flex flex-row justify-center items-center gap-3 px-4 py-3 border-b border-[#FFFCDC]/20">
+            <!-- PHONE -->
+            <div class="flex items-center gap-1.5 text-xs">
+                <div
+                    class="w-3.5 h-3.5 border border-[#FFFCDC] rounded-full flex items-center justify-center text-[7px]">
+                    <i class="fas fa-phone"></i>
+                </div>
+                +৮৮০১৭xxxxxxx
+            </div>
+
+            <!-- DIVIDER -->
+            <div class="hidden md:block w-px h-4 bg-[#FFFCDC]/30"></div>
+
+            <!-- SOCIAL BUTTONS -->
+            <div class="flex justify-center items-center gap-2 w-5 flex-1">
+                <button
+                    class="w-7 h-7 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D] transition">
+                    <i class="fas fa-phone text-xs"></i>
+                </button>
+                <button
+                    class="w-7 h-7 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D] transition">
+                    <i class="fab fa-whatsapp text-xs"></i>
+                </button>
+                <button
+                    class="w-7 h-7 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D] transition">
+                    <i class="fab fa-facebook-f text-xs"></i>
+                </button>
+                <button
+                    class="w-7 h-7 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D] transition">
+                    <i class="fab fa-youtube text-xs"></i>
+                </button>
+                <button
+                    class="w-7 h-7 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D] transition">
+                    <i class="fas fa-mosque text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- COPYRIGHT -->
+        <div class="text-center text-[10px] py-3 text-[#FFFCDC]/70">
+            © ২০২৬ দারুল ইসলাম ইনস্টিটিউট | সর্বস্বত্ব সংরক্ষিত
+        </div>
+
     </footer>
 
     <!-- JavaScript -->
     <script>
-        // original carousel/hero script
+        // hero carousel
         const heroSlides = document.querySelectorAll('.hero-slide');
         const heroDots = document.querySelectorAll('.hero-carousel-dot');
         let heroIndex = 0;
-
-        function showHeroSlide(n) {
-            heroSlides.forEach(slide => slide.classList.remove('active'));
-            heroDots.forEach(dot => dot.classList.remove('active'));
-            heroIndex = (n + heroSlides.length) % heroSlides.length;
-            heroSlides[heroIndex].classList.add('active');
-            heroDots[heroIndex].classList.add('active');
-        }
+        function showHeroSlide(n) { heroSlides.forEach(s => s.classList.remove('active')); heroDots.forEach(d => d.classList.remove('active')); heroIndex = (n + heroSlides.length) % heroSlides.length; heroSlides[heroIndex].classList.add('active'); heroDots[heroIndex].classList.add('active'); }
         setInterval(() => { showHeroSlide(heroIndex + 1); }, 4000);
         heroDots.forEach((dot, index) => { dot.addEventListener('click', () => showHeroSlide(index)); });
 
+        // main carousel (small cards)
         const carousel = document.getElementById('carousel');
         const dots = document.querySelectorAll('.carousel-dot');
-
-        function updateDotsOnScroll() {
-            const itemWidth = (carousel.querySelector('.carousel-item')?.offsetWidth || 112) + 12;
-            const scrollLeft = carousel.scrollLeft;
-            const currentIndex = Math.round(scrollLeft / itemWidth);
-            dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentIndex); });
-        }
+        function updateDotsOnScroll() { const itemWidth = (carousel?.querySelector('.carousel-item')?.offsetWidth || 112) + 12; const scrollLeft = carousel.scrollLeft; const currentIndex = Math.round(scrollLeft / itemWidth); dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentIndex); }); }
         if (carousel) {
             carousel.addEventListener('scroll', updateDotsOnScroll);
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    const itemWidth = (carousel.querySelector('.carousel-item')?.offsetWidth || 112) + 12;
-                    carousel.scrollLeft = index * itemWidth;
-                });
-            });
+            dots.forEach((dot, index) => { dot.addEventListener('click', () => { const itemWidth = (carousel.querySelector('.carousel-item')?.offsetWidth || 112) + 12; carousel.scrollLeft = index * itemWidth; }); });
             let carouselIndex = 0;
-            setInterval(() => {
-                carouselIndex = (carouselIndex + 1) % dots.length;
-                const itemWidth = (carousel.querySelector('.carousel-item')?.offsetWidth || 112) + 12;
-                carousel.scrollLeft = carouselIndex * itemWidth;
-                updateDotsOnScroll();
-            }, 5000);
+            setInterval(() => { carouselIndex = (carouselIndex + 1) % dots.length; const itemWidth = (carousel.querySelector('.carousel-item')?.offsetWidth || 112) + 12; carousel.scrollLeft = carouselIndex * itemWidth; updateDotsOnScroll(); }, 5000);
         }
 
-        const buttons = document.querySelectorAll('button[class*="btn"], .btn-enroll, .btn-donate, .carousel-btn, .view-all-btn, .social-icon');
-        buttons.forEach(btn => {
-            btn.addEventListener('click', function () {
-                this.style.opacity = '0.7';
-                setTimeout(() => this.style.opacity = '1', 100);
-            });
-        });
-    </script>
-    <!-- aos initial js -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
+        // button press effect
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => { btn.addEventListener('click', function () { this.style.opacity = '0.7'; setTimeout(() => this.style.opacity = '1', 100); }); });
     </script>
 </body>
 
