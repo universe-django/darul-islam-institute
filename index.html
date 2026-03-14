@@ -633,406 +633,173 @@
             </div>
         </section>
 
-        <!-- courses section start -->
-        <section class="px-4 py-4 pt-4 pb-2 relative">
-            <!-- title with theme colors -->
-            <h2
-                class="text-center text-3xl md:text-4xl font-extrabold text-[#30360E] leading-tight my-4 md:my-6 relative inline-block left-1/2 -translate-x-1/2">
-                নতুন কোর্স সমূহ
-            </h2>
+        <!-- Notice banner -->
+        <section class="px-4 pt-3 lg:px-8"><a href="notice.html">
+                <div class="bg-gradient-to-r from-[#F4A460] to-[#FFB84D] rounded-2xl p-2.5 flex items-center gap-2">
+                    <span class="text-[#14281D] text-lg"><i class="fas fa-bell"></i></span><span
+                        class="text-[#14281D] text-xs font-semibold flex-1">নতুন ভর্তি শুরু! বার্ষিক পরীক্ষার রুটিন
+                        প্রকাশিত</span><span class="text-[#14281D] text-sm"><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </a></section>
 
-            <!-- Navigation Arrows -->
-            <button id="prevCourse"
-                class="absolute left-2 top-1/2 z-10 bg-[#30360E] text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md hover:bg-[#87F56] hover:text-[#30360E] transition-all -translate-y-1/2">
-                <i class="fas fa-chevron-left text-sm"></i>
-            </button>
-            <button id="nextCourse"
-                class="absolute right-2 top-1/2 z-10 bg-[#30360E] text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md hover:bg-[#87F56] hover:text-[#30360E] transition-all -translate-y-1/2">
-                <i class="fas fa-chevron-right text-sm"></i>
-            </button>
 
-            <!-- Course carousel -->
-            <div id="courseCarousel"
-                class="course-carousel-container flex gap-3 overflow-x-auto snap-x scroll-smooth scrollbar-hide">
-                <!-- course card 1 -->
-                <div
-                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
-                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
-                        <!-- banner image -->
-                        <img src="images/course1.jpg" alt="কুরআন কোর্স" class="h-40 w-full object-cover">
-                        <div class="p-3 flex flex-col flex-1">
-                            <h3 class="font-bold text-sm text-[#30360E] mb-1">কুরআন মেমোরাইজেশন</h3>
-                            <p class="text-[10px] text-[#30360E] mb-2">হিফজ প্রোগ্রাম • দৈনিক ২ঘ • ৫দিন</p>
-                            <div class="flex items-center justify-between mt-auto">
-                                <span class="text-xs font-bold text-[#30360E]">২,৫০০ ৳/মাস</span>
-                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২৪</span>
-                                <button
-                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
-                                    ভর্তি
-                                </button>
-                            </div>
+        <section class="w-full max-w-5xl mx-auto py-2">
+            <div class="relative">
+                <!-- Left Button -->
+                <button id="slideLeft"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <!-- Slider Wrapper -->
+                <div class="overflow-hidden">
+                    <!-- Slider Track -->
+                    <div id="sliderTrack" class="flex transition-transform duration-500">
+                        <div class="w-1/3 p-2 flex-shrink-0">
+                            <a href="#">
+                                <div class="aspect-square overflow-hidden rounded-lg">
+                                    <img src="images/img1.jpg" class="w-full h-full object-cover">
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="w-1/3 p-2 flex-shrink-0">
+                            <a href="#">
+                                <div class="aspect-square overflow-hidden rounded-lg">
+                                    <img src="images/img2.jpg" class="w-full h-full object-cover">
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="w-1/3 p-2 flex-shrink-0">
+                            <a href="#">
+                                <div class="aspect-square overflow-hidden rounded-lg">
+                                    <img src="images/img3.jpg" class="w-full h-full object-cover">
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="w-1/3 p-2 flex-shrink-0">
+                            <a href="#">
+                                <div class="aspect-square overflow-hidden rounded-lg">
+                                    <img src="images/img2.jpg" class="w-full h-full object-cover">
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="w-1/3 p-2 flex-shrink-0">
+                            <a href="#">
+                                <div class="aspect-square overflow-hidden rounded-lg">
+                                    <img src="images/img1.jpg" class="w-full h-full object-cover">
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- course card 2 -->
-                <div
-                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
-                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
-                        <img src="images/course2.jpg" alt="আরবি কোর্স" class="h-40 w-full object-cover">
-                        <div class="p-3 flex flex-col flex-1">
-                            <h3 class="font-bold text-sm text-[#30360E] mb-1">আরবি ভাষা কোর্স</h3>
-                            <p class="text-[10px] text-[#30360E] mb-2">নতুনদের জন্য • দৈনিক ১.৫ঘ • ৪দিন</p>
-                            <div class="flex items-center justify-between mt-auto">
-                                <span class="text-xs font-bold text-[#30360E]">১,৮০০ ৳/মাস</span>
-                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>১৮</span>
-                                <button
-                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
-                                    ভর্তি
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- course card 3 -->
-                <div
-                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
-                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
-                        <img src="images/course3.jpg" alt="ফিকহ কোর্স" class="h-40 w-full object-cover">
-                        <div class="p-3 flex flex-col flex-1">
-                            <h3 class="font-bold text-sm text-[#30360E] mb-1">ফিকহ্‌ ও আকিদা</h3>
-                            <p class="text-[10px] text-[#30360E] mb-2">মৌলিক জ্ঞান • সপ্তাহে ৩ ক্লাস</p>
-                            <div class="flex items-center justify-between mt-auto">
-                                <span class="text-xs font-bold text-[#30360E]">২,২০০ ৳/মাস</span>
-                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>৩০</span>
-                                <button
-                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
-                                    ভর্তি
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- course card 4 -->
-                <div
-                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
-                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
-                        <img src="images/course3.jpg" alt="তাফসীর কোর্স" class="h-40 w-full object-cover">
-                        <div class="p-3 flex flex-col flex-1">
-                            <h3 class="font-bold text-sm text-[#30360E] mb-1">তাফসীরুল কুরআন</h3>
-                            <p class="text-[10px] text-[#30360E] mb-2">কুরআন ব্যাখ্যা • সপ্তাহে ২ ক্লাস</p>
-                            <div class="flex items-center justify-between mt-auto">
-                                <span class="text-xs font-bold text-[#30360E]">২,৮০০ ৳/মাস</span>
-                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২২</span>
-                                <button
-                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
-                                    ভর্তি
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- course card 5 -->
-                <div
-                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
-                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
-                        <img src="images/course5.jpg" alt="হাদীস কোর্স" class="h-40 w-full object-cover">
-                        <div class="p-3 flex flex-col flex-1">
-                            <h3 class="font-bold text-sm text-[#30360E] mb-1">হাদীস অধ্যয়ন</h3>
-                            <p class="text-[10px] text-[#30360E] mb-2">বুখারী ও মুসলিম • সপ্তাহে ৩ ক্লাস</p>
-                            <div class="flex items-center justify-between mt-auto">
-                                <span class="text-xs font-bold text-[#30360E]">২,৪০০ ৳/মাস</span>
-                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২৮</span>
-                                <button
-                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
-                                    ভর্তি
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- course card 6 -->
-                <div
-                    class="course-slide-banner shrink-0 w-[calc(100%-48px)] sm:w-[calc(50%-24px)] md:w-[calc(33.333%-24px)] lg:w-[calc(25%-24px)] snap-start">
-                    <div class="bg-white rounded-lg border border-[#30360E] overflow-hidden h-[280px] flex flex-col">
-                        <img src="images/course6.jpg" alt="সীরাহ কোর্স" class="h-40 w-full object-cover">
-                        <div class="p-3 flex flex-col flex-1">
-                            <h3 class="font-bold text-sm text-[#30360E] mb-1">সীরাতুন নবী</h3>
-                            <p class="text-[10px] text-[#30360E] mb-2">নবীর জীবনী • সপ্তাহে ২ ক্লাস</p>
-                            <div class="flex items-center justify-between mt-auto">
-                                <span class="text-xs font-bold text-[#30360E]">১,৯০০ ৳/মাস</span>
-                                <span class="text-[10px] text-[#30360E]"><i class="fas fa-users mr-1"></i>২০</span>
-                                <button
-                                    class="bg-[#87F56] text-[#30360E] text-[10px] px-3 py-1 rounded border border-[#30360E]">
-                                    ভর্তি
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Right Button -->
+                <button id="slideRight"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
         </section>
 
-        <style>
-            /* Course Carousel Section Styles */
-            .course-section-title {
-                color: #30360E;
-                font-weight: 800;
-                position: relative;
-                display: inline-block;
-            }
-
-            .course-section-title::after {
-                content: '';
-                position: absolute;
-                bottom: -8px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 60px;
-                height: 3px;
-                background-color: #87F56;
-                border-radius: 2px;
-            }
-
-            /* Course Carousel Container */
-            .course-carousel-container {
-                scroll-snap-type: x mandatory;
-                overflow-x: auto;
-                scroll-behavior: smooth;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-            }
-
-            .course-carousel-container::-webkit-scrollbar {
-                display: none;
-            }
-
-            /* Course Slide Banner */
-            .course-slide-banner {
-                scroll-snap-align: start;
-                padding: 0 4px;
-            }
-
-            /* Course Card Styles */
-            .course-card {
-                background-color: white;
-                border-radius: 0.5rem;
-                border: 1px solid #30360E;
-                overflow: hidden;
-                height: 280px;
-                display: flex;
-                flex-direction: column;
-                transition: transform 0.2s ease, box-shadow 0.2s ease;
-            }
-
-            .course-card:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 4px 8px rgba(48, 54, 14, 0.1);
-            }
-
-            .course-card-image {
-                height: 160px;
-                width: 100%;
-                object-fit: cover;
-                border-bottom: 1px solid #30360E;
-            }
-
-            .course-card-content {
-                padding: 0.75rem;
-                display: flex;
-                flex-direction: column;
-                flex: 1;
-            }
-
-            .course-title {
-                font-weight: 700;
-                font-size: 0.875rem;
-                color: #30360E;
-                margin-bottom: 0.25rem;
-            }
-
-            .course-description {
-                font-size: 0.625rem;
-                color: #30360E;
-                margin-bottom: 0.5rem;
-                opacity: 0.8;
-            }
-
-            .course-footer {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin-top: auto;
-            }
-
-            .course-price {
-                font-size: 0.75rem;
-                font-weight: 700;
-                color: #30360E;
-            }
-
-            .course-students {
-                font-size: 0.625rem;
-                color: #30360E;
-            }
-
-            .course-students i {
-                margin-right: 0.25rem;
-            }
-
-            .course-enroll-btn {
-                background-color: #87F56;
-                color: #30360E;
-                font-size: 0.625rem;
-                padding: 0.25rem 0.75rem;
-                border-radius: 0.25rem;
-                border: 1px solid #30360E;
-                cursor: pointer;
-                transition: background-color 0.2s ease;
-            }
-
-            .course-enroll-btn:hover {
-                background-color: #6fd46f;
-            }
-
-            /* Navigation Arrows */
-            .course-nav-arrow {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 10;
-                background-color: #30360E;
-                color: white;
-                width: 2rem;
-                height: 2rem;
-                border-radius: 9999px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                transition: all 0.2s ease;
-                border: none;
-                cursor: pointer;
-            }
-
-            .course-nav-arrow:hover {
-                background-color: #87F56;
-                color: #30360E;
-            }
-
-            .course-nav-arrow:active {
-                transform: translateY(-50%) scale(0.95);
-            }
-
-            .course-nav-arrow.disabled {
-                opacity: 0.5;
-                pointer-events: none;
-            }
-
-            .course-nav-arrow.prev {
-                left: 0.5rem;
-            }
-
-            .course-nav-arrow.next {
-                right: 0.5rem;
-            }
-
-            /* Responsive Widths */
-            @media (max-width: 640px) {
-                .course-slide-banner {
-                    width: calc(100% - 48px);
-                }
-            }
-
-            @media (min-width: 640px) and (max-width: 768px) {
-                .course-slide-banner {
-                    width: calc(50% - 24px);
-                }
-            }
-
-            @media (min-width: 768px) and (max-width: 1024px) {
-                .course-slide-banner {
-                    width: calc(33.333% - 24px);
-                }
-            }
-
-            @media (min-width: 1024px) {
-                .course-slide-banner {
-                    width: calc(25% - 24px);
-                }
-            }
-        </style>
-
         <script>
-            // Course carousel with navigation arrows
-            const courseCarousel = document.getElementById('courseCarousel');
-            const prevBtn = document.getElementById('prevCourse');
-            const nextBtn = document.getElementById('nextCourse');
+            document.addEventListener("DOMContentLoaded", () => {
+                const slider = document.getElementById("sliderTrack");
+                const slides = slider.children;
 
-            if (courseCarousel && prevBtn && nextBtn) {
-                // Scroll function
-                const scroll = (direction) => {
-                    const cardWidth = courseCarousel.querySelector('.course-slide-banner').offsetWidth;
-                    const gap = 12;
-                    const scrollAmount = cardWidth + gap;
+                const prevBtn = document.getElementById("slideLeft");
+                const nextBtn = document.getElementById("slideRight");
 
-                    if (direction === 'next') {
-                        courseCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                    } else {
-                        courseCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                let index = 0;
+                const visibleCards = 3;
+                const total = slides.length;
+                const maxIndex = total - visibleCards;
+
+                function showSlide(i) {
+                    slider.style.transform = `translateX(-${i * (100 / 3)}%)`;
+                    index = i;
+                }
+
+                nextBtn.addEventListener("click", () => {
+                    index++;
+                    if (index > maxIndex) {
+                        index = 0;
                     }
-                };
-
-                // Event listeners
-                prevBtn.addEventListener('click', () => scroll('prev'));
-                nextBtn.addEventListener('click', () => scroll('next'));
-
-                // Auto scroll every 5 seconds
-                let autoScroll = setInterval(() => scroll('next'), 5000);
-
-                // Pause auto-scroll on hover
-                courseCarousel.addEventListener('mouseenter', () => {
-                    clearInterval(autoScroll);
+                    showSlide(index);
                 });
 
-                courseCarousel.addEventListener('mouseleave', () => {
-                    autoScroll = setInterval(() => scroll('next'), 5000);
+                prevBtn.addEventListener("click", () => {
+                    index--;
+                    if (index < 0) {
+                        index = maxIndex;
+                    }
+                    showSlide(index);
                 });
 
-                // Hide/show arrows based on scroll position
-                const updateArrows = () => {
-                    const maxScroll = courseCarousel.scrollWidth - courseCarousel.clientWidth;
-                    if (courseCarousel.scrollLeft <= 0) {
-                        prevBtn.classList.add('opacity-50', 'pointer-events-none');
-                    } else {
-                        prevBtn.classList.remove('opacity-50', 'pointer-events-none');
+                function autoSlide() {
+                    index++;
+                    if (index > maxIndex) {
+                        index = 0;
                     }
-
-                    if (courseCarousel.scrollLeft >= maxScroll - 10) {
-                        nextBtn.classList.add('opacity-50', 'pointer-events-none');
-                    } else {
-                        nextBtn.classList.remove('opacity-50', 'pointer-events-none');
-                    }
-                };
-
-                courseCarousel.addEventListener('scroll', updateArrows);
-                window.addEventListener('resize', updateArrows);
-                setTimeout(updateArrows, 100);
-            }
+                    showSlide(index);
+                }
+                setInterval(autoSlide, 3000);
+                showSlide(0);
+            });
         </script>
-        <!-- courses section end -->
+
+        <!-- activities -->
+        <section class="pt-2 px-4 lg:px-8">
+            <h2 class="text-center text-2xl md:text-3xl font-extrabold text-[#14281D] mb-2">আমাদের কার্যক্রম</h2>
+            <div class="grid grid-cols-4 gap-2.5 mb-5 lg:max-w-3xl lg:mx-auto">
+                <div class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center">
+                    <div class="text-[20px]"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="text-xs font-bold">শিক্ষা কার্যক্রম</div>
+                </div>
+                <div class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center">
+                    <div class="text-[20px]"><i class="fas fa-book-open"></i></div>
+                    <div class="text-xs font-bold">ইসলামিক লাইব্রেরি</div>
+                </div>
+                <div class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center">
+                    <div class="text-[20px]"><i class="fas fa-mosque"></i></div>
+                    <div class="text-xs font-bold">দাওয়াহ কার্যক্রম</div>
+                </div>
+                <div class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center">
+                    <div class="text-[20px]"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div class="text-xs font-bold">দান প্রকল্প</div>
+                </div>
+            </div>
+            <!-- Gallery -->
+            <div>
+                <h2 class="text-center text-2xl md:text-3xl font-extrabold text-[#14281D] mb-2">ছাত্রছাত্রী </h2>
+                <div class="grid grid-cols-4 gap-2.5 mb-4">
+                    <img src="images/gallery-gathering.png" alt="Gallery 1"
+                        class="w-full h-28 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/048/682/339/small/closeup-of-muslim-children-in-elegant-attire-reciting-the-quran-showcasing-their-devotion-and-cultural-heritage-generated-image-photo.jpg"
+                        alt="Gallery 2"
+                        class="w-full h-28 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
+                    <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA2L3Jhd3BpeGVsX29mZmljZV8zN19hX3N0dWRpb19waG90b19vZl9hX211c2xpbV9ib3lfc3R1ZGVudF9zdHVkeV8zNWQ4NzRmNS1jMzEwLTRhZmQtYjM2Ni1kYmYxMTk5Y2JjMjZfMS5qcGc.jpg"
+                        alt="Gallery 3"
+                        class="w-full h-28 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
+                    <img src="https://img.freepik.com/premium-photo/muslim-child-mosque-quran-with-teacher-spiritual-learning-development-growth-carpet-islamic-teaching-man-boy-holy-worship-book-reading-faith-islam-study-qatar_590464-122202.jpg"
+                        alt="Gallery 4"
+                        class="w-full h-28 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
+                </div>
+                <button
+                    class="w-full bg-[#14281D] text-[#FFFCDC] py-2.5 border-0 rounded-md font-bold text-sm flex items-center justify-center gap-1.5 transition-all active:scale-98"><i
+                        class="fas fa-images"></i> View All Photos</button>
+            </div>
+        </section>
 
         <!-- Category section -->
         <section class="px-4 py-4 lg:px-8 lg:py-8">
             <div class="text-center mb-6 lg:mb-10">
                 <h2
-                    class="text-3xl lg:text-4xl font-extrabold text-[#30360E] relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-0.5 after:bg-[#87F56] after:rounded">
-                    ধারাবাহিক ভাবে বিষয়ভিত্তিক ইলমে দ্বীন শিখুন</h2>
+                    class="text-2xl lg:text-3xl font-extrabold text-[#30360E] relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-0.5 after:bg-[#87F56] after:rounded">
+                    বিষয়ভিত্তিক ইলমে দ্বীন</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 category-grid-lg">
@@ -1240,7 +1007,7 @@
         <!-- Teacher section -->
         <section class="px-4 pt-4 pb-4 lg:px-8 lg:py-8">
             <div class="text-center mb-4">
-                <h2 class="teacher-section-title text-3xl lg:text-4xl font-extrabold inline-block text-[#30360E]">আমাদের
+                <h2 class="teacher-section-title text-2xl lg:text-3xl font-extrabold inline-block text-[#30360E]">আমাদের
                     উস্তাদগণ</h2>
                 <p class="text-xs text-[#30360E] mt-2 opacity-75">দক্ষ ও অভিজ্ঞ শিক্ষকমণ্ডলী</p>
             </div>
@@ -1322,7 +1089,7 @@
         <!-- Reviews section -->
         <section class="px-4 pt-4 pb-4 lg:px-8 lg:py-8">
             <div class="text-center mb-4">
-                <h2 class="reviews-section-title text-3xl lg:text-4xl font-extrabold inline-block text-[#30360E]">
+                <h2 class="reviews-section-title text-2xl lg:text-3xl font-extrabold inline-block text-[#30360E]">
                     শিক্ষার্থীদের রিভিউ</h2>
                 <p class="text-xs text-[#30360E] mt-2">আমাদের ছাত্র-ছাত্রীদের অভিজ্ঞতা</p>
             </div>
@@ -1375,8 +1142,8 @@
         <section class="max-w-7xl mx-auto px-5 py-[60px] md:py-20 lg:py-[80px]">
             <!-- title with theme colors -->
             <h2
-                class="text-center text-3xl md:text-4xl font-extrabold text-[#30360E] leading-tight mb-12 md:mb-14 relative inline-block left-1/2 -translate-x-1/2 after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#87F56] after:rounded">
-                দারুল ইসলাম ইনস্টিটিউটের বিশেষত্ব
+                class="text-center text-2xl md:text-3xl font-extrabold text-[#30360E] leading-tight mb-12 md:mb-14 relative inline-block left-1/2 -translate-x-1/2 after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-[#87F56] after:rounded">
+                ইনস্টিটিউটের বিশেষত্ব
             </h2>
 
             <!-- grid -->
@@ -1464,7 +1231,7 @@
         </section>
 
         <!-- Stats -->
-        <section class="p-4 grid grid-cols-3 gap-2.5 lg:flex lg:justify-center stats-lg">
+        <section class="p-4 mb-16 pb-20 grid grid-cols-3 gap-2.5 lg:flex lg:justify-center stats-lg">
             <div
                 class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
                 <div class="text-4xl mb-1.5 text-[#14281D]"><i class="fas fa-graduation-cap"></i></div>
@@ -1482,99 +1249,46 @@
                 <div class="text-[28px] font-extrabold text-[#8B7355]">১২</div>
             </div>
         </section>
-
-
-
-        <!-- Notice banner -->
-        <section class="px-4 py-3 lg:px-8"><a href="notice.html">
-                <div class="bg-gradient-to-r from-[#F4A460] to-[#FFB84D] rounded-2xl p-2.5 flex items-center gap-2">
-                    <span class="text-[#14281D] text-lg"><i class="fas fa-bell"></i></span><span
-                        class="text-[#14281D] text-xs font-semibold flex-1">নতুন ভর্তি শুরু! বার্ষিক পরীক্ষার রুটিন
-                        প্রকাশিত</span><span class="text-[#14281D] text-sm"><i class="fas fa-chevron-right"></i></span>
-                </div>
-            </a></section>
-
-        <!-- activities -->
-        <section class="pt-5 px-4 pb-4 lg:px-8">
-            <h2 class="text-center text-3xl md:text-4xl font-extrabold text-[#14281D] mb-5">আমাদের কার্যক্রম</h2>
-            <div class="grid grid-cols-4 gap-2.5 mb-5 lg:max-w-3xl lg:mx-auto">
-                <div class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center">
-                    <div class="text-[42px] mb-2"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="text-xs font-bold">শিক্ষা কার্যক্রম</div>
-                </div>
-                <div class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center">
-                    <div class="text-[42px] mb-2"><i class="fas fa-book-open"></i></div>
-                    <div class="text-xs font-bold">ইসলামিক লাইব্রেরি</div>
-                </div>
-                <div class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center">
-                    <div class="text-[42px] mb-2"><i class="fas fa-mosque"></i></div>
-                    <div>দাওয়াহ কার্যক্রম</div>
-                </div>
-                <div class="bg-[#FFFCDC] border-2 border-[#14281D] rounded-xl p-3.5 text-center">
-                    <div class="text-[42px] mb-2"><i class="fas fa-hand-holding-heart"></i></div>
-                    <div>দান প্রকল্প</div>
-                </div>
-            </div>
-            <!-- Gallery -->
-            <div class="px-0 pb-5">
-                <div class="grid grid-cols-4 gap-2.5 mb-4">
-                    <img src="images/gallery-gathering.png" alt="Gallery 1"
-                        class="w-full h-32 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
-                    <img src="https://static.vecteezy.com/system/resources/thumbnails/048/682/339/small/closeup-of-muslim-children-in-elegant-attire-reciting-the-quran-showcasing-their-devotion-and-cultural-heritage-generated-image-photo.jpg"
-                        alt="Gallery 2"
-                        class="w-full h-32 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
-                    <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA2L3Jhd3BpeGVsX29mZmljZV8zN19hX3N0dWRpb19waG90b19vZl9hX211c2xpbV9ib3lfc3R1ZGVudF9zdHVkeV8zNWQ4NzRmNS1jMzEwLTRhZmQtYjM2Ni1kYmYxMTk5Y2JjMjZfMS5qcGc.jpg"
-                        alt="Gallery 3"
-                        class="w-full h-32 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
-                    <img src="https://img.freepik.com/premium-photo/muslim-child-mosque-quran-with-teacher-spiritual-learning-development-growth-carpet-islamic-teaching-man-boy-holy-worship-book-reading-faith-islam-study-qatar_590464-122202.jpg"
-                        alt="Gallery 4"
-                        class="w-full h-32 object-cover rounded-xl border-4 border-white shadow-[0_2px_6px_rgba(20,40,29,0.1)]">
-                </div>
-                <button
-                    class="w-full bg-[#14281D] text-[#FFFCDC] py-2.5 border-0 rounded-md font-bold text-sm flex items-center justify-center gap-1.5 transition-all active:scale-98"><i
-                        class="fas fa-images"></i> View All Photos</button>
-            </div>
-        </section>
     </main>
 
     <!-- footer -->
-    <footer class="w-full bg-[#14281D] text-[#FFFCDC] border-t border-[#FFFCDC]/30">
-        <div class="lg:flex lg:justify-between lg:items-center lg:px-8 lg:py-4 footer-lg">
+    <footer class="w-full fixed bottom-0 z-50 bg-[#14281D] text-[#FFFCDC] border-t border-[#FFFCDC]/30">
+        <div class="lg:flex lg:justify-between lg:items-center lg:px-6 lg:py-2 footer-lg">
             <div
-                class="flex items-center justify-center gap-2 py-3 border-b border-[#FFFCDC]/20 lg:border-none lg:py-0">
-                <div class="w-8 h-8 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center"><i
-                        class="fas fa-mosque text-[#FFFCDC] text-sm"></i></div>
-                <h2 class="text-lg md:text-xl font-semibold">দারুল ইসলাম ইনস্টিটিউট</h2>
+                class="flex items-center justify-center gap-2 py-2 border-b border-[#FFFCDC]/20 lg:border-none lg:py-0">
+                <div class="w-7 h-7 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center"><i
+                        class="fa-solid fa-location-dot text-[#FFFCDC] text-xs"></i></div>
+                <h2 class="text-base md:text-lg font-semibold">মিরপুর, ঢাকা, বাংলাদেশ। </h2>
             </div>
             <div
-                class="flex flex-row justify-center items-center gap-3 px-4 py-3 border-b border-[#FFFCDC]/20 lg:border-none lg:py-0">
-                <div class="flex items-center gap-1.5 text-xs">
+                class="flex flex-row justify-center items-center gap-2 px-3 py-2 border-b border-[#FFFCDC]/20 lg:border-none lg:py-0">
+                <div class="flex items-center gap-1.5 text-[10px]">
                     <div
-                        class="w-3.5 h-3.5 border border-[#FFFCDC] rounded-full flex items-center justify-center text-[7px]">
+                        class="w-3 h-3 border border-[#FFFCDC] rounded-full flex items-center justify-center text-[6px]">
                         <i class="fas fa-phone"></i>
                     </div>+৮৮০১৭xxxxxxx
                 </div>
-                <div class="hidden md:block w-px h-4 bg-[#FFFCDC]/30"></div>
-                <div class="flex justify-center items-center gap-2">
+                <div class="hidden md:block w-px h-3 bg-[#FFFCDC]/30"></div>
+                <div class="flex justify-center items-center gap-1.5">
                     <button
-                        class="w-7 h-7 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D]"><i
-                            class="fas fa-phone text-xs"></i></button>
+                        class="w-6 h-6 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D]"><i
+                            class="fas fa-phone text-[10px]"></i></button>
                     <button
-                        class="w-7 h-7 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D]"><i
-                            class="fab fa-whatsapp text-xs"></i></button>
+                        class="w-6 h-6 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D]"><i
+                            class="fab fa-whatsapp text-[10px]"></i></button>
                     <button
-                        class="w-7 h-7 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D]"><i
-                            class="fab fa-facebook-f text-xs"></i></button>
+                        class="w-6 h-6 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D]"><i
+                            class="fab fa-facebook-f text-[10px]"></i></button>
                     <button
-                        class="w-7 h-7 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D]"><i
-                            class="fab fa-youtube text-xs"></i></button>
+                        class="w-6 h-6 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D]"><i
+                            class="fab fa-youtube text-[10px]"></i></button>
                     <button
-                        class="w-7 h-7 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D]"><i
-                            class="fas fa-mosque text-xs"></i></button>
+                        class="w-6 h-6 rounded-full border border-[#FFFCDC]/40 flex items-center justify-center hover:bg-[#FFFCDC] hover:text-[#14281D]"><i
+                            class="fas fa-mosque text-[10px]"></i></button>
                 </div>
             </div>
         </div>
-        <div class="text-center text-[10px] py-3 text-[#FFFCDC]/70 lg:text-xs">© ২০২৬ দারুল ইসলাম ইনস্টিটিউট |
+        <div class="text-center text-[9px] py-2 text-[#FFFCDC]/70 lg:text-[10px]">© ২০২৬ দারুল ইসলাম ইনস্টিটিউট |
             সর্বস্বত্ব সংরক্ষিত</div>
     </footer>
 
