@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notice Bar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Marquee animation */
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 14s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-white flex items-center justify-center min-h-screen">
+
+    <!-- Notice Bar -->
+    <div class="flex items-center w-full max-w-2xl shadow-md overflow-hidden rounded-sm border border-gray-200"
+        style="height: 40px;">
+
+        <!-- "Notice" Badge -->
+        <div class="flex-shrink-0 flex items-center justify-center px-4 h-full text-white font-bold text-sm tracking-wide rounded-sm"
+            style="background: linear-gradient(to bottom, #f59c1a, #e07b00); min-width: 80px;">
+            Notice
+        </div>
+
+        <!-- Scrolling Text Area -->
+        <div class="flex-1 overflow-hidden h-full bg-white flex items-center px-3 relative">
+            <span class="marquee-text text-gray-700 text-sm font-medium">
+                New Admission Open! &nbsp;&nbsp;|&nbsp;&nbsp; Annual Exam Schedule Published &nbsp;&nbsp;▶
+            </span>
+        </div>
+
+        <!-- Arrow Icon -->
+        <div
+            class="flex-shrink-0 flex items-center justify-center px-3 h-full bg-white border-l border-gray-200 text-orange-500 font-bold text-base cursor-pointer hover:bg-orange-50 transition-colors">
+            ›
+        </div>
+
+    </div>
+
+</body>
+
+</html>
